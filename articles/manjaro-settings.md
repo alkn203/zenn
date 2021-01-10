@@ -3,7 +3,7 @@ title: "Manjaro Linux 設定備忘録"
 emoji: "✏"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Linux"]
-published: false
+published: true
 ---
 
 # Manjaro Linuxの自分用の設定備忘録
