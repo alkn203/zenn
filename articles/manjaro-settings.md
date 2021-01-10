@@ -1,6 +1,6 @@
 ---
 title: "Manjaro Linux 設定備忘録"
-emoji: "⚙"
+emoji: "✏"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Linux"]
 published: false
@@ -35,8 +35,13 @@ export XMODIFIERS=@im=fcitx
 export QT_IM_MODULE=fcitx
 ```
 
-## gitプロンプト表示変更
+## git設定
+### プロンプト表示変更
 https://qiita.com/varmil/items/9b0aeafa85975474e9b6
+
+### keyring
+https://wiki.archlinux.jp/index.php/GNOME/Keyring#GNOME_Keyring_.E3.81.A8_Git
+
 
 ## runstant カーソルずれ問題対応
 AURリポジトリから**monaco**フォントをインストール
