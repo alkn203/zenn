@@ -1,12 +1,12 @@
 ---
-title: "Manjaro Linux 各種設定備忘録"
+title: "Manjaro Linux 設定備忘録"
 emoji: "⚙"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Linux"]
 published: false
 ---
 
-# Manjaro Linuxの設定備忘録
+# Manjaro Linuxの自分用の設定備忘録
 
 ## キー入れ替えCaps　→　Ctrl
 .bashrcに以下を追記
