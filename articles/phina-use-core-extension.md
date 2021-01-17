@@ -1,5 +1,5 @@
 ---
-title: "使って損はないphina.jsのコアライブラリ　ーArray編ー"
+title: "phina.jsのコアライブラリを使ってみよう　ーArray編ー"
 emoji: "📚"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["phina","javascript","html5"]
@@ -22,8 +22,8 @@ published: false
 
 ```js
 var arr = [1,2,3];
-arr.first // => 1
-arr.last // => 3
+arr.first; // => 1
+arr.last; // => 3
 ```
 これらは、メソッドというよりもプロパティです。
 
@@ -32,10 +32,23 @@ arr.last // => 3
 
 ```js
 var arr = [1,2,3];
-arr.contains(1) // => true
+arr.contains(1); // => true
 ```
 
+### swap
+指定された要素を入れ替えます。
+
 ### eraseIf
+引数で与えられたコールバック関数の条件に一致する最初の要素を削除します。
+
+```js
+var arr = [1,2,3];
+arr.eraseIf(function(elem) {
+  if (elem > 1) {
+    return true;
+  }
+}; // => arr = [1,3]
+```
 
 
   /**
@@ -94,27 +107,6 @@ arr.contains(1) // => true
     return true;
   });
 
-  /**
-   * @method contains
-   * 指定した要素が配列に含まれているかをチェックします。
-   *
-   * 比較には厳密な同値（三重イコール演算子 === で使われるのと同じ方法）を用います。
-   *
-   * ### Example
-   *     arr = [6, 5, 2, 3, 1, 4];
-   *     arr.contains(3);     // => true
-   *     arr.contains(3, 4);  // => false
-   *     arr.contains(3, -4); // => true
-   *     arr.contains("6");   // => false
-   *
-   * @param {Object} item チェックするオブジェクト
-   * @param {Number} [fromIndex=0] 検索を始める位置。負数を指定した場合は末尾からのオフセットと見なします。
-   * @return {Boolean} チェックの結果
-   */
-  Array.prototype.$method("contains", function(item, fromIndex) {
-    return this.indexOf(item, fromIndex) != -1;
-  });
-  
   /**
    * @method at
    * 指定したインデックスの要素を返します（ループ・負数の指定可）。
