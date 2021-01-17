@@ -37,13 +37,16 @@ export QT_IM_MODULE=fcitx
 
 ## git設定
 ### プロンプト表示変更
+ブランチ名やコミット差分が表示されるようになる。
 https://qiita.com/varmil/items/9b0aeafa85975474e9b6
 
 ### keyring
+idとパスワードを毎回入力せずに済む。
 https://wiki.archlinux.jp/index.php/GNOME/Keyring#GNOME_Keyring_.E3.81.A8_Git
 
-
 ## runstant カーソルずれ問題対応
+デフォルトのままだと入力とカーソルがずれる。
+### 対処方法
 AURリポジトリから**monaco**フォントをインストール
 パッケージ名：**ttf-monaco**
 
