@@ -47,7 +47,7 @@ https://wiki.archlinux.jp/index.php/GNOME/Keyring#GNOME_Keyring_.E3.81.A8_Git
 ## runstant カーソルずれ問題対応
 デフォルトのままだと入力とカーソルがずれる。
 ### 対処方法
-AURリポジトリから**monaco**フォントをインストール
-パッケージ名：**ttf-monaco**
+* AURリポジトリから**monaco**フォントをインストール
+* パッケージ名：**ttf-monaco**
 
 https://qiita.com/kawadumax/items/8bbbc042c6f17407847e
