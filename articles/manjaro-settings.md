@@ -41,7 +41,8 @@ export QT_IM_MODULE=fcitx
 https://qiita.com/varmil/items/9b0aeafa85975474e9b6
 
 ### keyring
-idとパスワードを毎回入力せずに済む。
+* idとパスワードを毎回入力せずに済む。
+* makeはrootで実行すること。
 https://wiki.archlinux.jp/index.php/GNOME/Keyring#GNOME_Keyring_.E3.81.A8_Git
 
 ## runstant カーソルずれ問題対応
