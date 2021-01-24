@@ -52,3 +52,11 @@ https://wiki.archlinux.jp/index.php/GNOME/Keyring#GNOME_Keyring_.E3.81.A8_Git
 * パッケージ名：**ttf-monaco**
 
 https://qiita.com/kawadumax/items/8bbbc042c6f17407847e
+
+## Atom設定
+### emacsキーバインド
+現在は、edit → keymap
+https://qiita.com/jirourashima/items/153aefdb471b561df4f6
+
+## homeにある日本語ディレクトリを英語にする
+https://qiita.com/apu4se/items/7e36586e0ba1bfe5dd48
