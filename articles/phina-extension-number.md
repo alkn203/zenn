@@ -22,17 +22,39 @@ published: false
 
 ゲームのスコア表示などに使えます。返り値は文字列です。
 
-/*
- * number.js
- */
+### times
+カウンタをインクリメントしながら関数を繰り返し実行します。
 
+```js
+var arr = [];
+(5).times(function(i) {
+  arr.push(i);
+}); // => arr = [0,1,2,3,4]
+```
 
-;(function() {
-  /**
-   * @class global.Number
-   * # 拡張した Number クラス
-   * 数値を扱う Number クラスを拡張しています。
-   */
+通常の **for** の代わりに使用できます。添字を意識しなくて良いのがポイントです。
+
+### upto
+自分自身の数から指定した数まで、カウンタをインクリメントしながら関数を繰り返し実行します。
+
+```js
+var arr = [];
+(5).upto(10, function(i) {
+  arr.push(i);
+}); // => arr = [5,6,7,8,9,10]
+```
+
+**for** を途中からカウントアップするバーションです。
+
+### downto
+自分自身の数から指定した数まで、カウンタをデクリメントしながら関数を繰り返し実行します。
+
+```js
+var arr = [];
+(5).downto(1, function(i) {
+  arr.push(i);
+}); // => arr = [5,4,3,2,1]
+```
 
   /**
    * @method round
@@ -185,85 +207,7 @@ published: false
     return this >>> 0;
   });
 
-  /**
-   * @method padding
-   * 指定した桁になるように文字を埋めます。
-   *
-   * ### Example
-   *     (123).padding(5); // => "00123"
-   *     (123).padding(5, "_"); // => "__123"
-   *     (-12).padding(5); // => "-0012"
-   *
-   * @param {Number} n 桁数
-   * @param {String} [ch="0"] 埋める文字
-   * @return {String} 桁数を揃えた文字列
-   */
-  Number.prototype.$method("padding",  function(n, ch) {
-    var str = this+'';
-    n  = n-str.length;
-    ch = (ch || '0')[0];
 
-    while(n-- > 0) { str = ch + str; }
-
-    if (str.indexOf("-") >= 0) {
-      str = "-" + str.replace("-", "");
-    }
-
-    return str;
-  });
-
-
-  /**
-   * @method times
-   * 0 から自分自身の数-1まで、カウンタをインクリメントしながら関数を繰り返し実行します。
-   *
-   * ### Example
-   *     arr = [];
-   *     (5).times(function(i){
-   *       arr.push(i);
-   *     }); // => [0, 1, 2, 3, 4]
-   *
-   * @param {Function} fn コールバック関数
-   * @param {Object} [self=this] 関数内で this として参照される値。デフォルトは自分自身。
-   */
-  Number.prototype.$method("times",  function(fn, self) {
-    self = self || this;
-    for (var i=0; i<this; ++i) {
-      fn.call(self, i, this);
-    }
-    return this;
-  });
-
-  /**
-   * @method upto
-   * 自分自身の数から指定した数まで、カウンタをインクリメントしながら関数を繰り返し実行します。
-   *
-   * 指定した数が自分自身の数より小さい場合は関数は実行されません。
-   *
-   * ### Example
-   *     arr = [];
-   *     (6).upto(8, function(i){
-   *       arr.push(i);
-   *     });
-   *     arr; // => [6, 7, 8]
-   *
-   *     (3).upto(0, function(i){
-   *       arr.push(i);
-   *     });
-   *     arr; // => [6, 7, 8]
-   *
-   * @param {Function} fn コールバック関数。引数にカウンタが渡される。
-   * @param {Object} [self=this] 関数内で this として参照される値。デフォルトは自分自身。
-   */
-  Number.prototype.$method("upto",  function(t, fn, self) {
-    self = self || this;
-    for (var i=+this; i<=t; ++i) {
-      fn.call(self, i, this);
-    }
-    return this;
-  });
-
-  /**
    * @method downto
    * 自分自身の数から指定した数まで、カウンタをデクリメントしながら関数を繰り返し実行します。
    *
