@@ -56,6 +56,22 @@ var arr = [];
 }); // => arr = [5,4,3,2,1]
 ```
 
+**for** を途中からカウントダウンするバーションです。
+
+### step
+自分自身の値から指定した数まで、指定された差分でカウントアップさせながら関数を繰り返し実行します。
+
+```js
+var arr = [];
+(2).step(10, 2, function(n) {
+  arr.push(n);
+}); // => [2,4,6,8]
+```
+
+オブジェクトを一定間隔で間を空けて配置するときなどに使えます。
+
+
+
   /**
    * @method round
    * 指定した小数の位を四捨五入した値を返します。
@@ -205,54 +221,6 @@ var arr = [];
    */
   Number.prototype.$method("toUnsigned",  function() {
     return this >>> 0;
-  });
-
-
-   * @method downto
-   * 自分自身の数から指定した数まで、カウンタをデクリメントしながら関数を繰り返し実行します。
-   *
-   * 指定した数が自分自身の数より大きい場合は関数は実行されません。
-   *
-   * ### Example
-   *     arr = [];
-   *     (7).downto(4, function(i){
-   *       arr.push(i);
-   *     }); // => [7, 6, 5, 4]
-   *
-   * @param {Function} fn コールバック関数。引数にカウンタが渡される。
-   * @param {Object} [self=this] 関数内で this として参照される値。デフォルトは自分自身。
-   */
-  Number.prototype.$method("downto",  function(t, fn, self) {
-    self = self || this;
-    for (var i=+this; i>=t; --i) {
-      fn.call(self, i, this);
-    }
-    return this;
-  });
-
-  /**
-   * @method step
-   * 自分自身の値から指定した数まで、カウンタを増分させながら関数を繰り返し実行します。
-   *
-   * 上限値や増分値は float 型を指定することができます。
-   *
-   * ### Example
-   *     var arr = [];
-   *     (2.4).step(5.3, 0.8, function(n) {
-   *       arr.push(n);
-   *      }); // => [2.4, 3.2, 4.0, 4.8]
-   *
-   * @param {Number} limit カウンタの上限値
-   * @param {Number} step カウンタを増分する量
-   * @param {Function} fn コールバック関数。引数にカウンタが渡される。
-   * @param {Object} [self=this] 関数内で this として参照される値。デフォルトは自分自身。
-   */
-  Number.prototype.$method("step",  function(limit, step, fn, self) {
-    self = self || this;
-    for (var i=+this; i<=limit; i+=step) {
-      fn.call(self, i, this);
-    }
-    return this;
   });
 
   /**
