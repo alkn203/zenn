@@ -21,63 +21,33 @@ published: false
 var obj = {r: 128, g: 0, b: 255};
 "color: rgb({r}, {g}, {b});".format(obj); // => "color: rgb(128, 0, 255);"
 // 引数がオブジェクトでない場合
-var score = 1000;
-"score: {0}".format(score); // => "score: 1000"
+var count = 100;
+"time: {0} / {1}".format(count, 1000); // => "time: 100 / 1000"
 ```
 
 * 文字列の連結（+）を使用しなくても良いので、より直感的に書くことができます。
-* 引数がオブジェクトでない場合、引数の数に応じて、{0}、{1}、{2}・・・のように参照することができます。
+* 引数がオブジェクトでない場合、引数の数に応じて、{0}、{1}、{2}・・・のように定義した文字列内で参照することができます。
 
-  /**
-   * @method trim
-   * 文字列先頭と末尾の空白文字を全て取り除いた文字列を返します。
-   *
-   * ###Reference
-   * - [String Functions for Javascript – trim, to camel case, to dashed, and to underscore](http://jamesroberts.name/blog/2010/02/22/string-functions-for-javascript-trim-to-camel-case-to-dashed-and-to-underscore/)
-   *
-   * ### Example
-   *     "  Hello, world!  ".trim(); // => "Hello, world!"
-   *
-   * @return {String} トリムした結果の文字列
-   */
-  String.prototype.$method("trim", function() {
-    return this.replace(/^\s+|\s+$/g, "");
-  });
+### trim
+文字列両サイドの空白文字を全て取り除いた文字列を返します。
 
-  /**
-   * @method capitalize
-   * キャピタライズした文字列、すなわち、すべての単語の先頭を大文字にした文字列を返します。
-   *
-   * 単語の先頭以外は小文字化されます。
-   *
-   * ###Reference
-   * - [キャピタライズ(単語の先頭の大文字化)を行う - oct inaodu](http://d.hatena.ne.jp/brazil/20051212/1134369083)  
-   * - [デザインとプログラムの狭間で: javascriptでキャピタライズ（一文字目を大文字にする）](http://design-program.blogspot.com/2011/02/javascript.html)
-   *
-   * ### Example
-   *     "i aM a pen.".capitalize(); // => "I Am A Pen."
-   *
-   * @return {String} キャピタライズした文字列
-   */
-  String.prototype.$method("capitalize", function() {
-    return this.replace(/\w+/g, function(word){
-      return word.capitalizeFirstLetter();
-    });
-  });
+```js
+"  Hello, world!  ".trim(); // => "Hello, world!"
+```
 
-  /**
-   * @method capitalizeFirstLetter
-   * 先頭の文字を大文字にして、それ以外を小文字にした文字列を返します。
-   *
-   * ### Example
-   *     "i aM a pen.".capitalizeFirstLetter(); // "I am a pen."
-   *
-   * @return {String} 先頭の文字を大文字にして、それ以外を小文字にした文字列
-   */
-  String.prototype.$method("capitalizeFirstLetter", function() {
-    return this.charAt(0).toUpperCase() + this.substr(1).toLowerCase();
-  });
+### capitalize
+すべての単語の先頭を大文字にした文字列を返します。単語の先頭以外は小文字化されます。
 
+```js
+"i aM a pen.".capitalize(); // => "I Am A Pen."
+```
+
+### capitalizeFirstLetter
+先頭の文字を大文字にして、それ以外を小文字にした文字列を返します。
+
+```js
+"i aM a pen.".capitalizeFirstLetter(); // "I am a pen."
+```
   /**
    * @method toDash
    * 文字列内の大文字を「"-" + 小文字」に変換します。
@@ -87,7 +57,6 @@ var score = 1000;
    * ### Example
    *     "borderTopColor".toDash(); // => "border-top-color"
    *
-   *  @return {String} 変換後の文字列
    */
   String.prototype.$method("toDash", function() {
     return this.replace(/([A-Z])/g, function(m){ return '-'+m.toLowerCase(); });
