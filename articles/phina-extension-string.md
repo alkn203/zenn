@@ -46,77 +46,20 @@ var count = 100;
 先頭の文字を大文字にして、それ以外を小文字にした文字列を返します。
 
 ```js
-"i aM a pen.".capitalizeFirstLetter(); // "I am a pen."
+"i aM a pen.".capitalizeFirstLetter(); // => "I am a pen."
 ```
-  /**
-   * @method toDash
-   * 文字列内の大文字を「"-" + 小文字」に変換します。
-   *
-   * css2properties（element.style）の各プロパティ名を CSS のプロパティ名に変換する場合に便利です。
-   *
-   * ### Example
-   *     "borderTopColor".toDash(); // => "border-top-color"
-   *
-   */
-  String.prototype.$method("toDash", function() {
-    return this.replace(/([A-Z])/g, function(m){ return '-'+m.toLowerCase(); });
-  });
 
+### padding
+左に文字を埋めて指定した桁にした文字列を返します。
 
-  /**
-   * @method toHash
-   * ハッシュ値を生成して返します。
-   *
-   * ### Example
-   *     "phina.js".toHash(); // => 2676327394
-   *
-   * @return {Number} CRC32ハッシュ値
-   */
-  String.prototype.$method("toHash", function() {
-    return this.toCRC32();
-  });
+```js
+"1234".padding(10);      // => "      1234"
+"1234".padding(10, '0'); // => "0000001234"
+```
 
-  /**
-   * @method padding
-   * 左に文字を埋めて指定した桁にします。this の文字列は右寄せされます。
-   *
-   * ### Example
-   *     "1234".padding(10);      // => "      1234"
-   *     "1234".padding(10, '0'); // => "0000001234"
-   *
-   * @param {Number} figure 桁数
-   * @param {String} [ch=" "] 埋める文字
-   * @return {String} 指定した桁の文字列
-   */
-  String.prototype.$method("padding", function(n, ch) {
-    var str = this.toString();
-    n  = n-str.length;
-    ch = (ch || ' ')[0];
+拡張**Number**クラスにもある**padding**と同じ動作をします。
 
-    while(n-- > 0) { str = ch + str; }
-
-    return str;
-  });
-
-  /**
-   * @method paddingLeft
-   * 左に文字を埋めて指定した桁にします。this の文字列を右寄せされます。
-   *
-   * {@link #padding} と同じです。
-   * @inheritdoc #padding
-   */
-  String.prototype.$method("paddingLeft", function(n, ch) {
-    var str = this.toString();
-    n  = n-str.length;
-    ch = (ch || ' ')[0];
-
-    while(n-- > 0) { str = ch + str; }
-
-    return str;
-  });
-
-  /**
-   * @method paddingRight
+### paddingRight
    * 右に文字を埋めて指定した桁にします。this の文字列は左寄せされます。
    *
    * ### Example
