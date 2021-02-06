@@ -60,111 +60,49 @@ var count = 100;
 拡張**Number**クラスにもある**padding**と同じ動作をします。
 
 ### paddingRight
-   * 右に文字を埋めて指定した桁にします。this の文字列は左寄せされます。
-   *
-   * ### Example
-   *     "1234".paddingRight(10);      // => "1234      "
-   *     "1234".paddingRight(10, '0'); // => "1234000000"
-   *
-   * @param {Number} figure 桁数
-   * @param {String} [ch=" "] 埋める文字
-   * @return {String} 指定した桁の文字列
-   */
-  String.prototype.$method("paddingRight", function(n, ch) {
-    var str = this.toString();
-    n  = n-str.length;
-    ch = (ch || ' ')[0];
+右に文字を埋めて指定した桁にした文字列を返します。
 
-    while(n-- > 0) { str = str + ch; }
+```js
+"1234".paddingRight(10);      // => "1234      "
+"1234".paddingRight(10, '0'); // => "1234000000"
+```
 
-    return str;
-  });
+**paddding**の逆パターンで、右に文字を詰めます。
 
-  /**
-   * @method quotemeta
-   * 正規表現のメタ文字をクォートします。
-   *
-   * ### Example
-   *     "Hello world. (can you hear me?)".quotemeta(); // => "Hello\\ world\\.\\ \\(can\\ you\\ hear\\ me\\?\\)"
-   *
-   *  @return {String} クォートされた文字列
-   */
-  String.prototype.$method("quotemeta", function(n) {
-    return this.replace(/([^0-9A-Za-z_])/g, '\\$1');
-  });
+### repeat
+自分自身を指定した回数だけ繰り返した文字列を返します。
 
-  /**
-   * @method repeat
-   * 自分自身を指定した回数だけ繰り返した文字列を返します。
-   *
-   * ### Example
-   *     "Abc".repeat(4); // => "AbcAbcAbcAbc"
-   *
-   * @param {Number} n 繰り返し回数
-   * @return {String} 文字列
-   */
-  String.prototype.$method("repeat", function(n) {
-    // TODO: 確認する
-    var arr = Array(n);
-    for (var i=0; i<n; ++i) arr[i] = this;
-    return arr.join('');
-  });
+```js
+"Abc".repeat(4); // => "AbcAbcAbcAbc"
+```
 
-  /**
-   * @method count
-   * 指定した文字列が何個入っているかをカウントして返します。
-   *
-   * 大文字・小文字は区別されます。
-   *
-   * ### Example
-   *     "This is a string. Isn't it?".count("is"); // => 2
-   *
-   * @param {String} str 調べる文字列
-   * @return {Number} this に str が入っている個数
-   */
-  String.prototype.$method("count", function(str) {
-    var re = new RegExp(str, 'gm');
-    return this.match(re).length;
-  });
+### count
+指定した文字列が何個入っているかをカウントして返します。
 
-  /**
-   * @method include
-   * 指定した文字列が含まれているかどうかを返します。
-   *
-   * 大文字・小文字は区別されます。
-   *
-   * ### Example
-   *     "This is a string.".include("is"); // => true
-   *     "This is a string.".include("was"); // => false
-   *
-   * @param {String} str 調べる文字列
-   * @return {Boolean} 含まれているかどうか
-   */
-  String.prototype.$method("include", function(str) {
-    return this.indexOf(str) != -1;
-  });
+```js
+"This is a string. Isn't it?".count("is"); // => 2
+```
 
-  /**
-   * @method each
-   * 各文字を順番に渡しながら関数を繰り返し実行します。
-   *
-   * ### Example
-   *     str = 'abc';
-   *     str.each(function(ch) {
-   *       console.log(ch);
-   *     });
-   *     // => 'a'
-   *     //    'b'
-   *     //    'c'
-   *
-   * @param {Function} callback 各要素に対して実行するコールバック関数
-   * @param {Object} [self=this] callback 内で this として参照される値
-   */
-  String.prototype.$method("each", function() {
-    Array.prototype.forEach.apply(this, arguments);
-    return this;
-  });
+### include
+指定した文字列が含まれているかどうかを返します。
 
+```js
+"This is a string.".include("is"); // => true
+"This is a string.".include("was"); // => false
+```
+
+### each
+各文字を順番に渡しながら関数を繰り返し実行します。
+
+```js
+str = 'abc';
+str.each(function(ch) {
+  console.log(ch);
+});
+// => 'a'
+//    'b'
+//    'c'
+```
   /**
    * @method toArray
    * 1文字ずつ分解した配列を返します。
