@@ -3,7 +3,7 @@ title: "phina.jsの拡張クラスを使ってみよう　ーMath編ー"
 emoji: "📚"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["phina","javascript","html5"]
-published: false
+published: true
 ---
 
 ## はじめに
