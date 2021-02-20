@@ -20,10 +20,13 @@ published: false
 * [はじめてのphina.js – JavaScriptゲームライブラリを使ってみた！](https://liginc.co.jp/306739) by [株式会社LIG](https://liginc.co.jp/) さん
 
 ## phina.jsで作られたゲーム
-ミニゲーム的なものはユーザーにより作られたものが色々とありますが、代表的なものに以下があります。
+ユーザーにより作られたミニゲーム的なものが色々とありますが、どんな感じのゲームが作れるかは以下が参考になるかと思います。
 
 * [かちゃコム](https://cachacacha.com/) by utyo さん
-**phina.js**で作られた様々なミニゲームがあります。
+**phina.js**で作られた様々なミニゲームがあります。どれも良く出来ていてハマってしまいます。
+
+* [Quest for the Tanelorn](https://minimo.github.io/QuestForTanelorn/) by minimo さん
+スーファミ時代を彷彿させる2Dアクションゲームです。作り込みのレベルが高いです。
 
 ## 気に入っているところ
 
