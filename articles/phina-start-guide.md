@@ -1,7 +1,7 @@
 ---
 title: "phina.js事始め"
 emoji: "📋"
-type: "idea" # tech: 技術記事 / idea: アイデア
+type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["phina","javascript","html5","ゲーム開発"]
 published: false
 ---
@@ -9,45 +9,59 @@ published: false
 #![logo.png](logo.png)
 （ロゴはphinajs.comから借用）
 
-## phina.jsについて
-私が日々楽しんで使っている**javascript**のゲームライブラリで、**tmlib.js** の後継のライブラリになります。
-開発者は、現在[Rabee]()社の代表取締役をされている[phi](https//twitter.com/phi_jp)さんです。
-とりあえずどのようなものか知りたい方には、以下の紹介記事辺りが参考になるかと思います。
+## はじめに
+これまで[phina.js](https://phinajs.com)に関するいくつかの記事を投稿していますが、**phina.js**自体について書いていなかったので、ここで簡単に紹介したいと思います。
 
-* [本日 JavaScript ゲームライブラリ『phina.js』をリリースしました!](http://phiary.me/phinajs-release/) by @phi さん
-* [phina.js - JavaScriptで楽しく簡単にゲームが作れるライブラリ](http://qiita.com/simiraaaa/items/7431734994c9e94dacfd) by @simiraaaa さん
-* [phina.jsの簡単さから基礎知識まで](https://qiita.com/axion014/items/1094487f88cc056da1f2) by @axion014 さん
+## phina.jsについて
+趣味でプログラミングをしている私が日々楽しんで使っている国産の**javascript**ゲームライブラリです。以前から**javascript**でゲーム開発をしている方は知っているかもしれませんが、**tmlib.js** の後継ライブラリになります。とりあえずどのようなものか知りたい方には、以下の紹介記事が参考になるかと思います。
+
+* [本日 JavaScript ゲームライブラリ『phina.js』をリリースしました!](http://phiary.me/phinajs-release/) by [phi](https://twitter.com/phi_jp) さん
+* [phina.js - JavaScriptで楽しく簡単にゲームが作れるライブラリ](http://qiita.com/simiraaaa/items/7431734994c9e94dacfd) by [simiraaaa](https://twitter.com/simiraaaa) さん
 * [はじめてのphina.js – JavaScriptゲームライブラリを使ってみた！](https://liginc.co.jp/306739) by [株式会社LIG](https://liginc.co.jp/) さん
 
-## phina.jsで作られたゲーム
-ユーザーにより作られたミニゲーム的なものが色々とありますが、どんな感じのゲームが作れるかは以下が参考になるかと思います。
+## phina.jsで作ることができるゲーム
+端的に言うと、2Dゲームならジャンル問わず（やる気さえあれば）大抵のものを作ることが出来ると思います。実際に作られたゲームを見てみたいという方は、以下のサイトがおすすめです。
 
-* [かちゃコム](https://cachacacha.com/) by utyo さん
-**phina.js**で作られた様々なミニゲームがあります。どれも良く出来ていてハマってしまいます。
+* [かちゃコム](https://cachacacha.com/) by [utyo](https://twitter.com/utyo) さん
+**phina.js**で作られた様々なミニゲームがあります。どれも良く出来ていて熱中してしまいます。
 
-* [Quest for the Tanelorn](https://minimo.github.io/QuestForTanelorn/) by minimo さん
-スーファミ時代を彷彿させる2Dアクションゲームです。作り込みのレベルが高いです。
+* [Quest for the Tanelorn](https://minimo.github.io/QuestForTanelorn/) by [minimo](https://twitter.com/minimo) さん
+スーパーファミコン時代を彷彿させる2Dアクションゲームです。作り込みのレベルが高いです。
 
 ## 気に入っているところ
+以下は個人の主観ですが、他のユーザーも少なからず感じているのではないかと思います。
 
-以下は主観的ですが、他のユーザーも感じているのではないかと思います。
+* **同じ処理でも少ないコード量でコーディングできる**
+全てのゲームライブラリと比較したわけではありませんが、**phina.js** で書き慣れると、個人的には同様の処理を行う他のライブラリのコードが冗長に感じるようになりました。
 
-* **同じ処理でもコード量が少なく**済みます。全てのゲームライブラリと比較したわけではありませんが、**phina.js**で書き慣れると、個人的には同様の処理を行う他のライブラリのコードが冗長に感じるようになりました。
-* **ソースが読みやすい**です。ソースの書き方を真似ることで、結果的に自分のコードも読みやすくなりました。
-* **実行確認までのステップが短い**です。Web上でコーディングできる[runstant](http://runstant.com/)を使うことで、環境構築の手間をかけずに自分のプログラムが確認できます。
-* 他に、**配列やベクトルなどのコーディングする上でベースとなるクラスの機能拡張が充実している**などが挙げられます。
+* **ソースが読みやすい**
+**phina.js**のソースの書き方を真似ることで、結果的に自分のコードも読みやすくなりました。
+
+* **実行確認までのステップが短い**
+Web上でコーディングできる[runstant](http://runstant.com/)を使うことで、簡単に自分のプログラムの実行結果が確認できます。
+
+* **配列やベクトルなどのコーディングする上でベースとなるクラスの機能拡張が充実している**
+これまで**zenn**で書いた記事でも触れていますが、コーディングする上で細かな配慮がされた仕様になっています。
 
 ## とにかく使ってみたい方へ
-* [Githubのリポジトリ](https://github.com/phi-jp/phina.js)に導入方法が記載されていますが、開発者向けの内容に近いので、私も含めて不慣れな方には少し敷居が高いかと思います。
-* 一番簡単なのは、runstantへのユーザー登録が必要ですが、[runstantに用意されたテンプレート](http://runstant.com/phi/projects/phinajs_template)をForkする方法です。
+* [Githubのリポジトリ](https://github.com/phi-jp/phina.js)に導入方法が記載されていますが、開発者向けの内容に近いので、その辺り不慣れな方には少し敷居が高く感じられるかもしれません。
+
+* 一番簡単な方法は、**runstant** へのユーザー登録が必要ですが、[runstantに用意されたテンプレート](http://runstant.com/phi/projects/phinajs_template)をForkすることです。
+
+* **javascript**で作られていますので、Webブラウザと自分の好きなエディタさえあれば、複雑な環境構築の必要もなくゲーム開発を始めることができます。
+
+## オープンソースという魅力
+* **phina.js**はオープンソースプロジェクトであり、これまで有志により改良が重ねられてきています。個人的には、ゲーム開発に必要な機能は現バージョンでもひと通り揃っていると思っています。
+* 近年は、事情により開発が進んでいない状態でしたが、今後開発を再開する予定であることが最近アナウンスされています。
+* その開発については広く門戸が開かれており、誰でもオープンソースプロジェクトに貢献できる可能性があるというのが大きな魅力の１つと言えます。
 
 ## 質問など
-**phina.js**の魅力の一つに、親切なサポート体制があります。
-**Twitter**で#phina_jsタグをつけて質問したり、[slack](https://phinajs-slackin.herokuapp.com/)([gitter](https://gitter.im/phi-jp/phina.js)から移行）に参加して質問すれば、作者の [phi](https//twitter.com/phi-jp)さんを始め、他のメンバーが優しく真剣に答えてくれます。些細なことでも良いので、構えずに質問してみて下さい。
+* 個人的に**phina.js**がオススメな理由の一つに、手厚いサポート体制があります。
+* **Twitter**で **#phina_js** タグをつけて質問したり、[slack](https://phinajs-slackin.herokuapp.com/)に参加して、使い方など疑問に思ったとを質問すれば、開発者の [phi](https//twitter.com/phi-jp)さんを始め、他のメンバーが優しく真剣に答えてくれます。
 
 ## Tipsなど
-どんなものか少しでも知ってもらうために、[phina.js Tips集](http://qiita.com/alkn203/items/bca3222f6b409382fe20)をよろしければご覧ください。
+まずどんなものか少しでも知ってもらうために、手前味噌ながら[phina.js Tips集](http://qiita.com/alkn203/items/bca3222f6b409382fe20)というものを書いていますので、こちらもよろしければご覧ください。
 
 ## おわりに
-ゲームライブラリは実際に使ってみないとその良し悪しはわかりませんが、恵まれたことに**phina.js**は、比較的簡単にトライすることができます。
-**javascript**でのゲーム開発に興味がある方は、是非一度触ってみて色々と試して頂ければと思います。
+* ゲームライブラリは実際に使ってみないとその良し悪しはわかりませんが、その中でも**phina.js**は、比較的簡単にトライすることができるライブラリです。
+* **javascript**でのゲーム開発に興味がある方は、是非一度触ってみて色々と試して頂ければと思います。
