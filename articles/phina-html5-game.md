@@ -7,111 +7,88 @@ published: false
 ---
 
 ## はじめに
-以前に[Runstant](https://runstant.com)でコーディングしていたのですが、[phina.js](https://phinajs.com/)でスライドメニューのようなものを作成しましたので、作り方を説明したいと思います。
+* ゲームを作っている人なら、自分の作ったゲームを誰かに遊んでもらいたい気持ちは皆持っていると思います。
+* 今では、スマホアプリを作ってプラットフォームで公開する方法がメジャーですが、初心者にとってはそう簡単にはいかないものです。    
+* そういう中でも、**アプリ化まではいかないけど何かゲームを作って公開してみたい** と思っている人もいるでしょう。その場合は、**javascriptでhtml5ゲーム** を作って、Webで公開することをおすすめします。（もちろんhtml5ゲームをアプリ化する方法もあります）
 
-## 実行サンプル
-![](https://storage.googleapis.com/zenn-user-upload/06xa4k972cthr68e6918hhoebdip)
+## Webブラウザだけでゲームを作成して公開する
+今回は、特別な環境構築をせずに、Webブラウザだけを使って**html5ゲーム** を公開する方法を紹介します。大まかな流れは以下のとおりです。
 
-以下の**runstant**プロジェクトを実行すると、画面左側から時間差でメニューがスライド表示されるのが確認できるかと思います。
-https://runstant.com/alkn203/projects/7a4c6a1c
+1. **runstant**でコーティングする
+2. **runstant**プロジェクトを**html**ファイルとしてダウンロードする
+3. **GitHub**にゲーム公開用のリポジトリを作る
+4. **html**ファイルを**GitHub**のリポジトリにアップロードする
+5. **GitHub**のリポジトリの設定で**GitHub Pages**を有効にする
 
-## サンプルコード
-```js
-// グローバルに展開
-phina.globalize();
-/*
- * メインシーン
- */
-phina.define("MainScene", {
-  // 継承
-  superClass: 'DisplayScene',
-  // 初期化
-  init: function() {
-    // 親クラス初期化
-    this.superInit();
-    // 背景色
-    this.backgroundColor = 'black';
-    // グループ
-    var menuGroup = DisplayElement().addChildTo(this);
-    // メニューを並べる
-    Array.range(2, 10, 2).each(function(i) {
-      var menu = Button({text: 'menu' + i}).addChildTo(menuGroup);
-      menu.setPosition(this.gridX.span(-3), this.gridY.span(i));
-      // クリック時処理
-      menu.onpush = function() {
-        console.log(menu.text);
-      };
-    }, this);
-    // 時間差で表示
-    menuGroup.children.each(function(menu, i) {
-      menu.tweener.wait(i * 100).by({x: 250}, 400, 'easeOutCubic').play();
-    });
-  },
-});
-/*
- * メイン処理
- */
-phina.main(function() {
-  // アプリケーションを生成
-  var app = GameApp({
-    // MainScene から開始
-    startLabel: 'main',
-  });
-  // fps表示
-  //app.enableStats();
-  // 実行
-  app.run();
-});
-```
+それでは、順番に説明していきます。
 
-## コード説明
-ポイントを順に説明します。
+## runstantでコーティングする
+* [runstant](https://runstant.com/)は、**phina.js**の生みの親である[phi](https://twitter.com/phi_jp)さんが開発したWebブラウザ上で動くオンラインエディタで、ユーザー登録すれば誰でも利用することができます。
+* **phina.js**の公式エディタでもあり、実際に様々なプログラムが作られて公開されています。
 
-### メニューグループの作成
-```js
-// グループ
-var menuGroup = DisplayElement().addChildTo(this);
-```
+## phina.jsのひな形からゲームを作成
+普段私が使っている[phina.jsのひな形](https://runstant.com/alkn203/projects/8f0388a4)から作ることで、簡単に始められます。
 
-* **DisplayElement** クラスを利用してメニューグループを作成し、**MainScene** に追加しています。
+## 今回作ったゲーム
+サンプルとして、制限時間内にどれだけ円をタッチできるかを競う単純なゲームを作りました。
 
-### メニューを並べる
-```js
-// メニューを並べる
-Array.range(2, 10, 2).each(function(i) {
-  var menu = Button({text: 'menu' + i}).addChildTo(menuGroup);
-  menu.setPosition(this.gridX.span(-3), this.gridY.span(i));
-  // クリック時処理
-  menu.onpush = function() {
-    console.log(menu.text);
-  };
-}, this);
-```
+[Touch The Circle(runstant)](https://runstant.com/alkn203/projects/21370e4b)
 
-* メニューとして**Button**を使用しています。
-* 拡張**Array**クラスのメソッド**range**と繰り返し用の**each**メソッドを使って、インデックス2つ飛ばしで5個のボタンを作成しています。
-* **Scene**にあらかじめ設定されている**Grid**を使って、ボタンを並べて配置しています。一旦画面の左外側で見えない場所に配置しています。
-* ボタンのクリック時に**onpush**メソッドが呼ばれるので、例としてボタンのテキストをログに表示しています。
+## runstantプロジェクトをhtmlファイルとしてダウンロードする
+* ゲームを作ったら、Webに公開するファイルの準備をする必要がありますが、**runstant** の便利な機能として、プロジェクトのダウンロードがあります。
+* ダウンロードされたファイルは**html**形式で**javascript**のコード部分もパッケージ化されているので、このファイル１つあればゲームとして動作します。
 
-### メニューのスライド表示
-```js
-// 時間差で表示
-menuGroup.children.each(function(menu, i) {
-  menu.tweener.wait(i * 100).by({x: 250}, 400, 'easeOutCubic').play();
-});
-```
+## プロジェクトのダウンロード方法
+![runstantdownload.gif](runstantdownload.gif)
 
-* メニューグループの子要素に対して、**tweener** で移動アニメーションを設定しています。
-* **wait** で、その後の処理の実行までの待ち時間を一定時間ずらして設定し、**by** で一定時間（400ミリ秒）かけて、**x** の正方向に一定距離移動させています。
-* **easeOutCubic**は、イージングと呼ばれるものの一種で、動きに緩急の効果をつけることができます。
+* **runstant**の画面下部にあるボタンをクリックすると、プロジェクトのダウンロードができます。
+* ダウンロード先は任意の場所にして、ファイル名を**index.html**に変更して下さい。
 
-## 使い方
-htmlファイルで **phina.js** を以下のように読み込みます。
+## GitHubにゲーム公開用のリポジトリを作る
+[GitHub](https://github.co.jp/)は、プログラマなら誰もが知っているといっても過言ではない、主にソースコードのバージョン管理を目的としたサービスです。
+今回は、この**GitHub**をゲームの公開用サーバとして利用します。
 
-```html
-<script src="https://cdn.jsdelivr.net/gh/phinajs/phina.js@v0.2.3/build/phina.js"></script>
-```
+ユーザー登録を行ったら、ゲーム公開用のリポジトリを作成します。
 
-## さいごに
-* 今回は、ゲームのUIに使えるかもしれない、ちょっとしたテクニックの紹介でした。
-* **phina.js**には、ゲーム画面用のUIはあらかじめ用意されていませんが、工夫次第で自分好みのUIを作ることもできると思います。
+* ユーザーホーム画面で「New」ボタンをクリックします。
+
+![newrepository.gif](newrepository.gif)
+
+1. 作成画面でリポジトリ名を入力します。
+1.  公開範囲が「Public」になっているのを確認します。
+1. 「リポジトリをREAD ME で初期化」にチェックを入れます。
+1. 「Create repository」ボタンをクリックします。
+
+## htmlファイルをGitHubのリポジトリにアップロードする
+リポジトリの用意が出来たら、**runstant**からダウンロードした**html**ファイルをリポジトリにアップロードします。**GitHub**は、ローカル環境から**git**のコマンドを駆使して使うイメージがありますが、**GitHub**上のGUI操作でもファイルのアップロード程度はできます。
+
+![uploadfile.gif](uploadfile.gif)
+
+* 「Upload files」ボタンをクリックします。
+
+![uploadfile2.gif](uploadfile2.gif)
+
+1. 上の領域にダウンロードした**html**ファイルをドラッグするか、ファイル選択ダイアログでファイルを選択します。
+2.  「Commit Changes」ボタンをクリックします。
+
+![uploaded.gif](uploaded.gif)
+
+* ファイルがアップロードされたのを確認します。
+
+## GitHubのリポジトリの設定でGitHub Pagesを有効にする
+
+![setting.gif](setting.gif)
+
+*  上部メニューから「Setting」をクリックします。
+
+![ghpages.gif](ghpages.gif)
+
+* 「github pages」を有効にします。以前は、**git** で**gh-pages**名でブランチを切って、**push**する必要がありましたが、現在は不要になっています。
+
+![ghpagescheck.gif](ghpagescheck.gif)
+
+* 上部に表示される アドレスが公開先のアドレスになります。
+* 反映されるまでには、少し時間がかかる場合もあるようです。
+
+## 公開先
+[Touch The Circle](https://alkn203.github.io/touchthecircle/)
