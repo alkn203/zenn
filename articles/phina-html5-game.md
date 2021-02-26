@@ -1,9 +1,9 @@
 ---
 title: "Webブラウザだけでhtml5ゲームを作成して公開する"
-emoji: "📋"
+emoji: "🎮"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["phina","javascript","html5","runstant","github"]
-published: false
+published: true
 ---
 
 ## はじめに
@@ -31,15 +31,16 @@ published: false
 
 ## 今回作ったゲーム
 サンプルとして、制限時間内にどれだけ円をタッチできるかを競う単純なゲームを作りました。
+![touchthecircle](https://storage.googleapis.com/zenn-user-upload/210ynv5dsh82z023ccx1j7ejus3h)
 
-[Touch The Circle(runstant)](https://runstant.com/alkn203/projects/21370e4b)
+[Touch The Circleをプレイする](https://alkn203.github.io/touchthecircle/)
 
 ## runstantプロジェクトをhtmlファイルとしてダウンロードする
 * ゲームを作ったら、Webに公開するファイルの準備をする必要がありますが、**runstant** の便利な機能として、プロジェクトのダウンロードがあります。
 * ダウンロードされたファイルは**html**形式で**javascript**のコード部分もパッケージ化されているので、このファイル１つあればゲームとして動作します。
 
 ## プロジェクトのダウンロード方法
-![runstantdownload.gif](runstantdownload.gif)
+![runstantdownload.gif](https://storage.googleapis.com/zenn-user-upload/j4vv2kwh35cn5frxob4n465orq33)
 
 * **runstant**の画面下部にあるボタンをクリックすると、プロジェクトのダウンロードができます。
 * ダウンロード先は任意の場所にして、ファイル名を**index.html**に変更して下さい。
@@ -50,7 +51,7 @@ published: false
 * ユーザー登録を行ったら、ゲーム公開用のリポジトリを作成します。
 * ユーザーホーム画面で「New」ボタンをクリックします。
 
-![newrepository.gif](newrepository.gif)
+![newrepository.gif](https://storage.googleapis.com/zenn-user-upload/q1gkshcr8rhs5yaqq40e4a8vcc83)
 
 1. 作成画面でリポジトリ名を入力します。
 1.  公開範囲が「Public」になっているのを確認します。
@@ -58,35 +59,35 @@ published: false
 1. 「Create repository」ボタンをクリックします。
 
 ## htmlファイルをGitHubのリポジトリにアップロードする
-リポジトリの用意が出来たら、**runstant**からダウンロードした**html**ファイルをリポジトリにアップロードします。**GitHub**は、ローカル環境から**git**のコマンドを駆使して使うイメージがありますが、**GitHub**上のGUI操作でもファイルのアップロード程度はできます。
+リポジトリの用意が出来たら、**runstant** からダウンロードした**html**ファイルをリポジトリにアップロードします。**GitHub** は、ローカル環境から**git**のコマンドを駆使して使うイメージがありますが、**GitHub** 上のGUI操作でもファイルのアップロード程度はできます。
 
-![uploadfile.gif](uploadfile.gif)
+![uploadfile.gif](https://storage.googleapis.com/zenn-user-upload/xi5kve8jup0jas2q6n2bw5q9iw2j)
 
 * 「Upload files」ボタンをクリックします。
 
-![uploadfile2.gif](uploadfile2.gif)
+![uploadfile2.gif](https://storage.googleapis.com/zenn-user-upload/tcgdtlgrhgone6x79kzofcqm0ihq)
 
 1. 上の領域にダウンロードした**html**ファイルをドラッグするか、ファイル選択ダイアログでファイルを選択します。
 2.  「Commit Changes」ボタンをクリックします。
 
-![uploaded.gif](uploaded.gif)
+![uploaded.gif](https://storage.googleapis.com/zenn-user-upload/t90xfu8jjjo3vf91656x8ixob0b1)
 
 * ファイルがアップロードされたのを確認します。
 
 ## GitHubのリポジトリの設定でGitHub Pagesを有効にする
 
-![setting.gif](setting.gif)
+![setting.gif](https://storage.googleapis.com/zenn-user-upload/xy3m2megbtujv4ox7nqho1k6rhca)
 
 *  上部メニューから「Setting」をクリックします。
 
-![ghpages.gif](ghpages.gif)
+![ghpages.gif](https://storage.googleapis.com/zenn-user-upload/jqn8gby5xk08iikeqhgavlx8ya51)
 
 * 「github pages」を有効にします。以前は、**git** で**gh-pages**名でブランチを切って、**push**する必要がありましたが、現在は不要になっています。
 
-![ghpagescheck.gif](ghpagescheck.gif)
+![ghpagescheck.gif](https://storage.googleapis.com/zenn-user-upload/zr98mbgoa53sgstzpls4k1slaf7x)
 
 * 上部に表示される アドレスが公開先のアドレスになります。
 * 反映されるまでには、少し時間がかかる場合もあるようです。
 
-## 公開先
-[Touch The Circle](https://alkn203.github.io/touchthecircle/)
+## runstantプロジェクト
+[Touch The Circle(runstant)](https://runstant.com/alkn203/projects/21370e4b)
