@@ -40,6 +40,11 @@ export QT_IM_MODULE=fcitx
 ブランチ名やコミット差分が表示されるようになる。
 https://qiita.com/varmil/items/9b0aeafa85975474e9b6
 
+#### 現在の設定
+```sh
+export PS1='\[\033[1;32m\]\u\[\033[00m\]:[\[\033[1;34m\]\w\[\033[1;31m\]$(__git_ps1)\[\033[00m\] ]\$ '
+```
+
 ### keyring
 * idとパスワードを毎回入力せずに済む。
 * makeはrootで実行すること。
