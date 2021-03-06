@@ -2,13 +2,23 @@
 title: "【phina.js】ある座標からタッチした座標に向けてオブジェクトを移動させる"
 emoji: "🐦"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["phina","javascript","html5"]
-published: false
+topics: ["phina","javascript","html5","ゲーム開発"]
+published: true
 ---
 
 ## はじめに
 * ゲーム開発では、指定した方向にオブジェクトを移動させるという処理をしたい場合が結構あると思います。
 * 今回は、画面の中央点からタッチした点に向けてオブジェクトを移動させる処理について、現時点で自分なりにスッキリ書けていると思っているコードを紹介します。
+
+## 実行サンプル画面
+
+![](https://storage.googleapis.com/zenn-user-upload/unrtcaknnqeozkauc8hk9xx3mn87)
+
+## runstantプロジェクト
+* 画面の任意の場所をタッチしてみて下さい。
+* 画面の中心からタッチした場所に向けてオブジェクトが発射されます。
+
+https://runstant.com/alkn203/projects/6b5734ab
 
 ## 移動方向を方向ベクトルで求める
 * 数学の話にはなりますが、例えば、点Aから点Bへ向かってオブジェクトを移動させたい場合は、**AからBへの方向ベクトル** を求めます。
@@ -117,6 +127,3 @@ phina.main(function() {
   app.run();
 });
 ```
-
-## runstantプロジェクト
-[タッチした方向にオブジェクトを移動させる](https://runstant.com/alkn203/projects/6b5734ab)
