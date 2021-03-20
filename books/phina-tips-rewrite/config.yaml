@@ -1,0 +1,9 @@
+title: "phina.js Tips集 【改】"
+summary: "javascriptのゲームライブラリphina.jsの非公式Tips集です。Qiitaに掲載していたものを改訂しています。
+"
+topics: ["javascript","html5","phina","ゲーム開発"]
+published: false
+price: 0 # 有料の場合200〜5000
+# 本に含めるチャプターを順番に並べましょう
+chapters:
+  - prologue
