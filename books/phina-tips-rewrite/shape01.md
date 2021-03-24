@@ -6,9 +6,7 @@ title: "Shape　=表示="
 
 ![](https://storage.googleapis.com/zenn-user-upload/7d2h3e44vsseakjl8bsmxj0fhmz4)
 
-[[runstantで実行]](https://runstant.com/alkn203/projects/c5ac89af)
-
-## コード
+## サンプルコード
 
 ```js
 // グローバルに展開
@@ -63,3 +61,6 @@ var shape = Shape().addChildTo(this)
 
 * 位置が指定されていない時は、画面左上(0,0)に表示されます。
 * 変数に代入しなくても表示されますが、後にプロパティを操作することが多いので、とりあえずは変数に代入しておいた方が良いでしょう。
+
+## runstantプロジェクト
+https://runstant.com/alkn203/projects/c5ac89af

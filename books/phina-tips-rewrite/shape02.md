@@ -2,6 +2,9 @@
 title: "Shape　=位置・サイズ・背景色指定="
 ---
 
+![](https://storage.googleapis.com/zenn-user-upload/v85h9ckw9wvrw4jn9g40ekjf4yp0)
+
+
 ## Shapeの位置指定
 **Shape**の位置指定方法はいくつかあります。
 
@@ -103,3 +106,86 @@ shape.backgroundColor = `rgb(0, 255, 255)`;
 ```js
 shape.backgroundColor = `hsl(300, 75%, 50%)`;
 ```
+
+## サンプルコード
+::: details コードを見る
+```js
+// グローバルに展開
+phina.globalize();
+/*
+ * メインシーン
+ */
+phina.define("MainScene", {
+  // 継承
+  superClass: 'DisplayScene',
+  // 初期化
+  init: function() {
+    // 親クラス初期化
+    this.superInit();
+    // 背景色
+    this.backgroundColor = 'black';
+    // Shapeを作成してシーンに追加
+    var shape = Shape().addChildTo(this);
+    // 位置指定
+    shape.x = 320;
+    shape.y = 480;
+    // setPosition
+    var shape2 = Shape().addChildTo(this).setPosition(320, 600);
+    // コンストラクタ
+    var shape3 = Shape({
+      x: 320,
+      y: 720,
+    }).addChildTo(this);
+    // moveBy
+    var shape4 = Shape().addChildTo(this).setPosition(320, 480).moveBy(200, 200);
+    // ベクトル
+    var shape5 = Shape().addChildTo(this).setPosition(320, 480);
+    var v = Vector2(-200, 200);  
+    shape5.position.add(v);
+    // 幅
+    var shape6 = Shape().addChildTo(this).setPosition(320, 100);
+    shape6.width = 128;
+    // 高さ
+    var shape7 = Shape().addChildTo(this).setPosition(320, 300);
+    shape7.height = 128;
+    // setSize
+    var shape8 = Shape().addChildTo(this).setPosition(150, 300);
+    shape8.setSize(128, 128);
+    // コンストラクタ
+    var shape9 = Shape({
+      // 位置・幅・高さ指定
+      x: 480,
+      y: 300,
+      width: 128,
+      height: 256,
+    }).addChildTo(this);
+    // 背景色（文字列）
+    var shape10 = Shape().addChildTo(this).setPosition(320, 850);
+    shape10.backgroundColor = 'red';
+    // 背景色（RGB値）
+    var shape11 = Shape().addChildTo(this).setPosition(150, 850);
+    shape11.backgroundColor = '#ffff00';
+    // 背景色（hsl値）
+    var shape12 = Shape().addChildTo(this).setPosition(490, 850);
+    shape12.backgroundColor = 'hsl(300, 75%, 50%)';
+  },
+});
+/*
+ * メイン処理
+ */
+phina.main(function() {
+  // アプリケーションを生成
+  var app = GameApp({
+    // MainScene から開始
+    startLabel: 'main',
+  });
+  // fps表示
+  //app.enableStats();
+  // 実行
+  app.run();
+});
+```
+:::
+
+## runstantプロジェクト
+https://runstant.com/alkn203/projects/0b1aea5e
