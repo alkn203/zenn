@@ -1,111 +1,59 @@
 ---
-title: "Shape　=位置・サイズ・背景色指定="
+title: "Shape　=回転・拡大縮小・透明化="
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/v85h9ckw9wvrw4jn9g40ekjf4yp0)
 
 
-## Shapeの位置指定
-**Shape**の位置指定には複数の方法があります。
+## Shapeの回転
+**Shape**の回転角度指定には複数の方法があります。どちらの場合も **度(degree)**で指定します。
 
-####  x,yプロパティに直接指定
+####  rotaitionプロパティに直接指定
 ```js
 // Shapeを作成してシーンに追加
-var shape = Shape().addChildTo(this);
-// 位置指定
-shape.x = 320;
-shape.y = 480;
+var shape = Shape().addChildTo(this).setPosition(320, 480);
+// 回転指定
+shape.rotation = 45;
 ```
 
-#### setPosition関数で一括指定
-**setPosition** 関数を使えば、 **x, y** の値を一括で指定することができ、生成から一気にチェインメソッドで繋げて書くこともできるので便利です。
+#### setRotation関数で指定
+**setRotation**関数を使うと、生成から一気にチェインメソッドで繋げて書くことができます。
 
+```js
+var shape = Shape().addChildTo(this).setPosition(320, 480).setRotation(45);
+```
+
+#### Shapeのコンストラクタで指定
+位置などと一緒にコンストラクタでも指定できます。
+
+```js
+var shape = Shape({
+  x: 320,
+  y: 480,
+  rotation: 45
+}).addChildTo(this)
+```
+
+#### 回転アニメーション
+**Shape**の**update**関数でプロパティ**rotation**の値を変更することで、回転アニメーションをさせることができます。
+
+```js
+// スプライト回転
+sprite.update = function() {
+  sprite.rotation++;
+};
+```
+
+## Shapeの拡大縮小
+**Shape**の拡大縮小には複数の方法があります。どちらの場合も **1.0**を基準として、小さければ縮小、大きければ拡大になります。
+
+#### scaleX scaleY プロパティに直接指定
 ```js
 var shape = Shape().addChildTo(this).setPosition(320, 480);
 ```
 
-#### **Shape**のコンストラクタで指定
-```js
-var shape = Shape({
-  x: 320,
-  y: 480
-}).addChildTo(this)
-```
 
-#### 移動量で指定
-* **moveBy**関数を使えば、**x, y**の移動量で位置を変更することができます。
 
-```js
-shape.setPosition(320, 480).moveBy(100, 200);
-```
-
-#### ベクトル値の加算で指定
-* **Vector2**クラスを使ってベクトル値の加算で位置指定する方法もあります。
-
-```js
-var v = Vector2(100, 200);
-shape.position.add(v);
-```
-
-## Shapeのサイズ指定
-#### 幅指定
-
-幅は**width**プロパティで指定します。
-
-```js
-shape.width = 128;
-```
-
-#### 高さ指定
-
-高さは**height**プロパティで指定します。
-
-```js
-shape.height = 128;
-```
-
-#### 幅・高さを一括指定
-**setSize**関数を使えば、幅と高さを一括で指定できます。
-
-```js
-shape.setSize(128, 256);
-```
-
-#### コンストラクタ内で指定
-位置指定と同じくコンストラクタ内で幅・高さを指定することも可能です。
-
-```js
-    var shape = Shape({
-      // 位置・幅・高さ指定
-      x: 320,
-      y: 480,
-      width: 128,
-      height: 256,
-    }).addChildTo(this);
-```
-
-## 背景色指定
-
-背景色は**backgroundColor**プロパティで指定します。**CSS**と同じ感覚で指定できます。
-
-#### 文字列で指定
-```js
-shape.backgroundColor = 'red';
-```
-
-#### 16進数で指定
-```js
-shape.backgroundColor = '#ffff00';
-```
-
-#### RGB値で指定
-```js
-shape.backgroundColor = `rgb(0, 255, 255)`;
-```
-#### hsl値で指定
-```js
-shape.backgroundColor = `hsl(300, 75%, 50%)`;
-```
 
 ## サンプルコード
 ::: details コードを見る

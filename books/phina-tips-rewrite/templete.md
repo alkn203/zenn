@@ -3,13 +3,12 @@ title: "phina.jsのテンプレート"
 ---
 
 ## phina.jsのテンプレート
-**phina.js**のプログラムの基本形は以下のとおりです。実行結果は黒い画面が表示されるだけです。
+* **phina.js**のプログラムの基本形は以下のとおりです。実行結果は黒い画面が表示されるだけです。
+* 今後の説明で、コードは**runstant**の **Script(javascript)** タブへの入力を前提とします。
 
 ![](https://storage.googleapis.com/zenn-user-upload/d2aa1pzew5yoos9p677haq66be18)
 
-[[runstantで実行]](https://runstant.com/alkn203/projects/8f0388a4)
-
-## テンプレートコード
+## サンプルコード
 ```js
 // グローバルに展開
 phina.globalize();
@@ -60,3 +59,6 @@ phina.main(function() {
 ### main
 * 関数内の **GameApp** 関数では、**startLabel** で最初に開始するシーンを指定できます。何も指定しないとタイトルシーンになりますが、**main** を指定することでタイトル画面をスキップできます。
 * **enableStats**関数は、画面左上に**fps**を常時表示できる便利な機能ですが、処理が重くなるので一旦コメントアウトしています。
+
+## runstantプロジェクト
+https://runstant.com/alkn203/projects/8f0388a4

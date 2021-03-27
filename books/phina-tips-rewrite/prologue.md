@@ -8,12 +8,13 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 
 ## phina.jsの開発環境を構築する
 * このTips集では、Webブラウザ上でコーディング・実行が可能な[runstant](https://runstant.com)を使用してますので、基本的に開発環境として必要なものはWebブラウザだけです。
-* 自分の好きなエディタを使ってローカルで開発することも可能ですが、クライアントサイドで実行されるjavascriptは、セキュリティ上の理由からローカルファイルへのアクセスが制限されていますので、回避策として、エディタの拡張機能で用意されているローカルサーバーを通しての実行をおすすめします。
+* 自分の好きなエディタを使ってローカルで開発することも可能ですが、クライアントサイドで実行されるjavascriptは、セキュリティ上の理由からローカルファイルへのアクセスが制限されています。
+* 対応策としては、Visual Studio Codeなどのエディタの拡張機能にあるローカルサーバーを使う方法があります。
 
 ## phina.jsを読み込む
 **runstant**の **View(html)** タブのコードは以下のようになっています。
 
-```diff js
+```js
 <!doctype html>
 
 <html>
@@ -28,7 +29,7 @@ https://zenn.dev/alkn203/articles/phina-start-guide
     <style>${style}</style>
   </head>
   <body>
-+    <script src="https://cdn.jsdelivr.net/gh/phinajs/phina.js@v0.2.3/build/phina.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/phinajs/phina.js@v0.2.3/build/phina.js"></script>
     <script>${script}</script>
   </body>
 </html>
