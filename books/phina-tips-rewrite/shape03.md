@@ -50,9 +50,16 @@ sprite.update = function() {
 #### scaleX scaleY プロパティに直接指定
 ```js
 var shape = Shape().addChildTo(this).setPosition(320, 480);
+// 横方向に拡大
+shape.scaleX = 1.5;
 ```
 
+#### setScale関数で指定
+**setScale**関数を使うと、縦横の拡大縮小をまとめて指定できます。また、生成から一気にチェインメソッドで繋げて書くことができます。
 
+```js
+var shape = Shape().addChildTo(this).setPosition(320, 480).setScale(1.2, 1.2);
+```
 
 
 ## サンプルコード
