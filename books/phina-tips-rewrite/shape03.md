@@ -2,7 +2,7 @@
 title: "Shape　背景色・透明度"
 ---
 
-![](https://storage.googleapis.com/zenn-user-upload/v85h9ckw9wvrw4jn9g40ekjf4yp0)
+![](https://storage.googleapis.com/zenn-user-upload/2medybekhzw1qszm851k3tfnncyd)
 
 ## Shapeの背景色指定
 
