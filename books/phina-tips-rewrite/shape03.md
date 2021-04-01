@@ -36,6 +36,19 @@ var shape = Shape().addChildTo(this).setPosition(320, 480);
 shape.alpha = 0.25;
 ```
 
+## Shapeの非表示
+#### hideメソッド
+**hide**メソッドで**Shape**を非表示にすることができます。
+
+```js
+var shape = Shape().addChildTo(this).setPosition(320, 480);
+shape.hide();
+```
+
+:::message
+透明の場合は、処理上も描画の対象で当たり判定があるのに対し、非表示の場合は、そもそも描画の対象とはならないという違いがあります。
+:::
+
 ## サンプルコード
 ::: details コードを見る
 ```js
@@ -65,6 +78,9 @@ phina.define("MainScene", {
     // 透明度
     var shape3 = Shape().addChildTo(this).setPosition(320, 600);
     shape3.alpha = 0.25;
+    // 非表示
+    var shape4 = Shape().addChildTo(this).setPosition(320, 800);
+    shape4.hide();
   },
 });
 /*
