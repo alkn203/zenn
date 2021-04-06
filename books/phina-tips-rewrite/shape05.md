@@ -12,11 +12,22 @@ title: "Shape　移動"
 **update** 関数は毎フレーム呼ばれるので、関数内で以下のように記述することで **Shape** を移動させることができます。
 
 ```js
-
+// 移動
+shape.update = function() {
+  shape.x += 2;  
+  shape.y += 2;
+};
 ```
 
+## moveBy関数を使った移動
+オブジェクトに用意されている**moveBy**関数を使って移動させることもできます。
 
-
+```js
+// 移動
+shape.update = function() {
+  shape.moveBy(-2, -2);
+};
+```
 
 ## サンプルコード
 ::: details コードを見る
@@ -37,21 +48,16 @@ phina.define("MainScene", {
     this.backgroundColor = 'black';
     // Shapeを作成してシーンに追加
     var shape = Shape().addChildTo(this).setPosition(320, 480);
-    // 回転
+    // 移動
     shape.update = function() {
-      shape.rotation += 2;  
+      shape.x += 2;  
+      shape.y += 2;
     };
-    // 左上を原点に
-    var shape2 = Shape().addChildTo(this).setPosition(320, 240).setOrigin(0, 0);
-    // 回転
+    // Shapeを作成してシーンに追加
+    var shape2 = Shape().addChildTo(this).setPosition(320, 480);
+    // 移動
     shape2.update = function() {
-      shape2.rotation += -2;  
-    };
-    // 右下を原点に
-    var shape3 = Shape().addChildTo(this).setPosition(320, 720).setOrigin(1, 1);
-    // 回転
-    shape3.update = function() {
-      shape3.rotation += -2;  
+      shape2.moveBy(-2, -2);
     };
   },
 });
@@ -73,4 +79,4 @@ phina.main(function() {
 :::
 
 ## runstantプロジェクト
-https://runstant.com/alkn203/projects/20a758db
+https://runstant.com/alkn203/projects/024439ca
