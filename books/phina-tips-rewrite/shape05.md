@@ -2,7 +2,7 @@
 title: "Shape　移動"
 ---
 
-![](https://storage.googleapis.com/zenn-user-upload/7224zy06lr9c5xiecwvervsbfxmu)
+![](https://storage.googleapis.com/zenn-user-upload/oij9s1rvmhg8jyj9tttxj6s18v1c)
 
 ## Shapeの移動
 
