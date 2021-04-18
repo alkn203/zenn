@@ -2,8 +2,6 @@
 title: "Shape　種類"
 ---
 
-![](https://storage.googleapis.com/zenn-user-upload/oij9s1rvmhg8jyj9tttxj6s18v1c)
-
 ## Shapeの種類
 
 **phina.js**には、以下の種類の**Shape**が予め用意されています。
@@ -93,6 +91,27 @@ StarShape({
 ```
 
 ## PolygonShape
+正多角形の**Shape**です。
+
+| プロパティ | 説明 |
+| ---- | ---- |
+| fill | 塗りつぶし色 |
+| stroke | 縁取り線色 |
+| strokeWidth | 縁取り線の太さ |
+| radius | 半径 |
+| sides | 頂点数 |
+
+```js
+// PolygonShape
+PolygonShape({
+  stroke: 'white',
+  strokeWidth: 16,
+  radius: 64,
+  sides: 8,
+}).addChildTo(this).setPosition(100, 480);
+```
+
+## HeartShape
 正多角形の**Shape**です。
 
 | プロパティ | 説明 |
