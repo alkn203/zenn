@@ -120,16 +120,15 @@ PolygonShape({
 | stroke | 縁取り線色 |
 | strokeWidth | 縁取り線の太さ |
 | radius | 半径 |
-| sides | 頂点数 |
+| cornerAngle | 両側の辺の角度 |
 
 ```js
-// PolygonShape
-PolygonShape({
+// HeartShape
+HeartShape({
   stroke: 'white',
   strokeWidth: 16,
   radius: 64,
-  sides: 8,
-}).addChildTo(this).setPosition(100, 480);
+}).addChildTo(this).setPosition(540, 480);    
 ```
 
 ## moveBy関数を使った移動
