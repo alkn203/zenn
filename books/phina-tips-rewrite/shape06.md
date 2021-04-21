@@ -112,7 +112,7 @@ PolygonShape({
 ```
 
 ## HeartShape
-正多角形の**Shape**です。
+ハート形の**Shape**です。
 
 | プロパティ | 説明 |
 | ---- | ---- |
@@ -131,14 +131,20 @@ HeartShape({
 }).addChildTo(this).setPosition(540, 480);    
 ```
 
-## moveBy関数を使った移動
-オブジェクトに用意されている**moveBy**関数を使って移動させることもできます。
+## PathShape
+頂点配列からパスを作成する**Shape**です。
 
-```js
-// 移動
-shape.update = function() {
-  shape.moveBy(-2, -2);
-};
+| プロパティ | 説明 |
+| ---- | ---- |
+| paths | 頂点配列（Vector2型） |
+
+| メソッド | 説明 |
+| ---- | ---- |
+| stroke | 縁取り線色 |
+| strokeWidth | 縁取り線の太さ |
+| radius | 半径 |
+| cornerAngle | 両側の辺の角度 |
+
 ```
 
 ## サンプルコード
