@@ -2,6 +2,8 @@
 title: "Shape　種類"
 ---
 
+![](https://storage.googleapis.com/zenn-user-upload/gjgp9u64sd2q03yd5jryswok4ae5)
+
 ## Shapeの種類
 
 **phina.js**には、以下の種類の**Shape**が予め用意されています。
@@ -140,17 +142,27 @@ HeartShape({
 
 | メソッド | 説明 |
 | ---- | ---- |
-| stroke | 縁取り線色 |
-| strokeWidth | 縁取り線の太さ |
-| radius | 半径 |
-| cornerAngle | 両側の辺の角度 |
+| setPaths(paths) | 頂点配列をセット |
+| clear | 頂点配列をクリア |
+| addPaths(paths) | 頂点配列を追加 |
+| addPath(x, y) | 頂点を追加 |
+| getPath(i) | 指定されたインデックスの頂点を返す |
+| getPaths | 頂点配列を返す |
+| changePath(i, x, y) | 指定されたインデックスの頂点を変更する |
 
+```js
+// PathShape
+PathShape({
+  paths: [Vector2(0, 0), Vector2(200, 200), Vector2(200, 680),
+          Vector2(420, 680), Vector2(640, 960)]
+}).addChildTo(this);
 ```
+
 
 ## サンプルコード
 ::: details コードを見る
 ```js
-// グローバルに展開
+/ グローバルに展開
 phina.globalize();
 /*
  * メインシーン
@@ -164,19 +176,54 @@ phina.define("MainScene", {
     this.superInit();
     // 背景色
     this.backgroundColor = 'black';
-    // Shapeを作成してシーンに追加
-    var shape = Shape().addChildTo(this).setPosition(320, 480);
-    // 移動
-    shape.update = function() {
-      shape.x += 2;  
-      shape.y += 2;
-    };
-    // Shapeを作成してシーンに追加
-    var shape2 = Shape().addChildTo(this).setPosition(320, 480);
-    // 移動
-    shape2.update = function() {
-      shape2.moveBy(-2, -2);
-    };
+    // RectangleShape
+    RectangleShape({
+      width: 128,
+      height: 128,
+      fill: 'red',
+      stroke: 'white',
+      strokeWidth: 16,
+      cornerRadius: 16
+    }).addChildTo(this).setPosition(320, 200);
+    // CircleShape
+    CircleShape({
+      fill: 'green',
+      stroke: 'white',
+      strokeWidth: 16,
+      radius: 64
+    }).addChildTo(this).setPosition(320, 400);
+    // TriangleShape
+    TriangleShape({
+      fill: 'purple',
+      stroke: 'white',
+      strokeWidth: 16,
+      radius: 64
+    }).addChildTo(this).setPosition(320, 600);
+    // StarShape
+    StarShape({
+      stroke: 'white',
+      strokeWidth: 16,
+      radius: 64,
+      sideIndent: 0.5,
+    }).addChildTo(this).setPosition(320, 800);
+    // PolygonShape
+    PolygonShape({
+      stroke: 'white',
+      strokeWidth: 16,
+      radius: 64,
+      sides: 8,
+    }).addChildTo(this).setPosition(100, 480);
+    // HeartShape
+    HeartShape({
+      stroke: 'white',
+      strokeWidth: 16,
+      radius: 64,
+    }).addChildTo(this).setPosition(540, 480);
+    // PathShape
+    PathShape({
+      paths: [Vector2(0, 0), Vector2(200, 200), Vector2(200, 680),
+              Vector2(420, 680), Vector2(640, 960)]
+    }).addChildTo(this);    
   },
 });
 /*
@@ -197,4 +244,4 @@ phina.main(function() {
 :::
 
 ## runstantプロジェクト
-https://runstant.com/alkn203/projects/024439ca
+https://runstant.com/alkn203/projects/23f3b015
