@@ -1,10 +1,10 @@
 ---
-title: "Sprite　サイズ指定・回転・拡大・縮小・透明度"
+title: "Sprite　透明度"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/sff06rcfmdhib2toqdyqgh1ochag)
 
-**Sprite** は、**Shape** と同じ基底クラスを継承していますので、共通のプロパティやメソッドを使用することができます。
+**Sprite**と**Shape**は、共に基底クラス**Object2d**を継承していますので、共通のプロパティやメソッドを使用することができます。
 
 ## Spriteのサイズ指定
 
@@ -12,7 +12,6 @@ title: "Sprite　サイズ指定・回転・拡大・縮小・透明度"
 // サイズ指定
 var sp1 = Sprite('tomapiko').addChildTo(this).setPosition(320, 340);
 sp1.width = 128;
-// 一括指定
 Sprite('tomapiko').addChildTo(this).setPosition(320, 480).setSize(128, 128);
 ```
 
@@ -22,7 +21,6 @@ Sprite('tomapiko').addChildTo(this).setPosition(320, 480).setSize(128, 128);
 // 回転
 var sp2 = Sprite('tomapiko').addChildTo(this).setPosition(320, 600);
 sp2.rotation = 45;
-// setRotation
 Sprite('tomapiko').addChildTo(this).setPosition(320, 700).setRotation(15);
 // 回転アニメーション
 sp3 = Sprite('tomapiko').addChildTo(this).setPosition(320, 800);
@@ -31,18 +29,14 @@ sp3.update = function() {
 };
 ```
 
-## Spriteの拡大縮小
+## Shapeの拡大縮小
 
 ```js
 // 拡大・縮小
 sp4 = Sprite('tomapiko').addChildTo(this).setPosition(200, 800);
 sp4.scaleY = 1.5;
-// setScale
 Sprite('tomapiko').addChildTo(this).setPosition(440, 800).setScale(0.5, 0.5);
 ```
-
-## Spriteの透明度
-
 
 ## サンプルコード
 ::: details コードを見る
