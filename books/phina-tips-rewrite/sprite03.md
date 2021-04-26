@@ -2,7 +2,7 @@
 title: "Sprite　透明度"
 ---
 
-![](https://storage.googleapis.com/zenn-user-upload/w6j72no9nandzi7r82cqamwwtd85)
+![](https://storage.googleapis.com/zenn-user-upload/v5krk7yxjbpxlethssxq4knmf2dn)
 
 **Sprite** は、**Shape** と同じ基底クラスを継承していますので、共通のプロパティやメソッドを使用することができます。
 
@@ -42,23 +42,12 @@ phina.define("MainScene", {
     this.superInit();
     // 背景色
     this.backgroundColor = 'skyblue';
-    // サイズ指定
-    var sp1 = Sprite('tomapiko').addChildTo(this).setPosition(320, 340);
-    sp1.width = 128;
-    Sprite('tomapiko').addChildTo(this).setPosition(320, 480).setSize(128, 128);
-    // 回転
-    var sp2 = Sprite('tomapiko').addChildTo(this).setPosition(320, 600);
-    sp2.rotation = 45;
-    Sprite('tomapiko').addChildTo(this).setPosition(320, 700).setRotation(15);
-    // 回転アニメーション
-    sp3 = Sprite('tomapiko').addChildTo(this).setPosition(320, 800);
-    sp3.update = function() {
-      sp3.rotation++;
+    // 透明度変化アニメーション
+    sp = Sprite('tomapiko').addChildTo(this).setPosition(320, 480);
+    sp.update = function() {
+      // 徐々に透明にする
+      sp.alpha -= 0.01;
     };
-    // 拡大・縮小
-    sp4 = Sprite('tomapiko').addChildTo(this).setPosition(200, 800);
-    sp4.scaleY = 1.5;
-    Sprite('tomapiko').addChildTo(this).setPosition(440, 800).setScale(0.5, 0.5);
   },
 });
 /*
@@ -81,4 +70,4 @@ phina.main(function() {
 :::
 
 ## runstantプロジェクト
-https://runstant.com/alkn203/projects/a1919f6a
+https://runstant.com/alkn203/projects/e55bc28d
