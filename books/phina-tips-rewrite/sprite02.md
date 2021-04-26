@@ -1,5 +1,5 @@
 ---
-title: "Sprite　サイズ指定・回転・拡大・縮小・透明度"
+title: "Sprite　サイズ指定・回転・拡大・縮小"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/sff06rcfmdhib2toqdyqgh1ochag)
@@ -40,9 +40,6 @@ sp4.scaleY = 1.5;
 // setScale
 Sprite('tomapiko').addChildTo(this).setPosition(440, 800).setScale(0.5, 0.5);
 ```
-
-## Spriteの透明度
-
 
 ## サンプルコード
 ::: details コードを見る
