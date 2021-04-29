@@ -1,8 +1,7 @@
 ---
 title: "Sprite　フレームアニメーション"
 ---
-
-![](https://storage.googleapis.com/zenn-user-upload/v5krk7yxjbpxlethssxq4knmf2dn)
+![](https://storage.googleapis.com/zenn-user-upload/p4rvk8ptf8u74jee531rl5f8i9oj)
 
 **Sprite**画像でフレームアニメーションを設定します。
 
