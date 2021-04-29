@@ -18,20 +18,48 @@ title: "Sprite　フレームアニメーション"
 通常の画像と同じように**ASSETS**として読み込みます。
 
 ```js
-// 透明度変化アニメーション
-sp = Sprite('tomapiko').addChildTo(this).setPosition(320, 480);
-sp.update = function() {
-  // 徐々に透明にする
-  sp.alpha -= 0.01;
+// アセット
+var ASSETS = {
+  // 画像
+  image: {
+    'tomapiko': 'https://cdn.jsdelivr.net/gh/phinajs/phina.js@develop/assets/images/tomapiko_ss.png',
+  },
 };
 ```
 
 ## フレームアニメーション情報を読み込む
-次に、フレームアニメーション情報が定義された**json**形式のファイルを読み込みます。
-今回はファイルからではなく**ASEETS**として、コード内に定義しています。
+* フレームアニメーション情報が定義された**json**形式のファイルを読み込む方法が一般的ですが、今回はファイルからではなく**ASEETS**として、コード内に定義しています。
+* コード内に記述して十分に動作確認した後に、外部**json**ファイルに保存してアセットとして読み込む方が、開発する上では効率的です。
 
 ```js
-
+// アセット
+var ASSETS = {
+  // 画像
+  image: {
+    'tomapiko': 'https://cdn.jsdelivr.net/gh/phinajs/phina.js@develop/assets/images/tomapiko_ss.png',
+  },
+  // スプライトシート
+  spritesheet: {
+    "tomapiko_ss":
+    {
+      // フレーム情報
+      "frame": {
+        "width": 64, // 1フレームの画像サイズ（横）
+        "height": 64, // 1フレームの画像サイズ（縦）
+        "cols": 6, // フレーム数（横）
+        "rows": 3, // フレーム数（縦）
+      },
+      // アニメーション情報
+      "animations" : {
+        "walk": { // アニメーション名
+          "frames": [12,13,14], // フレーム番号範囲
+          "next": "walk", // 次のアニメーション
+          "frequency": 6, // アニメーション間隔
+        },
+      }
+    },
+  }
+};
 ```
 
 * **frames**にアニメーションに使いたいフレーム番号の範囲を書きます。 **0**から始まることに注意してください。
@@ -42,13 +70,17 @@ sp.update = function() {
 スプライトシート画像は、通常の画像と同じく**Sprite**クラスを使って作成しますが、アセット名の次の引数で**１フレームの画像サイズ**を指定します。
 
 ```js
-
+// スプライト画像作成
+var sprite = Sprite('tomapiko', 64, 64).addChildTo(this);
 ```
 
 ## フレームアニメーションの設定
 
 ```js
-
+// スプライトにフレームアニメーションをアタッチ
+var anim = FrameAnimation('tomapiko_ss').attachTo(sprite);
+// アニメーションを指定する
+anim.gotoAndPlay('walk');
 ```
 
 * **FrameAnimation**クラスのコンストラクタにスプライトシートのアセット名を指定して、スプライトにアタッチします。
@@ -64,8 +96,29 @@ phina.globalize();
 var ASSETS = {
   // 画像
   image: {
-    'tomapiko': 'https://cdn.jsdelivr.net/gh/phinajs/phina.js@develop/assets/images/tomapiko.png',
+    'tomapiko': 'https://cdn.jsdelivr.net/gh/phinajs/phina.js@develop/assets/images/tomapiko_ss.png',
   },
+  // スプライトシート
+  spritesheet: {
+    "tomapiko_ss":
+    {
+      // フレーム情報
+      "frame": {
+        "width": 64, // 1フレームの画像サイズ（横）
+        "height": 64, // 1フレームの画像サイズ（縦）
+        "cols": 6, // フレーム数（横）
+        "rows": 3, // フレーム数（縦）
+      },
+      // アニメーション情報
+      "animations" : {
+        "walk": { // アニメーション名
+          "frames": [12,13,14], // フレーム番号範囲
+          "next": "walk", // 次のアニメーション
+          "frequency": 6, // アニメーション間隔
+        },
+      }
+    },
+  }
 };
 /*
  * メインシーン
@@ -79,12 +132,13 @@ phina.define("MainScene", {
     this.superInit();
     // 背景色
     this.backgroundColor = 'skyblue';
-    // 透明度変化アニメーション
-    sp = Sprite('tomapiko').addChildTo(this).setPosition(320, 480);
-    sp.update = function() {
-      // 徐々に透明にする
-      sp.alpha -= 0.01;
-    };
+    // スプライト画像作成
+    var sprite = Sprite('tomapiko', 64, 64).addChildTo(this);
+    sprite.setPosition(320, 480);
+    // スプライトにフレームアニメーションをアタッチ
+    var anim = FrameAnimation('tomapiko_ss').attachTo(sprite);
+    // アニメーションを指定する
+    anim.gotoAndPlay('walk');
   },
 });
 /*
@@ -107,4 +161,4 @@ phina.main(function() {
 :::
 
 ## runstantプロジェクト
-https://runstant.com/alkn203/projects/e55bc28d
+https://runstant.com/alkn203/projects/2764859c
