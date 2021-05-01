@@ -1,5 +1,5 @@
 title: "phina.js Tips集 【改】"
-summary: "javascriptのゲームライブラリphina.jsの非公式Tips集です。Qiitaに掲載していたものを改訂しています。
+summary: "javascriptのゲームライブラリphina.jsの非公式Tips集です。Qiitaに掲載していたものを改訂しています。順次内容更新中。
 "
 topics: ["javascript","html5","phina","ゲーム開発"]
 published: true
@@ -18,3 +18,4 @@ chapters:
   - sprite02
   - sprite03
   - sprite04
+  - sprite05

@@ -1,90 +1,24 @@
 ---
-title: "Sprite　フレームアニメーション"
+title: "Sprite　向き反転"
 ---
-![](https://storage.googleapis.com/zenn-user-upload/p4rvk8ptf8u74jee531rl5f8i9oj)
 
-**Sprite**画像でフレームアニメーションを設定します。
+![](https://storage.googleapis.com/zenn-user-upload/a123smm13od9o435esm74oi02tkd)
 
-## スプライトシート画像を用意する
-スプライトシート画像とは、以下のようにアニメーション用のコマをシートの様に並べた画像です。
+**Sprite** の向きは、専用の画像を使用せずに反転することができます。
 
-![](https://storage.googleapis.com/zenn-user-upload/0apyqr2u79w8e2n0yuim6uqlwgp2)
+## Spriteの向き反転
+* 横方向に反転したい場合は、プロパティ**scaleX**　に **-1** を乗じます。
+* 縦方向に反転したい場合は、プロパティ**scaleY**　に **-1** を乗じます。
 
-* 上の画像だと、横6x縦3の計18コマから成り立っています。
-* ゲーム作成ではコマのことを**フレーム**と呼ぶことが多いです。
-
-## スプライトシート画像を読み込む
-通常の画像と同じように**ASSETS**として読み込みます。
+以下のコードは、画面タッチでスプライトを反転表示させる例です。
 
 ```js
-// アセット
-var ASSETS = {
-  // 画像
-  image: {
-    'tomapiko': 'https://cdn.jsdelivr.net/gh/phinajs/phina.js@develop/assets/images/tomapiko_ss.png',
-  },
+// 画面タッチ時処理
+this.onpointstart = function() {
+  // 横向き反転
+  sprite.scaleX *= -1;
 };
 ```
-
-## フレームアニメーション情報を読み込む
-* フレームアニメーション情報が定義された**json**形式のファイルを読み込む方法が一般的ですが、今回はファイルからではなく**ASEETS**として、コード内に定義しています。
-* コード内に記述して十分に動作確認した後に、外部**json**ファイルに保存してアセットとして読み込む方が、開発する上では効率的です。
-
-```js
-// アセット
-var ASSETS = {
-  // 画像
-  image: {
-    'tomapiko': 'https://cdn.jsdelivr.net/gh/phinajs/phina.js@develop/assets/images/tomapiko_ss.png',
-  },
-  // スプライトシート
-  spritesheet: {
-    "tomapiko_ss":
-    {
-      // フレーム情報
-      "frame": {
-        "width": 64, // 1フレームの画像サイズ（横）
-        "height": 64, // 1フレームの画像サイズ（縦）
-        "cols": 6, // フレーム数（横）
-        "rows": 3, // フレーム数（縦）
-      },
-      // アニメーション情報
-      "animations" : {
-        "walk": { // アニメーション名
-          "frames": [12,13,14], // フレーム番号範囲
-          "next": "walk", // 次のアニメーション
-          "frequency": 6, // アニメーション間隔
-        },
-      }
-    },
-  }
-};
-```
-
-* **frames**にアニメーションに使いたいフレーム番号の範囲を書きます。 **0**から始まることに注意してください。
-* **next**に次のアニメーションを指定します。同じ名前にするとループします。
-* **frequency**でアニメーションの間隔を指定します。小さくすれば速くなり、大きくすれば遅くなります。
-
-## スプライトシート画像の作成
-スプライトシート画像は、通常の画像と同じく**Sprite**クラスを使って作成しますが、アセット名の次の引数で**１フレームの画像サイズ**を指定します。
-
-```js
-// スプライト画像作成
-var sprite = Sprite('tomapiko', 64, 64).addChildTo(this);
-```
-
-## フレームアニメーションの設定
-
-```js
-// スプライトにフレームアニメーションをアタッチ
-var anim = FrameAnimation('tomapiko_ss').attachTo(sprite);
-// アニメーションを指定する
-anim.gotoAndPlay('walk');
-```
-
-* **FrameAnimation**クラスのコンストラクタにスプライトシートのアセット名を指定して、スプライトにアタッチします。
-* **gotoAndPlay**関数にアニメーション名を指定すると、そのアニメーションが自動で再生されます。
-
 
 ## サンプルコード
 ::: details コードを見る
@@ -95,29 +29,8 @@ phina.globalize();
 var ASSETS = {
   // 画像
   image: {
-    'tomapiko': 'https://cdn.jsdelivr.net/gh/phinajs/phina.js@develop/assets/images/tomapiko_ss.png',
+    'tomapiko': 'https://cdn.jsdelivr.net/gh/phinajs/phina.js@develop/assets/images/tomapiko.png',
   },
-  // スプライトシート
-  spritesheet: {
-    "tomapiko_ss":
-    {
-      // フレーム情報
-      "frame": {
-        "width": 64, // 1フレームの画像サイズ（横）
-        "height": 64, // 1フレームの画像サイズ（縦）
-        "cols": 6, // フレーム数（横）
-        "rows": 3, // フレーム数（縦）
-      },
-      // アニメーション情報
-      "animations" : {
-        "walk": { // アニメーション名
-          "frames": [12,13,14], // フレーム番号範囲
-          "next": "walk", // 次のアニメーション
-          "frequency": 6, // アニメーション間隔
-        },
-      }
-    },
-  }
 };
 /*
  * メインシーン
@@ -134,10 +47,11 @@ phina.define("MainScene", {
     // スプライト画像作成
     var sprite = Sprite('tomapiko', 64, 64).addChildTo(this);
     sprite.setPosition(320, 480);
-    // スプライトにフレームアニメーションをアタッチ
-    var anim = FrameAnimation('tomapiko_ss').attachTo(sprite);
-    // アニメーションを指定する
-    anim.gotoAndPlay('walk');
+    // 画面タッチ時処理
+    this.onpointstart = function() {
+      // 横向き反転
+      sprite.scaleX *= -1;
+    };
   },
 });
 /*
@@ -160,4 +74,4 @@ phina.main(function() {
 :::
 
 ## runstantプロジェクト
-https://runstant.com/alkn203/projects/2764859c
+https://runstant.com/alkn203/projects/04522bf7
