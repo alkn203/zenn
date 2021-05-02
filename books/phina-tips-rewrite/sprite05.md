@@ -1,5 +1,5 @@
 ---
-title: "フレームアニメーション　設定"
+title: "Sprite フレームアニメーション　設定"
 ---
 ![](https://storage.googleapis.com/zenn-user-upload/p4rvk8ptf8u74jee531rl5f8i9oj)
 
