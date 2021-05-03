@@ -1,39 +1,28 @@
 ---
-title: "Sprite フレームアニメーション　速度変更"
+title: "Sprite フレームアニメーション　移動"
 ---
 
-![](https://storage.googleapis.com/zenn-user-upload/0ln6lb8f3d4a04sjn148ecg5lu34)
+![](https://storage.googleapis.com/zenn-user-upload/gb44f8jve661f1px3lmkzfccfn3a)
 
-## フレームアニメーション設定の変更
-外部ファイルとして読み込まれたフレームアニメーション設定を後から変更する方法について説明します。例として、フレームアニメーションの速度を変更します。
+**Sprite**画像をフレームアニメーションしたまま移動させます。
 
-## フレームアニメーション設定を外部ファイルに定義
-フレームアニメーション設定は外部ファイルとして定義して、アセットとして読み込むことができます。
+## update関数に移動処理を記述する
+フレームアニメーションは自動で管理されていますので、単に**update**関数内に移動処理を書くだけで移動させることができます。
 
 ```js
-// アセット
-var ASSETS = {
-  // 画像
-  image: {
-    'tomapiko': 'https://cdn.jsdelivr.net/gh/phinajs/phina.js@develop/assets/images/tomapiko_ss.png',
-  },
-   // フレームアニメーション情報
-  spritesheet: {
-    'tomapiko_ss': 'https://cdn.jsdelivr.net/gh/phinajs/phina.js@develop/assets/tmss/tomapiko.tmss',
-  },
+// スプライト画像作成
+var sprite = Sprite('tomapiko', 64, 64).addChildTo(this);
+sprite.setPosition(600, 480);
+// スプライトにフレームアニメーションをアタッチ
+var anim = FrameAnimation('tomapiko_ss').attachTo(sprite);
+// アニメーションを指定する
+anim.gotoAndPlay('walk');
+// 更新
+sprite.update = function() {
+  // 移動処理
+  sprite.x -= 2;
 };
 ```
-
-## アニメーションのfreaquencyプロパティ
-* **anim** を **FrameAnimation** クラスのインスタンスとした場合、**ss** で **SpriteSheet** を参照することができます。
-* **getAnimation**で指定したアニメーションを参照することができるので、そのプロパティ**freaquency**の値を変更します。
-
-```js
-// アニメーション速度変更
-anim.ss.getAnimation('left').frequency += 1;
-```
-
-以下のサンプルでは、画面をタッチするとフレームアニメーションの速度が遅くなっていきます。
 
 ## サンプルコード
 ::: details コードを見る
@@ -46,10 +35,27 @@ var ASSETS = {
   image: {
     'tomapiko': 'https://cdn.jsdelivr.net/gh/phinajs/phina.js@develop/assets/images/tomapiko_ss.png',
   },
-   // フレームアニメーション情報
+  // スプライトシート
   spritesheet: {
-    'tomapiko_ss': 'https://cdn.jsdelivr.net/gh/phinajs/phina.js@develop/assets/tmss/tomapiko.tmss',
-  },
+    "tomapiko_ss":
+    {
+      // フレーム情報
+      "frame": {
+        "width": 64, // 1フレームの画像サイズ（横）
+        "height": 64, // 1フレームの画像サイズ（縦）
+        "cols": 6, // フレーム数（横）
+        "rows": 3, // フレーム数（縦）
+      },
+      // アニメーション情報
+      "animations" : {
+        "walk": { // アニメーション名
+          "frames": [12,13,14], // フレーム番号範囲
+          "next": "walk", // 次のアニメーション
+          "frequency": 6, // アニメーション間隔
+        },
+      }
+    },
+  }
 };
 /*
  * メインシーン
@@ -65,15 +71,15 @@ phina.define("MainScene", {
     this.backgroundColor = 'skyblue';
     // スプライト画像作成
     var sprite = Sprite('tomapiko', 64, 64).addChildTo(this);
-    sprite.setPosition(320, 480);
+    sprite.setPosition(600, 480);
     // スプライトにフレームアニメーションをアタッチ
     var anim = FrameAnimation('tomapiko_ss').attachTo(sprite);
     // アニメーションを指定する
-    anim.gotoAndPlay('left');
-    // 画面タッチ処理
-    this.onpointend = function() {
-      // アニメーション速度変更
-      anim.ss.getAnimation('left').frequency += 1;
+    anim.gotoAndPlay('walk');
+    // 更新
+    sprite.update = function() {
+      // 移動処理
+      sprite.x -= 2;
     };
   },
 });
@@ -97,4 +103,4 @@ phina.main(function() {
 :::
 
 ## runstantプロジェクト
-https://runstant.com/alkn203/projects/ca5546df
+https://runstant.com/alkn203/projects/912ff332
