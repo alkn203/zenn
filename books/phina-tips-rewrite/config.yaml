@@ -8,12 +8,16 @@ price: 0 # 有料の場合200〜5000
 chapters:
   - prologue
   - templete
-  - shape01
-  - shape02
-  - shape03
-  - shape04
-  - shape05
-  - shape06
+  - shape001
+  - shape002
+  - shape003
+  - shape004
+  - shape005
+  - shape006
+  - shape007
+  - shape008  
+  - shape009
+  - shape010
   - sprite01
   - sprite02
   - sprite03

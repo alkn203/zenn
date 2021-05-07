@@ -1,11 +1,10 @@
 ---
-title: "Shape　移動"
+title: "Shapeを移動させる"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/oij9s1rvmhg8jyj9tttxj6s18v1c)
 
 ## Shapeの移動
-
 **Shape** を始めとしたオブジェクトの移動は、オブジェクトの**update**関数で位置を変更させるのが一般的です。
 
 ## update関数で位置を変更する

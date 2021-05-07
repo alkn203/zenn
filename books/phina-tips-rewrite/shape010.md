@@ -1,11 +1,10 @@
 ---
-title: "Shape　種類"
+title: "Shapeの種類について知る"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/gjgp9u64sd2q03yd5jryswok4ae5)
 
 ## Shapeの種類
-
 **phina.js**には、以下の種類の**Shape**が予め用意されています。
 
 ## RectangleShape

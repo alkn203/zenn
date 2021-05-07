@@ -1,21 +1,8 @@
 ---
-title: "Shape　表示・位置指定"
+title: "Shapeの位置を指定する"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/11ev0bfere4jplh6y8e0wwj40kzb)
-
-## Shapeをシーンに表示する
-**phina.js**のオブジェクトの基本形である**Shape**を画面に表示します。
-
-```js
-var shape = Shape().addChildTo(this);
-```
-
-* **Shape**クラスのコンストラクタで生成します。コンストラクタの前に**new**をつける必要はありません。
-* **addChildTo(this)** で現在の **Scene** に追加します。**this** は **MainScene** を指しています。
-* 位置が指定されていない時は、画面左上(0,0)に表示されます。
-* 変数に代入しなくても表示されますが、後にプロパティを操作することが多いので、とりあえずは変数に代入しておいた方が良いでしょう。
-* 使用頻度は低いですが```this.addChild(shape)```と書くこともできます。
 
 ## Shapeの位置指定
 **Shape**の位置指定には複数の方法があります。

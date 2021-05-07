@@ -1,5 +1,5 @@
 ---
-title: "Shape　原点変更"
+title: "Shapeの原点を変更する"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/7224zy06lr9c5xiecwvervsbfxmu)
