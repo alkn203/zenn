@@ -1,5 +1,5 @@
 ---
-title: "Sprite フレームアニメーション　移動"
+title: "フレームアニメーションしながら移動させる"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/gb44f8jve661f1px3lmkzfccfn3a)

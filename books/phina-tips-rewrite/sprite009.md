@@ -1,5 +1,5 @@
 ---
-title: "Sprite フレームアニメーション　アニメーション速度変更"
+title: "フレームアニメーションの速度を動的に変更する"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/0ln6lb8f3d4a04sjn148ecg5lu34)

@@ -1,5 +1,5 @@
 ---
-title: "Sprite　透明度"
+title: "Spriteを透明にする"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/v5krk7yxjbpxlethssxq4knmf2dn)

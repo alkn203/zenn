@@ -1,5 +1,5 @@
 ---
-title: "Sprite フレームアニメーション　スプライトシートに定義されたサイズにフィットしないようにする"
+title: "スプライトのサイズがスプライトシートに定義されたサイズにフィットしないようにする"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/sb9judh7ubwczn5da03rljzu8pvv)

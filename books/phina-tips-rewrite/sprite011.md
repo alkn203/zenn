@@ -1,5 +1,5 @@
 ---
-title: "Sprite フレームアニメーション　フレームアニメーションの終了を検知する"
+title: "フレームアニメーションの終了を検知する"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/sb9judh7ubwczn5da03rljzu8pvv)

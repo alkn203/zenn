@@ -1,5 +1,5 @@
 ---
-title: "Sprite　表示・位置指定"
+title: "Spriteを表示して位置を指定する"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/ch1ouqc91q6u0otneas6zm08lspy)

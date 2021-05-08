@@ -1,20 +1,10 @@
 ---
-title: "Sprite　サイズ指定・回転・拡大・縮小"
+title: "Spriteを回転させる"
 ---
 
-![](https://storage.googleapis.com/zenn-user-upload/sff06rcfmdhib2toqdyqgh1ochag)
+![](https://storage.googleapis.com/zenn-user-upload/1fase05n1uvd2xba3sb647u3onj6)
 
 **Sprite** は、**Shape** と同じ基底クラスを継承していますので、共通のプロパティやメソッドを使用することができます。
-
-## Spriteのサイズ指定
-
-```js
-// サイズ指定
-var sp1 = Sprite('tomapiko').addChildTo(this).setPosition(320, 340);
-sp1.width = 128;
-// 一括指定
-Sprite('tomapiko').addChildTo(this).setPosition(320, 480).setSize(128, 128);
-```
 
 ## Spriteの回転
 
@@ -29,16 +19,6 @@ sp3 = Sprite('tomapiko').addChildTo(this).setPosition(320, 800);
 sp3.update = function() {
   sp3.rotation++;
 };
-```
-
-## Spriteの拡大縮小
-
-```js
-// 拡大・縮小
-sp4 = Sprite('tomapiko').addChildTo(this).setPosition(200, 800);
-sp4.scaleY = 1.5;
-// setScale
-Sprite('tomapiko').addChildTo(this).setPosition(440, 800).setScale(0.5, 0.5);
 ```
 
 ## サンプルコード
@@ -65,10 +45,6 @@ phina.define("MainScene", {
     this.superInit();
     // 背景色
     this.backgroundColor = 'skyblue';
-    // サイズ指定
-    var sp1 = Sprite('tomapiko').addChildTo(this).setPosition(320, 340);
-    sp1.width = 128;
-    Sprite('tomapiko').addChildTo(this).setPosition(320, 480).setSize(128, 128);
     // 回転
     var sp2 = Sprite('tomapiko').addChildTo(this).setPosition(320, 600);
     sp2.rotation = 45;
@@ -78,10 +54,6 @@ phina.define("MainScene", {
     sp3.update = function() {
       sp3.rotation++;
     };
-    // 拡大・縮小
-    sp4 = Sprite('tomapiko').addChildTo(this).setPosition(200, 800);
-    sp4.scaleY = 1.5;
-    Sprite('tomapiko').addChildTo(this).setPosition(440, 800).setScale(0.5, 0.5);
   },
 });
 /*
