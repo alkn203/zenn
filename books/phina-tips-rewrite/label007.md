@@ -2,7 +2,7 @@
 title: "ラベルの幅と高さを調べる"
 ---
 
-![](https://storage.googleapis.com/zenn-user-upload/orljg69yuvov3mjur2je16ldyieu)
+![](https://storage.googleapis.com/zenn-user-upload/6n6jn7z8l28k26nkkql7y2j2lnlu)
 
 ## ラベルの幅と高さを調べる
 **Label**クラスは**Shape**クラスを継承しているので、デフォルトでは**64X64**のサイズが設定されています。そこで、実際の**Label**の幅と高さを調べる方法について説明します。
@@ -20,7 +20,6 @@ var height = label.calcCanvasHeight();
 ```js
 var width = label.calcCanvasWidth();
 ```
-
 
 ## サンプルコード
 ::: details コードを見る
