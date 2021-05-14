@@ -2,7 +2,7 @@
 title: "更新イベントを設定する"
 ---
 
-![](https://storage.googleapis.com/zenn-user-upload/6n6jn7z8l28k26nkkql7y2j2lnlu)
+![](https://storage.googleapis.com/zenn-user-upload/5s0pb4nfqwx5nv46iptadv630u6y)
 
 ## 更新イベント処理（update）
 * 更新処理を行うためには、オブジェクトに**update**関数を実装します。
