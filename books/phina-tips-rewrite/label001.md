@@ -1,5 +1,5 @@
 ---
-title: "ラベル(文字)を表示する"
+title: "Label(文字)を表示する"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/15y6nckzphsd9b8dgcuel4zscx3a)

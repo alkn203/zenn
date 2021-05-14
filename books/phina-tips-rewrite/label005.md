@@ -1,5 +1,5 @@
 ---
-title: "ラベルの枠の色を変更する"
+title: "Labelの枠の色を変更する"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/5uonblhsrxik0nkts5ian39ydp0d)

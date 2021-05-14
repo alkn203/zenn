@@ -1,5 +1,5 @@
 ---
-title: "ラベルの文字を変更する"
+title: "Labelの文字を変更する"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/6mgrscdl0bxdief1yv638k45x8wx)

@@ -1,5 +1,5 @@
 ---
-title: "ラベルの幅と高さを調べる"
+title: "Labelの幅と高さを調べる"
 ---
 
 ![](https://storage.googleapis.com/zenn-user-upload/6n6jn7z8l28k26nkkql7y2j2lnlu)
