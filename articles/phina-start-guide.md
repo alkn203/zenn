@@ -13,7 +13,7 @@ published: true
 これまで[phina.js](https://phinajs.com)に関するいくつかの記事を投稿していますが、**phina.js**自体について書いていなかったので、ここで簡単に紹介したいと思います。
 
 ## phina.jsについて
-趣味でプログラミングをしている私が日々楽しんで使っている**国産**の**javascript**ゲームライブラリです。以前から**javascript**でゲーム開発をしている方は知っているかもしれませんが、**tmlib.js** の後継ライブラリになります。とりあえずどのようなものか知りたい方には、以下の紹介記事が参考になるかと思います。
+趣味でプログラミングをしている私が日々楽しんで使っている**国産**の**javascript**ゲームライブラリです。以前から**javascript**でゲーム開発をしている方は知っているかもしれませんが、**tmlib.js** の後継ライブラリになります。どのようなものか知りたい方には、以下の紹介記事が参考になるかと思います。
 
 * [本日 JavaScript ゲームライブラリ『phina.js』をリリースしました!](http://phiary.me/phinajs-release/) by [phi](https://twitter.com/phi_jp) さん
 * [phina.js - JavaScriptで楽しく簡単にゲームが作れるライブラリ](http://qiita.com/simiraaaa/items/7431734994c9e94dacfd) by [simiraaaa](https://twitter.com/simiraaaa) さん
