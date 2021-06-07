@@ -42,8 +42,9 @@ var map = phina.util.Map({
 | hitTest          | マップとの衝突判定を行う(座標から)     |
 | hitTestByIndex   | マップとの衝突判定を行う(インデックスから) |
 | checkTile        | タイルが何か調べる(座標から)        |
-| checkTileByIndex | タイルが何か調べる(インデックスから)    |
-| setTile          | タイルを更新する               |
+| checkTileByIndex | タイルが何kか調べる(インデックスから)    |
+| setTile          | タイルを更新する（座標から）               |
+| setTileByIndex   | タイルを更新する（インデックスから）               |
 | getChild   |  子要素を得る（座標から） |
 | getChildByIndex   |  子要素を得る（インデックスから） |
 
