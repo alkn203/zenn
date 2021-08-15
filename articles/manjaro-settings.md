@@ -50,6 +50,18 @@ export PS1='\[\033[1;32m\]\u\[\033[00m\]:[\[\033[1;34m\]\w\[\033[1;31m\]$(__git_
 * makeはrootで実行すること。
 https://wiki.archlinux.jp/index.php/GNOME/Keyring#GNOME_Keyring_.E3.81.A8_Git
 
+### Github ログイン関係
+* 2021年8月13日からパスワードでの認証が不可になった。
+* gitコマンドラインでpushでエラーが出る。
+* pushがhttp認証の場合、Personal Access Tokenを取得してパスワードの代わりに入力する必要がある。
+* gnome-keyringは廃止予定のため、libsecretに以降
+
+```bash
+git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
+```
+
+* パスワード管理は、seahorseをインストールして行う。
+
 ## runstant カーソルずれ問題対応
 デフォルトのままだと入力とカーソルがずれる。
 ### 対処方法
@@ -65,3 +77,4 @@ https://qiita.com/jirourashima/items/153aefdb471b561df4f6
 
 ## homeにある日本語ディレクトリを英語にする
 https://qiita.com/apu4se/items/7e36586e0ba1bfe5dd48
+
