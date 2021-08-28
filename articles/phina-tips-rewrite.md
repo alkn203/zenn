@@ -15,10 +15,12 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 
 ## 導入編
 1. [phina.jsの開発環境を構築する](https://zenn.dev/alkn203/articles/phina-prologue)
-2. [phina.jsの基本テンプレートについて]()
+2. [phina.jsの基本テンプレートについて](https://zenn.dev/alkn203/articles/phina-template)
 
 ## Shape編
 **phina.js**におけるオブジェクトの基本形である**Shape**に関するTips
+
+1.[Shapeをシーンに表示する]()
 
 ## Sprite編
 ゲーム作りで定番の**Sprite**に関するTips
