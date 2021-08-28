@@ -11,7 +11,7 @@ published: false
 
 ## phina.jsについて
 自分なりに**phina.js**について書いたエントリーです。
-
+https://zenn.dev/alkn203/articles/phina-start-guide
 
 ## 導入編
 
