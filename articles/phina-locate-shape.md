@@ -13,7 +13,7 @@ published: true
 ## Shapeの位置指定
 **Shape**の位置指定には複数の方法があります。
 
-####  x,yプロパティに直接指定
+###  x,yプロパティに直接指定
 ```js
 // Shapeを作成してシーンに追加
 var shape = Shape().addChildTo(this);
@@ -22,14 +22,14 @@ shape.x = 320;
 shape.y = 480;
 ```
 
-#### setPosition関数で一括指定
+### setPosition関数で一括指定
 **setPosition** 関数を使えば、 **x, y** の値を一括で指定することができ、生成から一気にチェインメソッドで繋げて書くこともできるので便利です。
 
 ```js
 var shape = Shape().addChildTo(this).setPosition(320, 480);
 ```
 
-#### **Shape**のコンストラクタで指定
+### **Shape**のコンストラクタで指定
 ```js
 var shape = Shape({
   x: 320,
@@ -37,14 +37,14 @@ var shape = Shape({
 }).addChildTo(this)
 ```
 
-#### 移動量で指定
+### 移動量で指定
 **moveBy**関数を使えば、**x, y**の移動量で位置を変更することができます。
 
 ```js
 shape.setPosition(320, 480).moveBy(100, 200);
 ```
 
-#### ベクトル値の加算で指定
+### ベクトル値の加算で指定
 **Vector2**クラスを使ってベクトル値の加算で位置指定する方法もあります。
 
 ```js
@@ -53,6 +53,7 @@ shape.position.add(v);
 ```
 
 ## サンプルコード
+::: details コードを見る
 ```js
 // グローバルに展開
 phina.globalize();
@@ -103,6 +104,7 @@ phina.main(function() {
   app.run();
 });
 ```
+:::
 
 ## runstantプロジェクト
-https://runstant.com/alkn203/projects/0b1aea5e"
+https://runstant.com/alkn203/projects/0b1aea5e
