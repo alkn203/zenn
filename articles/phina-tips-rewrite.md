@@ -27,7 +27,7 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 5.[Shapeを拡大・縮小させる](https://zenn.dev/alkn203/articles/phina-scale-shape)
 6.[Shapeの背景色を指定する](https://zenn.dev/alkn203/articles/phina-color-shape)
 7.[Shapeを透明・非表示にする](https://zenn.dev/alkn203/articles/phina-alpha-shape)
-
+8.[Shapeの原点を変更する](https://zenn.dev/alkn203/articles/phina-change-shape-origin)
 
 ## Sprite編
 ゲーム作りで定番の**Sprite**に関するTips
