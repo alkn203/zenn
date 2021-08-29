@@ -6,6 +6,8 @@ topics: ["phina","javascript","html5","ゲーム開発"]
 published: true
 ---
 
+その他のTipsは[こちら](https://zenn.dev/alkn203/articles/phina-tips-rewrite)
+
 ## phina.jsの開発環境を構築する
 * このTips集では、Webブラウザ上でコーディング・実行が可能な[runstant](https://runstant.com)を使用してますので、基本的に開発環境として必要なものはWebブラウザだけです。
 * 自分の好きなエディタを使ってローカルで開発することも可能ですが、クライアントサイドで実行されるjavascriptは、セキュリティ上の理由からローカルファイルへのアクセスが制限されています。

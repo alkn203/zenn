@@ -6,6 +6,8 @@ topics: ["phina","javascript","html5","ゲーム開発"]
 published: true
 ---
 
+その他のTipsは[こちら](https://zenn.dev/alkn203/articles/phina-tips-rewrite)
+
 ## phina.jsのテンプレート
 * **phina.js**のプログラムの基本形は以下のとおりです。実行結果は黒い画面が表示されるだけです。
 * 今後の説明で、コードは**runstant**の **Script(javascript)** タブへの入力を前提とします。

@@ -6,7 +6,7 @@ topics: ["phina","javascript","html5","ゲーム開発"]
 published: true
 ---
 
-その他のTipsは[こちら]()
+その他のTipsは[こちら](https://zenn.dev/alkn203/articles/phina-tips-rewrite)
 
 ![resize-shape](/images/resize-shape.png)
 
