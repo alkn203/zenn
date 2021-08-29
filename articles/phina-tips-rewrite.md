@@ -20,7 +20,8 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 ## Shape編
 **phina.js**におけるオブジェクトの基本形である**Shape**に関するTips
 
-1.[Shapeをシーンに表示する]()
+1.[Shapeをシーンに表示する](https://zenn.dev/alkn203/articles/phina-add-shape)
+2.[Shapeの位置を指定する](https://zenn.dev/alkn203/articles/phina-locate-shape)
 
 ## Sprite編
 ゲーム作りで定番の**Sprite**に関するTips
