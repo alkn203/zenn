@@ -25,6 +25,7 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 3.[Shapeのサイズを指定する](https://zenn.dev/alkn203/articles/phina-resize-shape)
 4.[Shapeを回転させる](https://zenn.dev/alkn203/articles/phina-rotate-shape)
 5.[Shapeを拡大・縮小させる](https://zenn.dev/alkn203/articles/phina-scale-shape)
+6.[Shapeの背景色を指定する](https://zenn.dev/alkn203/articles/phina-color-shape)
 
 
 ## Sprite編
