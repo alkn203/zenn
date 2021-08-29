@@ -28,7 +28,7 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 6.[Shapeの背景色を指定する](https://zenn.dev/alkn203/articles/phina-color-shape)
 7.[Shapeを透明・非表示にする](https://zenn.dev/alkn203/articles/phina-alpha-shape)
 8.[Shapeの原点を変更する](https://zenn.dev/alkn203/articles/phina-change-shape-origin)
-9.[Shapeを移動させる](https://zenn.dev/alkn203/articles/phina-move-shape-origin)
+9.[Shapeを移動させる](https://zenn.dev/alkn203/articles/phina-move-shape)
 10.[Shapeの種類を知る](https://zenn.dev/alkn203/articles/phina-sort-of-shape)
 
 ## Sprite編
