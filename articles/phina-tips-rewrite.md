@@ -32,10 +32,12 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 10.[Shapeの種類を知る](https://zenn.dev/alkn203/articles/phina-sort-of-shape)
 
 ## Sprite編
-ゲーム作りで定番の**Sprite**に関するTips
+ゲーム作りで定番の**スプライト**に関するTips
+
+1.[Spriteを表示して位置を指定する](https://zenn.dev/alkn203/articles/locate-sprite)
 
 ## Label編
-文字を表示する**Label**に関するTips
+文字を表示する**ラベル**に関するTips
 
 ## Event編
-タッチなどの**Event**に関する基本的なTips
+タッチなどの**イベント**に関する基本的なTips
