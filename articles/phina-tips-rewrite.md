@@ -35,6 +35,7 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 ゲーム作りで定番の**スプライト**に関するTips
 
 1.[Spriteを表示して位置を指定する](https://zenn.dev/alkn203/articles/phina-locate-sprite)
+2.[Spriteを回転させる](https://zenn.dev/alkn203/articles/phina-rotate-sprite)
 
 ## Label編
 文字を表示する**ラベル**に関するTips
