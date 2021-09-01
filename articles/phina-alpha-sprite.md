@@ -1,5 +1,5 @@
 ---
-title: "【phina.js】Spriteのサイズを指定する"
+title: "【phina.js】Spriteを透明にする"
 emoji: "🐦"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["phina","javascript","html5","ゲーム開発"]
@@ -8,23 +8,25 @@ published: true
 
 その他のTipsは[こちら](https://zenn.dev/alkn203/articles/phina-tips-rewrite)
 
-![resize-sprite](/images/resize-sprite.png)
+![alpha-sprite](/images/alpha-sprite.gif)
 
 **Sprite** は、**Shape** と同じ基底クラスを継承していますので、共通のプロパティやメソッドを使用することができます。
 
-## Spriteのサイズ指定
+## Spriteの透明度
+**Shape**と同じく**alpha**プロパティに指定します。
+以下は、スプライトを徐々に透明する処理です。
 
 ```js
-// サイズ指定
-var sp1 = Sprite('tomapiko').addChildTo(this).setPosition(320, 340);
-sp1.width = 128;
-// 一括指定
-Sprite('tomapiko').addChildTo(this).setPosition(320, 480).setSize(128, 128);
+// 透明度変化アニメーション
+sp = Sprite('tomapiko').addChildTo(this).setPosition(320, 480);
+sp.update = function() {
+  // 徐々に透明にする
+  sp.alpha -= 0.01;
+};
 ```
 
 ## サンプルコード
 :::details コードを見る
-
 ```js
 // グローバルに展開
 phina.globalize();
@@ -47,11 +49,12 @@ phina.define("MainScene", {
     this.superInit();
     // 背景色
     this.backgroundColor = 'skyblue';
-    // サイズ指定
-    var sp1 = Sprite('tomapiko').addChildTo(this).setPosition(320, 340);
-    sp1.width = 128;
-    // 一括指定
-    Sprite('tomapiko').addChildTo(this).setPosition(320, 480).setSize(128, 128);
+    // 透明度変化アニメーション
+    sp = Sprite('tomapiko').addChildTo(this).setPosition(320, 480);
+    sp.update = function() {
+      // 徐々に透明にする
+      sp.alpha -= 0.01;
+    };
   },
 });
 /*
@@ -74,4 +77,4 @@ phina.main(function() {
 :::
 
 ## runstantプロジェクト
-https://runstant.com/alkn203/projects/5e7ac43a
+https://runstant.com/alkn203/projects/e55bc28d
