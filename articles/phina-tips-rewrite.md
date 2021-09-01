@@ -38,7 +38,8 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 2.[Spriteを回転させる](https://zenn.dev/alkn203/articles/phina-rotate-sprite)
 3.[Spriteを拡大・縮小させる](https://zenn.dev/alkn203/articles/phina-scale-sprite)
 4.[Spriteのサイズを指定する](https://zenn.dev/alkn203/articles/phina-resize-sprite)
-5.[Spritを透明にする](https://zenn.dev/alkn203/articles/phina-alpha-sprite)
+5.[Spriteを透明にする](https://zenn.dev/alkn203/articles/phina-alpha-sprite)
+6.[Spriteの向きを反転させる](https://zenn.dev/alkn203/articles/phina-reverse-sprite)
 
 
 ## Label編
