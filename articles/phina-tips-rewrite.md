@@ -41,6 +41,11 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 5.[Spriteを透明にする](https://zenn.dev/alkn203/articles/phina-alpha-sprite)
 6.[Spriteの向きを反転させる](https://zenn.dev/alkn203/articles/phina-reverse-sprite)
 
+## FrameAnimation編
+スプライトを使った**フレームアニメーション**に関するTips
+
+1.[フレームアニメーションを設定する](https://zenn.dev/alkn203/articles/phina-frameanimation)
+
 
 ## Label編
 文字を表示する**ラベル**に関するTips
