@@ -45,6 +45,7 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 スプライトを使った**フレームアニメーション**に関するTips
 
 1.[フレームアニメーションを設定する](https://zenn.dev/alkn203/articles/phina-frameanimation)
+2.[フレームアニメーションしながら移動させる](https://zenn.dev/alkn203/articles/phina-frameanimation-move)
 
 
 ## Label編
