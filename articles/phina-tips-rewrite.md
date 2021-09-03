@@ -46,7 +46,7 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 
 1.[フレームアニメーションを設定する](https://zenn.dev/alkn203/articles/phina-frameanimation)
 2.[フレームアニメーションしながら移動させる](https://zenn.dev/alkn203/articles/phina-frameanimation-move)
-
+3.[フレームアニメーションの速度を動的に変更する](https://zenn.dev/alkn203/articles/phina-frameanimation-speed)
 
 ## Label編
 文字を表示する**ラベル**に関するTips
