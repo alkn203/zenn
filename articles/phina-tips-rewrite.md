@@ -60,7 +60,7 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 文字を表示する**ラベル**に関するTips
 
 1.[Label(文字)を表示する](https://zenn.dev/alkn203/articles/phina-add-label)
-2.[Labelの文字サイズを変更する](https://zenn.dev/alkn203/articles/change-label-size)
+2.[Labelの文字サイズを変更する](https://zenn.dev/alkn203/articles/phina-change-label-size)
 
 ## Event編
 タッチなどの**イベント**に関する基本的なTips
