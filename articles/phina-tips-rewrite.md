@@ -50,6 +50,11 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 4.[フレームアニメーションの終了を検知する](https://zenn.dev/alkn203/articles/phina-frameanimation-end)
 5.[スプライトのサイズがスプライトシートに定義されたサイズにフィットしないようにする](https://zenn.dev/alkn203/articles/phina-no-fit-ss-size)
 
+## Asset編
+スプライト画像などの**アセット**に関するTips
+1.[任意のタイミングでアセットを読み込む（AssetLoader）](https://zenn.dev/alkn203/articles/phina-asset-loader)
+
+
 ## Label編
 文字を表示する**ラベル**に関するTips
 
