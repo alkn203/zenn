@@ -48,6 +48,7 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 2.[フレームアニメーションしながら移動させる](https://zenn.dev/alkn203/articles/phina-frameanimation-move)
 3.[フレームアニメーションの速度を動的に変更する](https://zenn.dev/alkn203/articles/phina-frameanimation-speed)
 4.[フレームアニメーションの終了を検知する](https://zenn.dev/alkn203/articles/phina-frameanimation-end)
+5.[スプライトのサイズがスプライトシートに定義されたサイズにフィットしないようにする](https://zenn.dev/alkn203/articles/phina-no-fit-ss-size)
 
 ## Label編
 文字を表示する**ラベル**に関するTips
