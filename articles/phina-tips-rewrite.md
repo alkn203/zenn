@@ -65,7 +65,7 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 4.[Labelの文字を変更する](https://zenn.dev/alkn203/articles/phina-change-label-text)
 5.[Labelの文字色を変更する](https://zenn.dev/alkn203/articles/phina-change-label-color)
 6.[Labelの枠の色を変更する](https://zenn.dev/alkn203/articles/phina-change-label-frame)
-7.[Labelの幅と高さを調べる](https://zenn.dev/alkn203/articles/phina-change-label-width-height)
+7.[Labelの幅と高さを調べる](https://zenn.dev/alkn203/articles/phina-label-width-height)
 
 ## Event編
 タッチなどの**イベント**に関する基本的なTips
