@@ -73,3 +73,4 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 1.[更新イベントを設定する](https://zenn.dev/alkn203/articles/phina-event-update)
 2.[タッチイベントを設定する](https://zenn.dev/alkn203/articles/phina-event-touch)
 3.[タッチされた座標を調べる](https://zenn.dev/alkn203/articles/phina-event-touch-point)
+4.[タッチイベントの種類を理解する](https://zenn.dev/alkn203/articles/phina-event-touch-type)
