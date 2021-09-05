@@ -69,3 +69,5 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 
 ## Event編
 タッチなどの**イベント**に関する基本的なTips
+
+1.[更新イベントを設定する](https://zenn.dev/alkn203/articles/phina-event-update)
