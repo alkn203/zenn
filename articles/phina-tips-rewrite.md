@@ -71,3 +71,4 @@ https://zenn.dev/alkn203/articles/phina-start-guide
 タッチなどの**イベント**に関する基本的なTips
 
 1.[更新イベントを設定する](https://zenn.dev/alkn203/articles/phina-event-update)
+2.[タッチイベントを設定する](https://zenn.dev/alkn203/articles/phina-event-touch)
