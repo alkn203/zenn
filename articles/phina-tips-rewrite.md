@@ -3,7 +3,7 @@ title: "phina.js Tips集"
 emoji: "🐦"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["phina","javascript","html5","ゲーム開発"]
-published: true
+published: false
 ---
 
 ## この記事について
