@@ -8,9 +8,9 @@ published: true
 
 # Manjaro Linuxの自分用の設定備忘録
 
-## キー入れ替えCaps　→　Ctrl
+## キー入れ替えCaps　→　Ctrl 左Ctrl ←→ Alt
 .bashrcに以下を追記
-`/usr/bin/setxkbmap -option "ctrl:nocaps"`
+`/usr/bin/setxkbmap -option "ctrl:nocaps" -option "ctrl:swap_lalt_lctl"`
 
 ## 日本語入力
 ### パッケージインストール(fcitx-mozc)
