@@ -8,9 +8,14 @@ published: true
 
 # Manjaro Linuxの自分用の設定備忘録
 
-## キー入れ替えCaps　→　Ctrl 左Ctrl ←→ Alt
+## キー入れ替え
+Caps　→　Ctrl
+左Ctrl ←→ Alt
+
 .bashrcに以下を追記
-`/usr/bin/setxkbmap -option "ctrl:nocaps" -option "ctrl:swap_lalt_lctl"`
+```
+/usr/bin/setxkbmap -option "ctrl:nocaps" -option "ctrl:swap_lalt_lctl"
+```
 
 ## 日本語入力
 ### パッケージインストール(fcitx-mozc)
@@ -49,7 +54,7 @@ export PS1='\[\033[1;32m\]\u\[\033[00m\]:[\[\033[1;34m\]\w\[\033[1;31m\]$(__git_
 * 2021年8月13日からパスワードでの認証が不可になった。
 * gitコマンドラインでpushでエラーが出る。
 * pushがhttp認証の場合、Personal Access Tokenを取得してパスワードの代わりに入力する必要がある。
-* gnome-keyringは廃止予定のため、libsecretに以降
+* gnome-keyringは廃止予定のため、libsecretに移行
 
 ```bash
 git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
