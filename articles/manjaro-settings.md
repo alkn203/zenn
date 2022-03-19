@@ -77,5 +77,15 @@ https://qiita.com/kawadumax/items/8bbbc042c6f17407847e
 * キーマップを設定（現在は、edit → keymap）
 https://qiita.com/jirourashima/items/153aefdb471b561df4f6
 
+### fcitxのCTRL + SPACEの日本語変換を無効にする
+* メニュー　→　設定　でコンフィグファイルがエディタで開かれる
+* 以下のように変更
+
+```
+# 入力メソッドのオンオフ
+#TriggerKey=CTRL_SPACE ZENKAKUHANKAKU
+TriggerKey=ZENKAKUHANKAKU
+```
+
 ## homeにある日本語ディレクトリを英語にする
 https://qiita.com/apu4se/items/7e36586e0ba1bfe5dd48
