@@ -9,8 +9,8 @@ published: true
 # Manjaro Linuxの自分用の設定備忘録
 
 ## キー入れ替え
-Caps　→　Ctrl
-左Ctrl ←→ Alt
+* Caps→Ctrl
+* 左Ctrl←→Alt
 
 .bashrcに以下を追記
 ```
@@ -45,7 +45,7 @@ export QT_IM_MODULE=fcitx
 ブランチ名やコミット差分が表示されるようになる。
 https://qiita.com/varmil/items/9b0aeafa85975474e9b6
 
-#### 現在の設定
+#### 現在のプロンプト表示設定
 ```sh
 export PS1='\[\033[1;32m\]\u\[\033[00m\]:[\[\033[1;34m\]\w\[\033[1;31m\]$(__git_ps1)\[\033[00m\] ]\$ '
 ```
@@ -54,15 +54,14 @@ export PS1='\[\033[1;32m\]\u\[\033[00m\]:[\[\033[1;34m\]\w\[\033[1;31m\]$(__git_
 * 2021年8月13日からパスワードでの認証が不可になった。
 * gitコマンドラインでpushでエラーが出る。
 * pushがhttp認証の場合、Personal Access Tokenを取得してパスワードの代わりに入力する必要がある。
-* gnome-keyringは廃止予定のため、libsecretに移行
+* パスワード記録用ツールは、gnome-keyringが廃止予定のため、**libsecret**を使用する。
+* パスワード管理は、パッケージから**seahorse**をインストールして行う。
 
 ```bash
 git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
 ```
 
 https://zenn.dev/oratake/articles/linux-git-https-token
-
-* パスワード管理は、seahorseをインストールして行う。
 
 ## runstant カーソルずれ問題対応
 デフォルトのままだと入力とカーソルがずれる。
@@ -74,7 +73,8 @@ https://qiita.com/kawadumax/items/8bbbc042c6f17407847e
 
 ## Atom設定
 ### emacsキーバインド
-現在は、edit → keymap
+* atomic-emacsパッケージをインストール
+* キーマップを設定（現在は、edit → keymap）
 https://qiita.com/jirourashima/items/153aefdb471b561df4f6
 
 ## homeにある日本語ディレクトリを英語にする
