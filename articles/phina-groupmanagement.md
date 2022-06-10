@@ -93,7 +93,7 @@ group.alpha = 0.5;
 # サンプルプログラム
 これまで紹介した内容は、以下のサンプルで実際に動作確認できます。
 
-![group_mamagement.gif](/images/group_mamagement.gif)
+![group_management.gif](/images/group_management.gif)
 
 * [要素の追加・削除(runstant)](http://runstant.com/alkn203/projects/3267e666)
 * [プロパティの一括変更(runstant)](http://runstant.com/alkn203/projects/fac02dd8)
