@@ -95,8 +95,8 @@ group.alpha = 0.5;
 
 ![group-management.gif](/images/group-management.gif)
 
-* [要素の追加・削除(runstant)](http://runstant.com/alkn203/projects/3267e666)
-* [プロパティの一括変更(runstant)](http://runstant.com/alkn203/projects/fac02dd8)
+* [要素の追加・削除(runstant)](https://runstant.com/alkn203/projects/3267e666)
+* [プロパティの一括変更(runstant)](https://runstant.com/alkn203/projects/fac02dd8)
 
 # まとめ
 グループ管理は、ゲーム制作において不可欠な要素と言えるかと思います。
