@@ -10,7 +10,7 @@ published: true
 **phina.js**で当たり判定を行う時は、**update**関数の中で当たり判定用の関数を使うことがほとんどだと思います。当たり判定に関連して、[[phina.js]Colliderクラスを作ってみた](https://zenn.dev/alkn203/articles/phina-collider)では、**Accessory**を使ってUnityなどの当たり判定で使用される**Collider**と同様な自作クラスについて書きました。
 今回はそれを発展させて、イベントドリブンな当たり判定ができるようにしてみます。
 
-![GIF.gif](https://qiita-image-store.s3.amazonaws.com/0/67114/c2ea4b50-5829-ef87-4b5e-0e7c20adb555.gif)
+![collisionlayer](/images/collisionlayer.gif)
 
 [[runstantで確認]](https://runstant.com/alkn203/projects/e70df5a9)
 
