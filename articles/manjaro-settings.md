@@ -76,7 +76,7 @@ https://qiita.com/kawadumax/items/8bbbc042c6f17407847e
 * キーマップを設定（現在は、edit → keymap）
 https://qiita.com/jirourashima/items/153aefdb471b561df4f6
 
-## VisualStudioCode設定
+## Visual Studio Code設定
 ### emacsキーバインド
 https://qiita.com/bbapexx/items/e1812407ed0ee948dd9c
 https://developers.gmo.jp/11041/
