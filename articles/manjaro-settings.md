@@ -11,8 +11,7 @@ published: true
 ## キー入れ替え
 * Caps→Ctrl
 * 左Ctrl←→Alt
-
-.bashrcに以下を追記
+* 「セッションと起動」→「自動開始アプリケーション」→「追加」→「コマンド」に以下を追加
 ```
 /usr/bin/setxkbmap -option "ctrl:nocaps" -option "ctrl:swap_lalt_lctl"
 ```
@@ -76,6 +75,11 @@ https://qiita.com/kawadumax/items/8bbbc042c6f17407847e
 * atomic-emacsパッケージをインストール
 * キーマップを設定（現在は、edit → keymap）
 https://qiita.com/jirourashima/items/153aefdb471b561df4f6
+
+## VisualStudioCode設定
+### emacsキーバインド
+https://qiita.com/bbapexx/items/e1812407ed0ee948dd9c
+https://developers.gmo.jp/11041/
 
 ### fcitxのCTRL + SPACEの日本語変換を無効にする
 * メニュー　→　設定　でコンフィグファイルがエディタで開かれる
