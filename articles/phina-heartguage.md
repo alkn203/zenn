@@ -1,5 +1,5 @@
 ---
-title: "[phina.js]Collisionクラスを使った当たり判定"
+title: "[phina.js]ゼルダ風のライフゲージを作ってみた"
 emoji: "🐦"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["phina","javascript","html5","ゲーム開発"]
