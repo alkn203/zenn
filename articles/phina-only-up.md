@@ -13,7 +13,7 @@ published: true
 ## 動作サンプル
 まずは以下のサンプルを確認して下さい。 画面タッチでキャラがジャンプしますが、上方向にはブロックをすり抜けて、その後に下のブロックに着地します。
 
-![](https://storage.googleapis.com/zenn-user-upload/mwlu070wbtefryup2jah68p0dxwr)
+![only-up](/images/only-up.gif)
 
 [runstantで確認](https://runstant.com/alkn203/projects/61d44965)
 
@@ -30,17 +30,16 @@ phina.define('Player', {
     this.superInit('tomapiko', SPRITE_SIZE, SPRITE_SIZE);
     // フレームアニメーションをアタッチ
     this.anim = FrameAnimation('tomapiko_ss').attachTo(this);
-    // スプライトシートのサイズにフィットさせない
-    this.anim.fit = false;
     // 縦移動速度
     this.vy = 0;
-    // サイズ変更
-    this.setSize(CHARA_SIZE, CHARA_SIZE);
   },
+  // 縦方向移動
+  moveY: function() {
+    this.vy += GRAVITY;
+    this.y += this.vy;
+  },
+});
 ```
-
-- デフォルトのスプライトサイズから半分のサイズにしています。
-- **FrameAnimation**クラスのプロパティ**fit**を**false**にしないと、スプライトシートに書いている切り出しサイズが適用されるので注意して下さい。
 
 ```javascript
 // ブロッククラス
@@ -52,8 +51,6 @@ phina.define('Block', {
     this.superInit('tiles', SPRITE_SIZE, SPRITE_SIZE);
     // タイルセットの指定フレームを表示   
     this.setFrameIndex(4);
-    // サイズ変更
-    this.setSize(CHARA_SIZE, CHARA_SIZE);
   },
 });
 ```
@@ -63,20 +60,19 @@ phina.define('Block', {
 ## プレイヤーとブロックの配置
 
 ```javascript
-    // グループ
+     // グループ
     var blockGroup = DisplayElement().addChildTo(this);
-
+    // グリッド
     var gx = this.gridX;
     var gy = this.gridY;
     // プレイヤー
     var player = Player().addChildTo(this);
-    player.setPosition(gx.center(), gy.span(12.5));
+    player.setPosition(gx.center(), gy.span(13.5));
     player.state = 'FALLING';
     // ブロック
-    [5, 10, 15].each(function(i) {
+    [6, 9, 12, 15].each(function(i) {
       var block = Block().addChildTo(blockGroup);
       block.setPosition(gx.center(), gy.span(i));
-    });
 ```
 
 - プレイヤーとブロックの配置には、**Grid**を利用しています。
@@ -92,7 +88,7 @@ phina.define('Block', {
 当たり判定の場合、上方向にはすり抜けるので**JUMPING**の時は当たり判定を行わず、残りの状態で当たり判定を行えばよいということになります。
 
 ```javascript
-// 毎フレーム更新処理
+ // 毎フレーム更新処理
   update: function(app) {
     var player = this.player;
     var state = this.player.state;
@@ -111,7 +107,7 @@ phina.define('Block', {
         // 縦あたり判定
         this.collisionY();
         break;
-      // 上にジャンプ中
+      // ジャンプ中
       case 'JUMPING':
         player.moveY();
         // 下に落下開始
@@ -119,12 +115,13 @@ phina.define('Block', {
           player.state = 'FALLING';
         }
         break;
-      // 下に落下中  
+      // 落下中  
       case 'FALLING':
         player.moveY();
         this.collisionY();
         break;
     }
+  },
 ```
 
 - **update**関数の引数**app**のプロパティ**pointer**から、タッチの状態を取得します。
@@ -141,6 +138,7 @@ phina.define('Block', {
     var player = this.player;
     // 床に乗っている場合は強引に当た(り判定を作る
     var vy = player.vy === 0 ? 4: player.vy;
+    //var vy = player.vy;
     // 当たり判定用の矩形
     var rect = Rect(player.left, player.top + vy, player.width, player.height);
     var result = false;
@@ -156,13 +154,15 @@ phina.define('Block', {
         player.state = 'ON_BLOCK';
         // アニメーション変更
         player.anim.gotoAndPlay('stand');
-
+        
         result = true;
         return true;
       }
     });
     // 当たり判定なし
-    if (!true) player.state = 'FALLING';
+    if (!true) {
+      player.state = 'FALLING';
+    }
   },
 ```
 
