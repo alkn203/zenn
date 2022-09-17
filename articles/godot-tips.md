@@ -1,4 +1,4 @@
----
+P---
 title: "Godot Engine Tips"
 emoji: "✏"
 type: "tech" # tech: 技術記事 / idea: アイデア
@@ -101,20 +101,21 @@ onready var screen_size = get_viewport_rect().size
 var dragging = false
 
 func _input(event):
-	if event is InputEventMouseButton:
-		if event.pressed:
-			# ドラッグフラグ
-			dragging = true
-		else:
-			dragging = false
-	if event is InputEventMouseMotion:
-		if dragging:
-			# マウス位置取得
-			var pos = event.position
-			# パドルの横座標を追従させ、画面からはみ出ないようにする
-			var pos_min = sprite_size.x / 2
-			var pos_max = screen_size.x - sprite_size.x / 2
-			position.x = clamp(pos.x, pos_min, pos_max)
+    if event is InputEventMouseButton:
+        if event.pressed:
+        # ドラッグフラグ
+        dragging = true
+        else:
+            dragging = false
+
+    if event is InputEventMouseMotion:
+        if dragging:
+            # マウス位置取得
+		var pos = event.position
+                # パドルの横座標を追従させ、画面からはみ出ないようにする
+                var pos_min = sprite_size.x / 2
+                var pos_max = screen_size.x - sprite_size.x / 2
+                position.x = clamp(pos.x, pos_min, pos_max)
 ```
 
 
