@@ -1,4 +1,4 @@
-P---
+---
 title: "Godot Engine Tips"
 emoji: "✏"
 type: "tech" # tech: 技術記事 / idea: アイデア
@@ -117,6 +117,65 @@ func _input(event):
                 var pos_max = screen_size.x - sprite_size.x / 2
                 position.x = clamp(pos.x, pos_min, pos_max)
 ```
+
+## Area2Dの単純移動処理
+```gdscript
+func _process(delta):
+    position.y += speed * delta
+```
+
+## ポーズ処理
+```gdscript
+get_tree().paused = true
+```
+## 掛け捨てタイマー
+```gdscript
+yield(get_tree().create_timer(1.0), "timeout")
+```
+
+## シーン遷移
+```gdscript
+get_tree().change_scene("res://Title.tscn")
+```
+
+## 動的インスタンス作成
+```gdscript
+onready var beam_scene = preload("res://Beam.tscn")
+var beam = beam_scene.instance()
+beam.position = position
+beam_layer.add_child(beam)
+```
+## ルートから辿ったノード取得
+```gdscript
+onready var beam_layer = get_node("/root/Main/BeamLayer")
+```
+
+# スプライトアニメーションの終了時にオブジェクトを削除
+```gdscript
+extends AnimatedSprite
+
+## destroy self when animation is finished.
+func _on_Explosion_animation_finished():
+    queue_free()
+```
+
+## タイマー停止と再開処理
+```gdscript
+func _process(delta):
+    #
+    if ufo_timer.is_stopped():
+        var ufo = ufo_scene.instance()
+        ufo.position = Vector2(screen_size.x, 64)
+        ufo_layer.add_child(ufo)
+        ufo_timer.start()
+```
+
+## 画面から出たオブジェクトを削除
+```gdscript
+func _on_Screen_area_exited(area):
+    area.queue_free()
+```
+
 
 
 
