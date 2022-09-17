@@ -2,11 +2,11 @@
 title: "Godot Engine Tips"
 emoji: "✏"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["Godot"]
-published: false
+topics: ["Godot","Godot Engine"]
+published: true
 ---
 
-# Godot Engineの主に自分用Tips
+# Godot Engineの備忘録的Tips
 
 ## ノードのマウスクリック判定
 ノードのシグナル接続から設定
@@ -56,7 +56,7 @@ var sprite: Sprite = panel.get_node("Sprite")
 panel.get_node("CollisionShape2D").set_deferred("disabled", true)
 ```
 
-## RigidBody2D
+## RigidBody2D関連
 ### 初動処理
 
 ```gdscript
@@ -103,19 +103,19 @@ var dragging = false
 func _input(event):
     if event is InputEventMouseButton:
         if event.pressed:
-        # ドラッグフラグ
-        dragging = true
+            # ドラッグフラグ
+            dragging = true
         else:
             dragging = false
 
     if event is InputEventMouseMotion:
         if dragging:
             # マウス位置取得
-		var pos = event.position
-                # パドルの横座標を追従させ、画面からはみ出ないようにする
-                var pos_min = sprite_size.x / 2
-                var pos_max = screen_size.x - sprite_size.x / 2
-                position.x = clamp(pos.x, pos_min, pos_max)
+		    var pos = event.position
+            # パドルの横座標を追従させ、画面からはみ出ないようにする
+            var pos_min = sprite_size.x / 2
+            var pos_max = screen_size.x - sprite_size.x / 2
+            position.x = clamp(pos.x, pos_min, pos_max)
 ```
 
 ## Area2Dの単純移動処理
@@ -182,12 +182,3 @@ func _on_Screen_area_exited(area):
 ```gdscript
 # レイヤー3との当たり判定を有効に
 body.set_collision_mask_bit(2, true)
-```
-
-
-
-
-
-
-
-
