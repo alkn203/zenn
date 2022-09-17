@@ -182,7 +182,6 @@ func _on_Screen_area_exited(area):
 ```gdscript
 # レイヤー3との当たり判定を有効に
 body.set_collision_mask_bit(2, true)
-queue_free()
 ```
 
 
