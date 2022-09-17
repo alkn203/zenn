@@ -176,6 +176,15 @@ func _on_Screen_area_exited(area):
     area.queue_free()
 ```
 
+## コリジョンマスクの変更
+エディタのレイヤー番号マイナス1で指定
+
+```gdscript
+# レイヤー3との当たり判定を有効に
+body.set_collision_mask_bit(2, true)
+queue_free()
+```
+
 
 
 
