@@ -33,8 +33,8 @@ for piece in get_children():
 以下の場合、MyPanel.gdに記載
 
 ```gdscript
-extends Area2D
 class_name MyPanel
+extends Area2D
 ```
 ## 配列シャッフル
 randomize()は必須
