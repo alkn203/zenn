@@ -111,7 +111,7 @@ func _input(event):
     if event is InputEventMouseMotion:
         if dragging:
             # マウス位置取得
-		    var pos = event.position
+            var pos = event.position
             # パドルの横座標を追従させ、画面からはみ出ないようにする
             var pos_min = sprite_size.x / 2
             var pos_max = screen_size.x - sprite_size.x / 2
