@@ -87,6 +87,7 @@ export (int) var frame_index = 0
 ```
 
 ## スプライトのサイズ取得
+サイズのプロパティがないため。
 ```gdscript
 var sprite_size = get_node("Sprite").texture.get_size()
 ```
@@ -140,8 +141,8 @@ get_tree().change_scene("res://Title.tscn")
 
 ## 動的インスタンス作成
 ```gdscript
-onready var beam_scene = preload("res://Beam.tscn")
-var beam = beam_scene.instance()
+const Beam = preload("res://Beam.tscn")
+var beam = Beam.instance()
 beam.position = position
 beam_layer.add_child(beam)
 ```
@@ -171,6 +172,7 @@ func _process(delta):
 ```
 
 ## 画面から出たオブジェクトを削除
+画面と同サイズのArea2Dを作成
 ```gdscript
 func _on_Screen_area_exited(area):
     area.queue_free()
