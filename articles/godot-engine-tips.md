@@ -200,3 +200,12 @@ if collision:
 		var tile_id = collision.collider.get_cellv(tile_pos)
 ```
 
+## Area2DとKinematicBody2Dの当たり判定
+Area2D側から行う必要あり。
+```gdscript
+# 当たり判定
+func _on_Explosion_body_entered(body):
+	# 当たった相手のやられ処理
+	body.disable()
+```
+
