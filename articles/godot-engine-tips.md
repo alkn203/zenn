@@ -212,15 +212,9 @@ func _on_Explosion_body_entered(body):
 
 ## TileMapで座標とタイル座標を相互変換する
 ```gdscript
-var collision = move_and_collide(velocity * delta)
-# Confirm the colliding body is a TileMap
-if collision:
-	if collision.collider is TileMap:
-		# Find the character's position in tile coordinates
-		var tile_pos = collision.collider.world_to_map(position)
-		# Find the colliding tile position
-		tile_pos -= collision.normal
-		# Get the tile id
-		var tile_id = collision.collider.get_cellv(tile_pos)
+var bomb = Bomb.instance()
+bomb.tile_pos = tilemap.world_to_map(position)
+bomb.position = tilemap.map_to_world(bomb.tile_pos)
+bomb_layer.add_child(bomb)
 ```
 
