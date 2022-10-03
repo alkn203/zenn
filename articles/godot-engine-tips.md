@@ -200,6 +200,7 @@ if collision:
 		var tile_id = collision.collider.get_cellv(tile_pos)
 ```
 
+
 ## Area2DとKinematicBody2Dの当たり判定
 Area2D側から行う必要あり。
 ```gdscript
@@ -207,5 +208,19 @@ Area2D側から行う必要あり。
 func _on_Explosion_body_entered(body):
 	# 当たった相手のやられ処理
 	body.disable()
+```
+
+## TileMapで座標とタイル座標を相互変換する
+```gdscript
+var collision = move_and_collide(velocity * delta)
+# Confirm the colliding body is a TileMap
+if collision:
+	if collision.collider is TileMap:
+		# Find the character's position in tile coordinates
+		var tile_pos = collision.collider.world_to_map(position)
+		# Find the colliding tile position
+		tile_pos -= collision.normal
+		# Get the tile id
+		var tile_id = collision.collider.get_cellv(tile_pos)
 ```
 
