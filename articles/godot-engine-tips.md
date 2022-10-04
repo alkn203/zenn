@@ -218,3 +218,13 @@ bomb.position = tilemap.map_to_world(bomb.tile_pos)
 bomb_layer.add_child(bomb)
 ```
 
+## TileMapでタイル情報を参照する・置き換える
+位置はVector2で指定
+
+```gdscript
+# 指定した位置のタイルをチェック
+var tile = tilemap.get_cellv(tile_pos)
+# タイルを床に置き換える
+tilemap.set_cellv(tile_pos, NONE)
+```
+
