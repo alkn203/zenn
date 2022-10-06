@@ -46,6 +46,13 @@ randomize()
 bomb_array.shuffle()
 ```
 
+# 指定範囲でランダムな整数
+デフォルトでは専用メソッドがないので余りを使う。
+```gdscript
+# 0から6でランダムな整数
+var num = randi() % 7
+```
+
 ## 型指定
 ```gdscript
 var sprite: Sprite = panel.get_node("Sprite")
