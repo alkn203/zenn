@@ -235,3 +235,17 @@ var tile = tilemap.get_cellv(tile_pos)
 tilemap.set_cellv(tile_pos, NONE)
 ```
 
+## Tween関係（Ver.3.5+）
+
+```gdscript
+# 移動後コールバック関数呼び出し
+var tween1 = get_tree().create_tween()
+tween1.tween_property(g1, "position", g2.position, SWAP_DURATION)
+tween1.tween_callback(self, "_after_swap")
+
+# 縮小・削除後コールバック関数呼び出し
+tween.tween_property(dummy, "scale", Vector2(), SWAP_DURATION)
+tween.tween_callback(dummy, "queue_free")
+tween.tween_callback(self, "_after_remove")
+```
+
