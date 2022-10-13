@@ -247,5 +247,15 @@ tween1.tween_callback(self, "_after_swap")
 tween.tween_property(dummy, "scale", Vector2(), SWAP_DURATION)
 tween.tween_callback(dummy, "queue_free")
 tween.tween_callback(self, "_after_remove")
+
+# 並行処理と連続処理の切り替え
+var tween = get_tree().create_tween()
+tween.set_parallel(true)
+
+for dummy in dummy_layer.get_children():
+  tween.tween_property(dummy, "scale", Vector2(), DURATION)
+
+tween.set_parallel(false)
+tween.tween_callback(self, "_after_remove")
 ```
 
