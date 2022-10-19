@@ -34,7 +34,7 @@ for piece in get_children():
 
 ```gdscript
 # 指定のグループに所属しているノードを配列として返す
-var opened_arr = get_tree().get_nodes_in_group("open_hand")# グループに追加
+var opened_arr = get_tree().get_nodes_in_group("open_hand")
 # グループに追加
 opened.add_to_group("drop_hand")
 # グループから削除する
