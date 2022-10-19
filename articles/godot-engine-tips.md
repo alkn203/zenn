@@ -29,6 +29,18 @@ for piece in get_children():
     piece.get_node("Sprite").frame = index
 ```
 
+## グループ関係
+インスタンス作成時に自動でグループに追加されるように、ノードのインスペクタから設定も可能
+
+```gdscript
+# 指定のグループに所属しているノードを配列として返す
+var opened_arr = get_tree().get_nodes_in_group("open_hand")# グループに追加
+# グループに追加
+opened.add_to_group("drop_hand")
+# グループから削除する
+opened.remove_from_group("open_hand")
+```
+
 ## 独自クラスのコード補完が効くようにする
 以下の場合、MyPanel.gdに記載
 
