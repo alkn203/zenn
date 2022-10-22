@@ -21,6 +21,7 @@ func _on_Piece_input_event(viewport, event, shape_idx):
             get_parent().move_piece(self)
 ```
 
+
 ## 子要素をインデックス参照しながらループ
 
 ```gdscript
@@ -28,6 +29,9 @@ for piece in get_children():
     var index = piece.get_index()
     piece.get_node("Sprite").frame = index
 ```
+
+## ColorRect
+デフォルトのままだとマウス入力を遮断する設定になっている。**Mouse**の**Filter**を**Ignore**に変更すればOK。
 
 ## グループ関係
 インスタンス作成時に自動でグループに追加されるように、ノードのインスペクタから設定も可能
