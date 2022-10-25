@@ -233,6 +233,29 @@ func _on_Explosion_body_entered(body):
 	body.disable()
 ```
 
+## オブジェクトが床の上にいるかの判定
+**KinematicBody**と**move_and_slide**を使用。
+**move_and_slide**の第２引数に、法線ベクトルを指定する必要あり。
+
+```gdscript
+# 毎フレーム処理
+func _physics_process(delta):
+  # 移動と当たり判定
+  velocity = move_and_slide(velocity, Vector2(0, -1))
+  # 床の上なら
+  if is_on_floor():
+    # アニメーション変更
+    if animated_sprite.animation != "default":
+      animated_sprite.play("default")
+    # 左クリックでジャンプ
+    if Input.is_action_just_pressed("ui_left_click"):
+      velocity = Vector2(0, -JUMP_POWER)
+      # アニメーション変更
+      animated_sprite.play("jump")
+  # 重力を加算
+  velocity += Vector2(0, GRAVITY)
+```
+
 ## TileMapで座標とタイル座標を相互変換する
 ```gdscript
 var bomb = Bomb.instance()
