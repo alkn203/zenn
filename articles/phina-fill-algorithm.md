@@ -20,7 +20,7 @@ published: true
 * 開始点から左右横方向に塗りつぶしを行い、上下ラインに対象を広げながら繰り返し塗りつぶしていきます。
 * Flood Fillに比べて調べる対象（シード）が少なくなるため、処理が比較的速いという特徴があります。
 
-![](https://storage.googleapis.com/zenn-user-upload/811e88349d03c070b11ee436.gif)
+![scanlineseedfill.gif](/images/scanlineseedfill.gif)
 
 ### 塗りつぶしアニメーション
 * 探査の途中で時間差で水を表示するとタイムラグが生じるため、一旦水を配置したら非表示にしています。
@@ -163,13 +163,16 @@ phina.globalize();
 var ASSETS = {
   // 画像
   image: {
-    'tile': 'https://cdn.jsdelivr.net/gh/alkn203/tomapiko_run@master/assets/tile.png',
-    'tile_sea': 'https://cdn.jsdelivr.net/gh/alkn203/assets_etc@master/pipo-map001_at-umi.png',
+    'tile': 'https://cdn.jsdelivr.net/gh/alkn203/assets_etc@master/tiles2.png',
   },
 };
 // 定数
 var UNIT = 64;
-var TARGET_COLOR = 1;
+var HALF = UNIT / 2;
+var DIR_ARRAY = [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT];
+var WALL = 0;
+var FLOOR = 1;
+var WATER = 2;
 /*
  * メインシーン
  */
@@ -182,21 +185,21 @@ phina.define("MainScene", {
     this.superInit();
     
     var data = [
-      [2,2,2,2,2,2,2,2,2,2],
-      [2,1,1,1,1,1,1,1,1,2],
-      [2,2,2,2,2,2,2,1,1,2],
-      [2,1,1,1,1,1,2,1,1,2],
-      [2,1,1,1,1,1,2,1,1,2],
-      [2,1,1,2,1,1,2,1,1,2],
-      [2,1,1,2,1,1,1,1,1,2],
-      [2,1,1,2,1,1,1,1,1,2],
-      [2,1,1,2,1,1,1,1,1,2],
-      [2,1,1,2,1,1,1,2,2,2],
-      [2,1,1,1,1,1,1,1,1,2],
-      [2,1,1,1,1,2,1,1,1,2],
-      [2,1,2,2,2,2,2,1,1,2],
-      [2,1,1,1,1,1,1,1,1,2],
-      [2,2,2,2,2,2,2,2,2,2]
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,1,1,1,1,1,1,1,1,0],
+      [0,0,0,0,0,0,0,1,1,0],
+      [0,1,1,1,1,1,0,1,1,0],
+      [0,1,1,1,1,1,0,1,1,0],
+      [0,1,1,0,1,1,0,1,1,0],
+      [0,1,1,0,1,1,1,1,1,0],
+      [0,1,1,0,1,1,1,1,1,0],
+      [0,1,1,0,1,1,1,1,1,0],
+      [0,1,1,0,1,1,1,0,0,0],
+      [0,1,1,1,1,1,1,1,1,0],
+      [0,1,1,1,1,0,1,1,1,0],
+      [0,1,0,0,0,0,0,1,1,0],
+      [0,1,1,1,1,1,1,1,1,0],
+      [0,0,0,0,0,0,0,0,0,0]
     ];
 
     this.map = phina.util.Map({
@@ -215,23 +218,13 @@ phina.define("MainScene", {
       var i = (e.pointer.x / UNIT) | 0;
       var j = (e.pointer.y / UNIT) | 0;
       // 
-      if (this.map.checkTileByIndex(i, j) === TARGET_COLOR) {
+      if (this.map.checkTileByIndex(i, j) === FLOOR) {
         this.setInteractive(false);
         // タッチした位置から塗りつぶし開始
         this.fill(i, j);
         this.showWater();
       }
     };
-  },
-  // 水表示
-  showWater: function() {
-    this.waterGroup.children.each(function(water, i) {
-      // 時間差で表示
-      water.tweener.wait(100 * i)
-                   .call(function() {
-                     water.show();
-                   }).play();
-    });
   },
   // 塗りつぶし
   fill: function(i, j) {
@@ -240,39 +233,39 @@ phina.define("MainScene", {
     // シードバッファ
     this.buffer = [];
     // バッファにスタック
-    this.buffer.push({ i : i, j : j });
+    this.buffer.push(Vector2(i, j));
     // バッファにシードがある限り
     while (this.buffer.length > 0) {
       // シードを１つ取り出す
       var point = this.buffer.pop();
       // 塗れる左端
-      var leftI = point.i;
+      var leftI = point.x;
       // 塗れる右端
-      var rightI = point.i;
+      var rightI = point.x;
       // 既に塗られていたらスキップ
-      if (map.checkTileByIndex(point.i, point.j) === -1) {
+      if (map.checkTileByIndex(point.x, point.y) === -1) {
         continue;
       }
       // 左端を特定
       for (; 0 < leftI; leftI--) {
-        if (map.checkTileByIndex(leftI - 1, point.j) !== TARGET_COLOR) {
+        if (map.checkTileByIndex(leftI - 1, point.y) !== FLOOR) {
           break;
         }
       }
       // 右端をよ特定
       for (; rightI < 9; rightI++) {
-        if (map.checkTileByIndex(rightI + 1, point.j) !== TARGET_COLOR) {
+        if (map.checkTileByIndex(rightI + 1, point.y) !== FLOOR) {
           break;
         }
       }
       // 横方向を塗る
-      this.paintHorizontal(leftI, rightI, point.j);
+      this.paintHorizontal(leftI, rightI, point.y);
       // 上下のラインをサーチ
-      if (point.j + 1 < 14) {
-        this.scanLine(leftI, rightI, point.j + 1);
+      if (point.y + 1 < 14) {
+        this.scanLine(leftI, rightI, point.y + 1);
       }
-      if (point.j - 1 >= 0) {
-        this.scanLine(leftI, rightI, point.j - 1);
+      if (point.y - 1 >= 0) {
+        this.scanLine(leftI, rightI, point.y - 1);
       }
     }
   },
@@ -286,10 +279,9 @@ phina.define("MainScene", {
       // 指定したインデックスの子要素を得る
       var target = map.getChildByIndex(i, j);
       // 水スプライト・一旦非表示
-      var sea = Sprite('tile_sea', 32, 32).addChildTo(this.waterGroup);
+      var sea = Sprite('tile', UNIT, UNIT).addChildTo(this.waterGroup);
       sea.setPosition(target.x, target.y);
-      sea.setFrameIndex(4).hide();
-      sea.setSize(64, 64);
+      sea.setFrameIndex(2).hide();
     }
   },
   // ライン上でシードをスキャンする
@@ -299,7 +291,7 @@ phina.define("MainScene", {
     while (leftI <= rightI) {
       // 塗れる最初の場所
       for (; leftI <= rightI; leftI++) {
-        if (map.checkTileByIndex(leftI, j) === TARGET_COLOR) {
+        if (map.checkTileByIndex(leftI, j) === FLOOR) {
             break;
         }
       }
@@ -309,18 +301,31 @@ phina.define("MainScene", {
       }
       // 塗れない右端を特定
       for (; leftI <= rightI; leftI++) {
-        if (map.checkTileByIndex(leftI, j) !== TARGET_COLOR) {
+        if (map.checkTileByIndex(leftI, j) !== FLOOR) {
           break;
         }
       }
       // 塗れる右端をｓシードに登録
-      this.buffer.push({ i : leftI - 1, j : j});
+      this.buffer.push(Vector2(leftI - 1, j));
       // シード表示
       Label({
         text: 'S',
         fontSize: UNIT * 0.8,
-      }).addChildTo(this).setPosition((leftI - 1) * UNIT + 32, j * UNIT + 32);
+      }).addChildTo(this).setPosition((leftI - 1) * UNIT + HALF, j * UNIT + HALF);
     }
+  },
+  // 水を表示
+  showWater:function() {
+    var self = this;
+
+    this.waterGroup.children.each(function(water, i) {
+      // 時間差で表示
+      self.tweener.wait(50)
+                  .call(function() {
+                     water.show();
+                  });
+    });
+    self.tweener.play();
   },
 });
 /*
@@ -346,7 +351,7 @@ phina.main(function() {
 ## runstantプロジェクト
 https://runstant.com/alkn203/projects/d28dc8e2
 
-https://runstant.com/alkn203/projects/28a1c109
+https://runstant.com/alkn203/projects/6f995636
 
 ## 参考にしたサイト
 https://fussy.web.fc2.com/algo/algo3-1.htm
