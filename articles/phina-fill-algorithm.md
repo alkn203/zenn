@@ -14,6 +14,8 @@ published: true
 * 塗りつぶしにおける一番単純なアルゴリズムで、塗りつぶし開始地点から上下左右のタイルで塗りつぶし可能なものを調べて、それを再帰的に調べて処理していくというものです。
 * マス目が多いほど調べる対象が増えますので、処理が遅くなる可能性があります。
 
+![floodfill.gif](/images/floodfill.gif)
+
 ![](https://storage.googleapis.com/zenn-user-upload/b9d99f6a920e2fb422ca3b07.gif)
 
 ### Scanline Seed Fill アルゴリズム
