@@ -16,8 +16,6 @@ published: true
 
 ![floodfill.gif](/images/floodfill.gif)
 
-![](https://storage.googleapis.com/zenn-user-upload/b9d99f6a920e2fb422ca3b07.gif)
-
 ### Scanline Seed Fill アルゴリズム
 * 開始点から左右横方向に塗りつぶしを行い、上下ラインに対象を広げながら繰り返し塗りつぶしていきます。
 * Flood Fillに比べて調べる対象（シード）が少なくなるため、処理が比較的速いという特徴があります。
