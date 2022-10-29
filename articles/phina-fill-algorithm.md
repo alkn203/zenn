@@ -123,13 +123,16 @@ phina.define("MainScene", {
   },
   // 水を表示
   showWater:function() {
+    var self = this;
+
     this.waterGroup.children.each(function(water, i) {
       // 時間差で表示
-      water.tweener.wait(100 * i)
-                   .call(function() {
+      self.tweener.wait(50)
+                  .call(function() {
                      water.show();
-                   });
+                  });
     });
+    self.tweener.play();
   },
 });
 /*
@@ -341,7 +344,7 @@ phina.main(function() {
 
 
 ## runstantプロジェクト
-https://runstant.com/alkn203/projects/0a9578c1
+https://runstant.com/alkn203/projects/d28dc8e2
 
 https://runstant.com/alkn203/projects/28a1c109
 
