@@ -27,8 +27,8 @@ published: false
 
 ```
 
-## runstantプロジェクト
-https://runstant.com/alkn203/projects/d28dc8e2
+## runstant
+https://runstant.com/alkn203/projects/c2b2cb2b
 
 ## クラスタリング法　アルゴリズム
 * マスを部屋とみなし、固有の部屋番号を振る。
@@ -49,4 +49,4 @@ https://runstant.com/alkn203/projects/d28dc8e2
 ```
 
 ## runstantプロジェクト
-https://runstant.com/alkn203/projects/d28dc8e2
+https://runstant.com/alkn203/projects/dcf0eadb
