@@ -3,7 +3,7 @@ title: "【phina.js】迷路生成アルゴリズムとtweenerを組み合わせ
 emoji: "🐦"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["phina","javascript","html5","ゲーム開発"]
-published: false
+published: true
 ---
 
 ## はじめに
