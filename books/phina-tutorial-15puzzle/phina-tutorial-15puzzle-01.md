@@ -1,8 +1,5 @@
 ---
-title: 【phina.js】ゲーム作成チュートリアル（15パズル）（その１）【ピースの配置】
-tags: phina.js JavaScript HTML5 ゲーム制作 チュートリアル
-author: alkn203
-slide: false
+title:"【phina.js】ゲーム作成チュートリアル（15パズル）（その１）【ピースの配置】`
 ---
 ※これまでのチュートリアルは[phina.js チュートリアル集](https://qiita.com/alkn203/items/2150f739d383b4fd5a92)にまとめています。
 
