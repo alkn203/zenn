@@ -1,5 +1,5 @@
-title: "phina.js ゲーム作成チュートリアル（その１）【15パズル】"
-summary: "javascriptのゲーム作成用ライブラリphina.jsのチュートリアルです。簡単な15パズルの作成を通してphina.jsの使い方を説明します。身につきます。学べます。関するTipsについて書いています。この本は上巻です。非公式ですが、少しでも参考になれば幸いです。順次更新していきますので、よろしければ下巻も含めてチェックをよろしくお願いします。"
+title: "phina.js ゲーム作成チュートリアル 15パズル"
+summary: "javascriptのゲーム作成用ライブラリphina.jsのチュートリアルです。簡単な15パズルの作成を通してphina.jsの使い方を解説します。"
 topics: ["phina","javascript","html5","ゲーム開発"]
 published: false
 price: 0 # 有料の場合200〜5000
