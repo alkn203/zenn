@@ -421,5 +421,4 @@ phina.main(function() {
 
 ## runstantプロジェクト
 
-<
 https://runstant.com/alkn203/projects/dcf0eadb
