@@ -190,7 +190,7 @@ phina.main(function() {
 
 ## runstant
 
-<https://runstant.com/alkn203/projects/c2b2cb2b>
+https://runstant.com/alkn203/projects/c2b2cb2b
 
 ## クラスタリング法　アルゴリズム
 
@@ -421,4 +421,5 @@ phina.main(function() {
 
 ## runstantプロジェクト
 
-<https://runstant.com/alkn203/projects/dcf0eadb>
+<
+https://runstant.com/alkn203/projects/dcf0eadb
