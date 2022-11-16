@@ -9,6 +9,7 @@ published: true
 # Godot Engineの備忘録的Tips
 
 ## ノードのマウスクリック判定
+
 ノードのシグナル接続から設定
 
 ```gdscript
@@ -21,7 +22,6 @@ func _on_Piece_input_event(viewport, event, shape_idx):
             get_parent().move_piece(self)
 ```
 
-
 ## 子要素をインデックス参照しながらループ
 
 ```gdscript
@@ -31,9 +31,11 @@ for piece in get_children():
 ```
 
 ## ColorRect
+
 デフォルトのままだとマウス入力を遮断する設定になっている。**Mouse**の**Filter**を**Ignore**に変更すればOK。
 
 ## グループ関係
+
 インスタンス作成時に自動でグループに追加されるように、ノードのインスペクタから設定も可能
 
 ```gdscript
@@ -46,13 +48,16 @@ opened.remove_from_group("open_hand")
 ```
 
 ## 独自クラスのコード補完が効くようにする
+
 以下の場合、MyPanel.gdに記載
 
 ```gdscript
 class_name MyPanel
 extends Area2D
 ```
+
 ## 配列シャッフル
+
 randomize()は必須
 
 ```gdscript
@@ -62,24 +67,29 @@ randomize()
 bomb_array.shuffle()
 ```
 
-# 指定範囲でランダムな整数
+## 指定範囲でランダムな整数
+
 デフォルトでは専用メソッドがないので余りを使う。
+
 ```gdscript
 # 0から6でランダムな整数
 var num = randi() % 7
 ```
 
 ## 型指定
+
 ```gdscript
 var sprite: Sprite = panel.get_node("Sprite")
 ```
 
-## フレーム処理の一番最後にプロパティを設定する　　　
+## フレーム処理の一番最後にプロパティを設定する
+
 ```gdscript
 panel.get_node("CollisionShape2D").set_deferred("disabled", true)
 ```
 
 ## RigidBody2D関連
+
 ### 初動処理
 
 ```gdscript
@@ -87,14 +97,18 @@ direction = Vector2(0, 1)
 velocity = direction * ball_speed
 apply_impulse(Vector2.ZERO, velocity)
 ```
+
 ### 定速度変更
+
 ```gdscript
 # 衝突位置で反射角度を変える
 direction = (position - body.position).normalized()
 velocity = direction * ball_speed
 linear_velocity = velocity
 ```
+
 ## 衝突したオブジェクトの判定
+
 ```gdscript
 func _on_Ball_body_entered(body):
     # ブロックとの衝突
@@ -105,22 +119,27 @@ func _on_Ball_body_entered(body):
 ```
 
 ## エディタのインスペクタからプロパティを設定可能にする
+
 ```gdscript
 export (int) var frame_index = 0
 ```
 
 ## スプライトのサイズ取得
+
 サイズのプロパティがないため。
+
 ```gdscript
 var sprite_size = get_node("Sprite").texture.get_size()
 ```
 
 ## 画面サイズ取得
+
 ```gdscript
 onready var screen_size = get_viewport_rect().size
 ```
 
 ## マウスドラッグ判定
+
 ```gdscript
 var dragging = false
 
@@ -143,38 +162,47 @@ func _input(event):
 ```
 
 ## Area2Dの単純移動処理
+
 ```gdscript
 func _process(delta):
     position.y += speed * delta
 ```
 
 ## ポーズ処理
+
 ```gdscript
 get_tree().paused = true
 ```
+
 ## 掛け捨てタイマー
+
 ```gdscript
 yield(get_tree().create_timer(1.0), "timeout")
 ```
 
 ## シーン遷移
+
 ```gdscript
 get_tree().change_scene("res://Title.tscn")
 ```
 
 ## 動的インスタンス作成
+
 ```gdscript
 const Beam = preload("res://Beam.tscn")
 var beam = Beam.instance()
 beam.position = position
 beam_layer.add_child(beam)
 ```
+
 ## ルートから辿ったノード取得
+
 ```gdscript
 onready var beam_layer = get_node("/root/Main/BeamLayer")
 ```
 
-# スプライトアニメーションの終了時にオブジェクトを削除
+## スプライトアニメーションの終了時にオブジェクトを削除
+
 ```gdscript
 extends AnimatedSprite
 
@@ -184,6 +212,7 @@ func _on_Explosion_animation_finished():
 ```
 
 ## タイマー停止と再開処理
+
 ```gdscript
 func _process(delta):
     #
@@ -195,13 +224,16 @@ func _process(delta):
 ```
 
 ## 画面から出たオブジェクトを削除
+
 画面と同サイズのArea2Dを作成
+
 ```gdscript
 func _on_Screen_area_exited(area):
     area.queue_free()
 ```
 
 ## コリジョンマスクの変更
+
 エディタのレイヤー番号マイナス1で指定
 
 ```gdscript
@@ -210,30 +242,33 @@ body.set_collision_mask_bit(2, true)
 ```
 
 ## TileMapでヒットしたタイルの情報を得る
+
 ```gdscript
 var collision = move_and_collide(velocity * delta)
 # Confirm the colliding body is a TileMap
 if collision:
-	if collision.collider is TileMap:
-		# Find the character's position in tile coordinates
-		var tile_pos = collision.collider.world_to_map(position)
-		# Find the colliding tile position
-		tile_pos -= collision.normal
-		# Get the tile id
-		var tile_id = collision.collider.get_cellv(tile_pos)
+ if collision.collider is TileMap:
+  # Find the character's position in tile coordinates
+  var tile_pos = collision.collider.world_to_map(position)
+  # Find the colliding tile position
+  tile_pos -= collision.normal
+  # Get the tile id
+  var tile_id = collision.collider.get_cellv(tile_pos)
 ```
 
-
 ## Area2DとKinematicBody2Dの当たり判定
+
 Area2D側から行う必要あり。
+
 ```gdscript
 # 当たり判定
 func _on_Explosion_body_entered(body):
-	# 当たった相手のやられ処理
-	body.disable()
+ # 当たった相手のやられ処理
+ body.disable()
 ```
 
 ## オブジェクトが床の上にいるかの判定
+
 **KinematicBody**と**move_and_slide**を使用。
 **move_and_slide**の第２引数に、法線ベクトルを指定する必要あり。
 
@@ -257,6 +292,7 @@ func _physics_process(delta):
 ```
 
 ## TileMapで座標とタイル座標を相互変換する
+
 ```gdscript
 var bomb = Bomb.instance()
 bomb.tile_pos = tilemap.world_to_map(position)
@@ -265,6 +301,7 @@ bomb_layer.add_child(bomb)
 ```
 
 ## TileMapでタイル情報を参照する・置き換える
+
 位置はVector2で指定
 
 ```gdscript
@@ -298,3 +335,62 @@ tween.set_parallel(false)
 tween.tween_callback(self, "_after_remove")
 ```
 
+## Area2Dのキーボード移動
+
+```gdscript
+extends Sprite
+
+# 定数
+const PLAYER_SPEED = 5
+const KEY_ARRAY = [
+    ["ui_down", Vector2(0, 1)],
+    ["ui_up", Vector2(0, -1)],
+    ["ui_left", Vector2(-1, 0)],
+    ["ui_right", Vector2(1, 0)]]
+
+# 毎フレーム処理
+func _process(delta):
+  var velocity = Vector2.ZERO
+  
+  for elem in KEY_ARRAY:
+    var dir = elem[0]
+    # キーにより方向振り分け
+    if Input.is_action_pressed(dir):
+      velocity = elem[1]
+  # 何かしら入力があれば
+  if velocity.x != 0 or velocity.y != 0:
+    # プレイヤー位置更新
+    position += velocity * PLAYER_SPEED
+```
+
+## Kinematic2Dのキーボード移動
+
+```gdscript
+extends KinematicBody2D
+
+const KEY_ARRAY = [
+    ["ui_down", Vector2(0, 1)],
+    ["ui_up", Vector2(0, -1)],
+    ["ui_left", Vector2(-1, 0)],
+    ["ui_right", Vector2(1, 0)]]
+# プレイヤーの速度
+export (int) var speed = 150
+# 移動方向ベクトル
+var velocity = Vector2(0, 0)
+
+# 毎フレーム処理
+func _physics_process(delta):
+  # 移動入力受付
+  velocity = Vector2.ZERO
+  
+  for elem in KEY_ARRAY:
+    var dir = elem[0]
+    # キーにより方向振り分け
+    if Input.is_action_pressed(dir):
+      velocity = elem[1]
+      
+  velocity = velocity.normalized() * speed
+  # 移動と当たり判定
+  var collision = move_and_collide(velocity * delta)
+
+```
