@@ -1,7 +1,0 @@
-title: "phina.js ゲーム作成解説 避けゲーム"
-summary: "javascriptのライブラリphina.jsを使ったゲーム作成の解説です。テーマは避けゲームです。phina.js Tips集を先に見て頂くと理解が深まるかと思います。"
-topics: ["phina","javascript","html5","ゲーム開発"]
-published: false
-price: 0 # 有料の場合200〜5000
-# 本に含めるチャプターを順番に並べましょう
-#chapters:
