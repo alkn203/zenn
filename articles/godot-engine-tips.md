@@ -394,3 +394,21 @@ func _physics_process(delta):
   var collision = move_and_collide(velocity * delta)
 
 ```
+
+## Kinematic2Dの当たり判定と反射処理
+### move_and_slide
+move_and_collideの返り値は、衝突後のベクトルとなるため、衝突前のベクトルを変数に退避させておく必要がある。
+
+```gdscript
+# 毎フレーム処理
+func _physics_process(delta) :
+  var prev_velocity = velocity
+  # 移動と当たり判定
+  velocity = move_and_slide(velocity, Vector2.UP)
+  # 壁に接触なら
+  if is_on_wall():
+    # 反射移動処理
+    if get_slide_count() > 0:
+      var collision = get_slide_collision(0)
+      velocity = prev_velocity.bounce(collision)
+```
