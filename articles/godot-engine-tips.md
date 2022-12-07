@@ -363,7 +363,7 @@ func _process(delta):
     position += velocity * PLAYER_SPEED
 ```
 
-## Kinematic2Dのキーボード移動
+## KinematicBody2Dのキーボード移動
 
 ```gdscript
 extends KinematicBody2D
@@ -395,8 +395,10 @@ func _physics_process(delta):
 
 ```
 
-## Kinematic2Dの当たり判定と反射処理
+## KinematicBody2Dの当たり判定と反射処理
+
 ### move_and_slide
+
 move_and_slideの返り値は、衝突後のベクトルとなるため、衝突前のベクトルを変数に退避させておく必要がある。
 
 ```gdscript
