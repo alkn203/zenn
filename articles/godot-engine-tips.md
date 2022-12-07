@@ -397,7 +397,7 @@ func _physics_process(delta):
 
 ## Kinematic2Dの当たり判定と反射処理
 ### move_and_slide
-move_and_collideの返り値は、衝突後のベクトルとなるため、衝突前のベクトルを変数に退避させておく必要がある。
+move_and_slideの返り値は、衝突後のベクトルとなるため、衝突前のベクトルを変数に退避させておく必要がある。
 
 ```gdscript
 # 毎フレーム処理
