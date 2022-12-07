@@ -189,8 +189,8 @@ get_tree().change_scene("res://Title.tscn")
 ## 動的インスタンス作成
 
 ```gdscript
-const Beam = preload("res://Beam.tscn")
-var beam = Beam.instance()
+const BeamScene = preload("res://Beam.tscn")
+var beam = BeamScene.instance()
 beam.position = position
 beam_layer.add_child(beam)
 ```
