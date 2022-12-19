@@ -85,10 +85,7 @@ export QT_IM_MODULE=fcitx
 
 # ターミナル設定
 
-## gitコマンド補完
-
-
-ブランチ名やコミット差分が表示されるようになる。
+gitコマンドの補完やブランチ名やコミット差分が表示されるようになる。
 https://qiita.com/varmil/items/9b0aeafa85975474e9b6
 
 #### 現在のプロンプト表示設定
