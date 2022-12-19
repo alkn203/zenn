@@ -7,20 +7,55 @@ published: true
 ---
 
 # パッケージ更新
-* pamacの設定から、ダウンロードミラー先を日本に変更
-* パッケージ更新コマンド
+* 管理ソフト**pamac**の設定から、ダウンロードミラー先を**日本**に変更
+* パッケージ更新コマンドを実行
 
 ```sh
 sudo pacman -Syu
 ```
 
-# キー入れ替え
+# AURヘルパーインストール
+
+```sh
+sudo pacman -S yay
+```
+
+# 開発環境インストール
+
+## Google Chrome
+
+```sh
+yay -S google-chrome
+```
+
+### Visual Studio Code
+
+```sh
+yay -S visual-studio-code-bin
+```
+
+# CapsLockキーと左Ctrlキー入れ替え
+
+* GUIで設定可能な**Input Remapper**を導入
+
+```sh
+yay -S visual-studio-code-bin
+```
+
+* 設定方法
+
+https://arimasou16.com/blog/2022/09/11/00477/
+
+:::details その他の方法
+
 * Caps→Ctrl
 * 左Ctrl←→Alt
 * 「セッションと起動」→「自動開始アプリケーション」→「追加」→「コマンド」に以下を追加
 ```
 /usr/bin/setxkbmap -option "ctrl:nocaps" -option "ctrl:swap_lalt_lctl"
 ```
+
+:::
 
 # 日本語入力
 ## パッケージインストール(fcitx-mozc)
