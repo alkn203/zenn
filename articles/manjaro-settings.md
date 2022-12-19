@@ -36,13 +36,13 @@ yay -S visual-studio-code-bin
 
 # CapsLockキーと左Ctrlキー入れ替え
 
-* GUIで設定可能な**Input Remapper**を導入
+GUIで設定可能な**Input Remapper**を導入
 
 ```sh
-yay -S visual-studio-code-bin
+yay -S input-remapper-git
 ```
 
-* 設定方法
+設定方法
 
 https://arimasou16.com/blog/2022/09/11/00477/
 
@@ -83,9 +83,10 @@ export XMODIFIERS=@im=fcitx
 export QT_IM_MODULE=fcitx
 ```
 
-# git設定
+# ターミナル設定
 
-## プロンプト表示変更
+## gitコマンド補完
+
 
 ブランチ名やコミット差分が表示されるようになる。
 https://qiita.com/varmil/items/9b0aeafa85975474e9b6
