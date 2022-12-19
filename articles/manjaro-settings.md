@@ -11,6 +11,10 @@ published: true
 # パッケージ更新
 * pamacの設定から、ダウンロードミラー先を日本に変更
 
+```sh
+sudo pacman -Syu
+```
+
 ## キー入れ替え
 * Caps→Ctrl
 * 左Ctrl←→Alt
