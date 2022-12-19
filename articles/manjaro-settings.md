@@ -117,12 +117,6 @@ https://zenn.dev/oratake/articles/linux-git-https-token
 
 https://qiita.com/kawadumax/items/8bbbc042c6f17407847e
 
-## Atom設定
-### emacsキーバインド
-* atomic-emacsパッケージをインストール
-* キーマップを設定（現在は、edit → keymap）
-https://qiita.com/jirourashima/items/153aefdb471b561df4f6
-
 ## Visual Studio Code設定
 ### emacsキーバインド
 https://qiita.com/bbapexx/items/e1812407ed0ee948dd9c
