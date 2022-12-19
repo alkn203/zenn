@@ -85,11 +85,19 @@ export QT_IM_MODULE=fcitx
 
 # ターミナル設定
 ## gitコマンドの補完
-### git-completion.bash
+### git-completion.bashの導入
 
 ```sh
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash
 chmod a+x ~/.git-completion.bash
+```
+
+## gitブランチ名などの状態表示
+### git-prompt.shの導入
+
+```sh
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
+chmod a+x ~/.git-prompt.sh
 ```
 
 https://qiita.com/varmil/items/9b0aeafa85975474e9b6
