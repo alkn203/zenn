@@ -8,6 +8,9 @@ published: true
 
 # Manjaro Linuxの自分用の設定備忘録
 
+# パッケージ更新
+* pamacの設定から、ダウンロードミラー先を日本に変更
+
 ## キー入れ替え
 * Caps→Ctrl
 * 左Ctrl←→Alt
