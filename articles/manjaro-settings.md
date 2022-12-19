@@ -84,8 +84,14 @@ export QT_IM_MODULE=fcitx
 ```
 
 # ターミナル設定
+## gitコマンドの補完
+### git-completion.bash
 
-gitコマンドの補完やブランチ名やコミット差分が表示されるようになる。
+```sh
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash
+chmod a+x ~/.git-completion.bash
+```
+
 https://qiita.com/varmil/items/9b0aeafa85975474e9b6
 
 #### 現在のプロンプト表示設定
