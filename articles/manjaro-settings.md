@@ -6,16 +6,15 @@ topics: ["Linux"]
 published: true
 ---
 
-# Manjaro Linuxの自分用の設定備忘録
-
 # パッケージ更新
 * pamacの設定から、ダウンロードミラー先を日本に変更
+* パッケージ更新コマンド
 
 ```sh
 sudo pacman -Syu
 ```
 
-## キー入れ替え
+# キー入れ替え
 * Caps→Ctrl
 * 左Ctrl←→Alt
 * 「セッションと起動」→「自動開始アプリケーション」→「追加」→「コマンド」に以下を追加
@@ -23,14 +22,16 @@ sudo pacman -Syu
 /usr/bin/setxkbmap -option "ctrl:nocaps" -option "ctrl:swap_lalt_lctl"
 ```
 
-## 日本語入力
-### パッケージインストール(fcitx-mozc)
-```
-$ sudo pacman -S fcitx-mozc fcitx-gtk2 fcitx-gtk3 fcitx-qt5
+# 日本語入力
+## パッケージインストール(fcitx-mozc)
+
+```sh
+sudo pacman -S fcitx-mozc fcitx-gtk2 fcitx-gtk3 fcitx-qt5
 ```
 
-### .xprofileを作成して以下を入力
-```
+## .xprofileを作成して以下を入力
+
+```sh
 export LANG="ja_JP.UTF-8"
 export XMODIFIERS="@im=fcitx"
 export XMODIFIER="@im=fcitx"
@@ -39,15 +40,18 @@ export QT_IM_MODULE=fcitx
 export DefaultIMModule=fcitx
 ```
 
-### .bashrcに以下を追記
-```
+## .bashrcに以下を追記
+
+```sh
 export GTK_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export QT_IM_MODULE=fcitx
 ```
 
-## git設定
-### プロンプト表示変更
+# git設定
+
+## プロンプト表示変更
+
 ブランチ名やコミット差分が表示されるようになる。
 https://qiita.com/varmil/items/9b0aeafa85975474e9b6
 
