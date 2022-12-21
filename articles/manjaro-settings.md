@@ -83,7 +83,32 @@ export XMODIFIERS=@im=fcitx
 export QT_IM_MODULE=fcitx
 ```
 
+# 等幅フォント導入
+## Source Han Code JP
+
+```sh
+yay -S otf-source-han-code-jp
+```
+
+## システムフォント設定
+外観
+↓
+システムフォント
+↓
+monospace
+↓
+源ノ角 Source Han Code JP
+
 # ターミナル設定
+## フォント設定
+フォント一覧に出てこないので、以下で設定
+
+設定
+↓
+外観
+↓
+システムフォントを使うにチェック
+
 ## gitコマンドの補完
 ### git-completion.bashの導入
 
