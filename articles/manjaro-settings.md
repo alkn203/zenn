@@ -145,20 +145,24 @@ git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
 
 https://zenn.dev/oratake/articles/linux-git-https-token
 
-## runstant カーソルずれ問題対応
+# runstant カーソルずれ問題対応
 デフォルトのままだと入力とカーソルがずれる。
-### 対処方法
-* AURリポジトリから**monaco**フォントをインストール
-* パッケージ名：**ttf-monaco**
+
+## 対処方法
+AURリポジトリから**monaco**フォントをインストール
+
+```sh
+yay -S ttf-monaco
+```
 
 https://qiita.com/kawadumax/items/8bbbc042c6f17407847e
 
-## Visual Studio Code設定
-### emacsキーバインド
+# Visual Studio Code設定
+## emacsキーバインド
 https://qiita.com/bbapexx/items/e1812407ed0ee948dd9c
 https://developers.gmo.jp/11041/
 
-### fcitxのCTRL + SPACEの日本語変換を無効にする
+# fcitxのCTRL + SPACEの日本語変換を無効にする
 * メニュー　→　設定　でコンフィグファイルがエディタで開かれる
 * 以下のように変更
 
@@ -168,5 +172,5 @@ https://developers.gmo.jp/11041/
 TriggerKey=ZENKAKUHANKAKU
 ```
 
-## homeにある日本語ディレクトリを英語にする
+# homeにある日本語ディレクトリを英語にする
 https://qiita.com/apu4se/items/7e36586e0ba1bfe5dd48
