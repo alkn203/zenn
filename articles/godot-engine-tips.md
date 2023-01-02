@@ -2,11 +2,20 @@
 title: "Godot Engine Tips"
 emoji: "✏"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["Godot","Godot Engine"]
+topics: ["Godot","GodotEngine"]
 published: true
 ---
 
 # Godot Engineの備忘録的Tips
+
+## マウスクリック判定
+
+```gdscript
+func _input(event):
+    if event is InputEventMouseButton:
+        if event.button_index == BUTTON_LEFT and event.pressed:
+            print("Left button was clicked at ", event.position)
+```
 
 ## ノードのマウスクリック判定
 
