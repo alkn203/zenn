@@ -48,6 +48,8 @@ for piece in get_children():
 インスタンス作成時に自動でグループに追加されるように、ノードのインスペクタから設定も可能
 
 ```gdscript
+# 指定のグループに所属しているかどうか
+node.is_in_group("group")
 # 指定のグループに所属しているノードを配列として返す
 var opened_arr = get_tree().get_nodes_in_group("open_hand")
 # グループに追加
