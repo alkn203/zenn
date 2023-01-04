@@ -12,9 +12,9 @@ published: true
 
 ```gdscript
 func _input(event):
-    if event is InputEventMouseButton:
-        if event.button_index == BUTTON_LEFT and event.pressed:
-            print("Left button was clicked at ", event.position)
+  if event is InputEventMouseButton:
+    if event.button_index == BUTTON_LEFT and event.pressed:
+      print("Left button was clicked at ", event.position)
 ```
 
 ## ノードのマウスクリック判定
@@ -23,20 +23,19 @@ func _input(event):
 
 ```gdscript
 func _on_Piece_input_event(viewport, event, shape_idx):
-    # マウス入力イベントが発生
-    if event is InputEventMouseButton:
-        # マウスボタンの押下イベント
-        if event.is_pressed():
-            # 親の関数を呼び出す
-            get_parent().move_piece(self)
+  # マウス入力イベントが発生
+  if event is InputEventMouseButton:
+    # マウスボタンの押下イベント
+    if event.is_pressed():
+      pass
 ```
 
 ## 子要素をインデックス参照しながらループ
 
 ```gdscript
 for piece in get_children():
-    var index = piece.get_index()
-    piece.get_node("Sprite").frame = index
+  var index = piece.get_index()
+  piece.get_node("Sprite").frame = index
 ```
 
 ## ColorRect
