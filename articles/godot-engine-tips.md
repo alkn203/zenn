@@ -59,7 +59,7 @@ node.remove_from_group("group")
 
 ## 独自クラスのコード補完が効くようにする
 
-以下の場合、MyClasd.gdに記載
+以下の場合、MyClass.gdに記載
 
 ```gdscript
 class_name MyClass
