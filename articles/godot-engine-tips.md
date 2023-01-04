@@ -50,19 +50,19 @@ for piece in get_children():
 # 指定のグループに所属しているかどうか
 node.is_in_group("group")
 # 指定のグループに所属しているノードを配列として返す
-var opened_arr = get_tree().get_nodes_in_group("open_hand")
+var array = get_tree().get_nodes_in_group("group")
 # グループに追加
-opened.add_to_group("drop_hand")
+node.add_to_group("group")
 # グループから削除する
-opened.remove_from_group("open_hand")
+node.remove_from_group("group")
 ```
 
 ## 独自クラスのコード補完が効くようにする
 
-以下の場合、MyPanel.gdに記載
+以下の場合、MyClasd.gdに記載
 
 ```gdscript
-class_name MyPanel
+class_name MyClass
 extends Area2D
 ```
 
@@ -74,7 +74,7 @@ randomize()は必須
 # 乱数初期化
 randomize()
 # 配列をシャッフル
-bomb_array.shuffle()
+array.shuffle()
 ```
 
 ## 指定範囲でランダムな整数
