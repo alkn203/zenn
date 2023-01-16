@@ -433,7 +433,7 @@ func _physics_process(delta) :
 var angle: float = deg2rad(90)
 # 回転の原点
 var point: Vector2 = children.front().position
-# 個々ののブロックを90度回転
+# 個々のブロックを90度回転
 for block in children:
   block.position = point + (block.position - point).rotated(angle)
 ```
