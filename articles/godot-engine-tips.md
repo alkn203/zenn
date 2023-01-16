@@ -423,4 +423,17 @@ func _physics_process(delta) :
     if get_slide_count() > 0:
       var collision = get_slide_collision(0)
       velocity = prev_velocity.bounce(collision)
+
+```
+
+## ある点を中心に指定角度回転させた座標
+
+```gdscript
+# 度からラジアンへ変換
+var angle: float = deg2rad(90)
+# 回転の原点
+var point: Vector2 = children.front().position
+# 個々ののブロックを90度回転
+for block in children:
+  block.position = point + (block.position - point).rotated(angle)
 ```
