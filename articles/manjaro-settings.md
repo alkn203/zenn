@@ -174,3 +174,6 @@ TriggerKey=ZENKAKUHANKAKU
 
 # homeにある日本語ディレクトリを英語にする
 https://qiita.com/apu4se/items/7e36586e0ba1bfe5dd48
+
+# Audacity設定
+https://virment.com/how-to-use-audacity/
