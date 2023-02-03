@@ -59,7 +59,26 @@ Web上でコーディングできる[runstant](https://runstant.com/)を使う�
 * **Twitter**で **#phina_js** タグをつけて質問すれば、ユーザーが優しく真剣に答えてくれます。
 
 ## Tipsなど
-まずどんなものか少しでも知ってもらうために、手前味噌ながら[phina.js Tips集](https://zenn.dev/alkn203/books/phina-js-tips?utm_source=pocket_mylist)というものを書いていますので、こちらもよろしければご覧ください。
+**phina.js**を使う上で参考になると思われる記事やサイトを以下にまとめました。
+
+https://zenn.dev/alkn203/books/phina-js-tips
+
+https://zenn.dev/alkn203/books/phina-js-tips2
+
+https://zenn.dev/topics/phina
+
+https://qiita.com/advent-calendar/2018/phinajs
+
+https://qiita.com/advent-calendar/2017/phinajs
+
+https://qiita.com/advent-calendar/2016/phinajs
+
+https://qiita.com/advent-calendar/2015/phinajs
+
+https://qiita.com/tags/phina.js
+
+https://horohorori.com/phina-js-room/
+
 
 ## おわりに
 * ゲームライブラリは実際に使ってみないとその良し悪しはわかりませんが、その中でも**phina.js**は、比較的簡単にトライすることができるライブラリです。
