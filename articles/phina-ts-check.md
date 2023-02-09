@@ -6,10 +6,34 @@ topics: ["phina","javascript","typescript","vscode"]
 published: false
 ---
 
-# Box2dとは
-[Box2d](http://box2d.org/)はゲーム用の2d物理エンジンで、元々は **C++**で作られたものですが、[Box2dWeb](https://github.com/hecht-software/box2dweb)という名前で**javascript**にも移植されています。 **Box2d**自体は有名なライブラリであり、Web上での解説記事も多いので、ここでの詳細な説明は割愛します。 **Angry Bird**に使われているとか良く触れられていますね。
+# はじめに
+これまで、phina.jsのコーディングは、主にrunstantを使ってきました。
+コード補完はできるのですが、基本ソース上にあるキーワードのみです。
+phina.js用の非公式の型定義ファイルがあることを知っていましたが、なかなか試す機会がなかったため
+今回、トライしてみることにしました。
 
-# Box2dWebとphina.jsの連携について
+リポジトリへのリンク
+
+# 検証環境
+Manjaro Linux
+Nodejs
+npm
+Visual Studio Code
+
+# phina.js型定義ファイルのインストール
+リポジトリ記載の方法に従い、インストールします。
+
+```bash
+npm install
+```
+
+# ソースファイルから型定義ファイルを読み込む
+通常は、TypeScriptファイルから読み込むことになるかと思いますが
+今回は後述するVisual Studio Codeのts-check機能を使いたかったので、javascriptファイルから読み込みます。
+
+
+
+
 有名な**Box2d**ではありますが、いざ使おうとすると、結構面倒な前処理を自前で書く必要があります。
 **phina.js**には、このような処理を書かずに**Box2dWeb**をより簡単に使うことができるクラスが用意されています。
 
@@ -18,7 +42,7 @@ published: false
 | phina.box2d.Box2dLayer | 主にBox2dを使用するための前処理を行います。|
 | phina.box2d.Box2dBody  | 物体の定義やBox2dとphina.jsとの間の座標及びスケールの調整などを行います。 |
 
-# ライブラリの読み込み
+ライブラリの読み
 **Box2dWeb**をhtmlで読み込みます。[本家](https://github.com/hecht-software/box2dweb)のものだと何故か上手く読み込まれなかったので、今回は@phiさんが[forkしてbugfixしたバージョン](https://github.com/phi-jp/box2dweb)を使用します。
 
 ```html
