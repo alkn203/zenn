@@ -45,5 +45,5 @@ npm install negiwine/phina.js.d.ts
 # コード補完の確認
 ソースファイルでコード補完がされることを確認します。
 
-![code_hint.gif](/images/code_hint.gif)
+![code-hint.gif](/images/code-hint.gif)
 
