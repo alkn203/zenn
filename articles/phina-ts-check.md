@@ -14,8 +14,7 @@ published: false
 https://github.com/negiwine/phina.js.d.ts
 
 # 検証環境
-* Manjaro Linux
-* Nodejs v19.5.0
+* Node.js v19.5.0
 * npm 8.19.2
 * Visual Studio Code 1.74.1
 
@@ -48,8 +47,7 @@ npm install negiwine/phina.js.d.ts
 ![code-hint.gif](/images/code-hint.gif)
 
 # ts-checkを使った型チェック
-Visual Studio Codeには、**ts-check**という**JavaScriptファイルのままTypeScript相当の型チェックができる機能が備わっています。
-機能を有効化するためには、以下のようにソースコードの先頭に```//@ts-check```と記載します。
+Visual Studio Codeでは、ソースコードの先頭に```//@ts-check```と記載することで**JavaScriptファイルのままTypeScript相当の型チェックをさせる**ことができます。
 
 ```js
 //@ts-check
@@ -60,5 +58,4 @@ Visual Studio Codeには、**ts-check**という**JavaScriptファイルのま�
 phina.globalize();
 ```
 
-
-
+**ts-check**の特徴は、TypeScriptの型エラーが出ていてもJavaScript的に正しければ実行できるという点です。
