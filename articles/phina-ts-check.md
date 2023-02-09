@@ -1,5 +1,5 @@
 ---
-title: "[phina.js]型定義ファイルを使った入力補完とts-checkを使った簡易型チェック"
+title: "[phina.js]型定義ファイルで補完して緩く型チェックする"
 emoji: "🐦"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["phina","javascript","typescript","vscode"]
