@@ -47,3 +47,18 @@ npm install negiwine/phina.js.d.ts
 
 ![code-hint.gif](/images/code-hint.gif)
 
+# ts-checkを使った型チェック
+Visual Studio Codeには、**ts-check**という**JavaScriptファイルのままTypeScript相当の型チェックができる機能が備わっています。
+機能を有効化するためには、以下のようにソースコードの先頭に```//@ts-check```と記載します。
+
+```js
+//@ts-check
+
+// 型定義ファイルを参照
+/// <reference path="./node_modules/phina.js.d.ts/globalized/index.d.ts" />
+
+phina.globalize();
+```
+
+
+
