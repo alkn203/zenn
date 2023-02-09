@@ -28,17 +28,22 @@ npm install negiwine/phina.js.d.ts
 
 # ソースファイルから型定義ファイルを読み込む
 通常は、TypeScriptファイルから読み込むことになるかと思いますが、今回は後述するVisual Studio Codeの**ts-check**機能を使いたかったので、javascriptファイルから読み込みます。
-ソースの先頭にこのように記載します。
+ソースの先頭に以下のように記載します。
 
 ```js
 /// <reference path="./node_modules/phina.js.d.ts/globalized/index.d.ts" />
 ```
 
 # 型定義ファイルの種類
-**phina.globalize()**宣言をしている場合と、そうでない場合で読み込むファイルが異なります。
+**phina.globalize**宣言をしている場合と、そうでない場合で読み込むファイルが異なります。
 
 | 種類 | 読み込み先 |
 |:-----------------|:------------------|
 | phina.globalize() | ./node_modules/phina.js.d.ts/globalized/index.d.ts |
 | 通常 | ./node_modules/phina.js.d.ts/index.d.ts |
+
+# コード補完の確認
+ソースファイルでコード補完がされることを確認します。
+
+![code_hint.gif](/images/code_hint.gif)
 
