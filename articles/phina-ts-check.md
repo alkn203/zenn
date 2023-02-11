@@ -8,8 +8,7 @@ published: false
 
 ## はじめに
 
-これまで、**phina.js**のコーディングは、主に[Runstant](https://runstant.com/)を使ってきました。コード補完はできるのですが
-、基本的にjavascriptのビルトイン関数やソース上にあるキーワードのみです。
+これまで、**phina.js**のコーディングは、主に[Runstant](https://runstant.com/)を使ってきました。コード補完はできるのですが、基本的にjavascriptのビルトイン関数やソース上にあるキーワードのみです。
 以前から**phina.js**用の非公式の型定義ファイルがあることを知っていましたが、なかなか試す機会がなかったため、今回トライしてみました。
 
 https://github.com/negiwine/phina.js.d.ts
