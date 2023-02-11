@@ -1,5 +1,5 @@
 ---
-title: "[phina.js]型定義ファイルで補完して緩く型チェックする"
+title: "[phina.js]型定義ファイルで補完してts-checkで緩く型チェックする"
 emoji: "🐦"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["phina","javascript","typescript","vscode"]
@@ -15,7 +15,7 @@ published: false
 <https://github.com/negiwine/phina.js.d.ts>
 
 ## 検証環境
-
+* Manjaro Linux
 * Node.js v19.5.0
 * npm 8.19.2
 * Visual Studio Code 1.74.1
@@ -70,4 +70,9 @@ Visual Studio Codeでは、ソースコードの先頭に```//@ts-check```と記
 phina.globalize();
 ```
 
-**ts-check**の特徴は、TypeScriptの型エラーが出ていてもJavaScript的に正しければ実行できるという点です。
+* **ts-check**の特徴は、TypeScriptの型エラーが出ていても、JavaScriptの構文として正しければ実行できるという点です。
+* TypeScriptでガッツリ組むまでもないプログラムで使うのが良いかもしれません。
+
+## さいごに
+* 今回試してみて、現在のphina.jsの仕様では、厳密に型チェックを行うことが逆効果となる可能性もあるので、使いどころが難しいと感じました。
+* 型定義ファイルの方は、入力補完やメソッドが簡単に確認できるというメリットが大きいので、これからも積極的に使っていこうと思いました。
