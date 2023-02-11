@@ -3,7 +3,7 @@ title: "[phina.js]型定義ファイルで補完してts-checkで緩く型チェ
 emoji: "🐦"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["phina","javascript","typescript","vscode"]
-published: false
+published: true
 ---
 
 ## はじめに
