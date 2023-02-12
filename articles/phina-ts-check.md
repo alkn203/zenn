@@ -29,7 +29,8 @@ npm install negiwine/phina.js.d.ts
 
 ## ソースファイルから型定義ファイルを読み込む
 
-通常は、TypeScriptファイルから読み込むことになるかと思いますが、今回は後述するVisual Studio Codeの**ts-check**機能を使いたかったので、javascriptファイルから読み込みます。
+* 通常は、TypeScriptファイルから読み込むことになるかと思いますが、今回は後述するVisual Studio Codeの**ts-check**機能を使いたかったので、javascriptファイルから読み込みます。
+* 導入方法に従い、jsconfig.jsonを作成して以下の内容を記載します。以下は、phina.globalize()を使う場合の設定です。
 
 ```json
 {
@@ -66,6 +67,7 @@ phina.globalize();
 
 * ts-checkの特徴は、TypeScriptの型エラーが出ていても、JavaScriptの構文として正しければ実行できるという点です。
 * TypeScriptでガッツリ組むまでもないプログラムで使うのが良いかもしれません。
+* 上で作ったjsconfig.jsonに "checkJs": true を追記すれば、配下のjsファイル全部にチェックをかけることもできます。
 
 ## さいごに
 
