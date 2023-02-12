@@ -1,21 +1,20 @@
 ---
-title: "[phina.js]型定義ファイルで補完して緩く型チェックする"
+title: "[phina.js]型定義ファイルで補完してts-checkで緩く型チェックする"
 emoji: "🐦"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["phina","javascript","typescript","vscode"]
-published: false
+published: true
 ---
 
 ## はじめに
 
-これまで、**phina.js**のコーディングは、主に[Runstant](https://runstant.com/)を使ってきました。
-コード補完はできるのですが、基本ソース上にあるキーワードのみです。
-**phina.js**用の非公式の型定義ファイルがあることを知っていましたが、なかなか試す機会がなかったため、今回トライしてみることにしました。
+これまで、**phina.js**のコーディングは、主に[Runstant](https://runstant.com/)を使ってきました。コード補完はできるのですが、基本的にjavascriptのビルトイン関数やソース上にあるキーワードのみです。
+以前から**phina.js**用の非公式の型定義ファイルがあることを知っていましたが、なかなか試す機会がなかったため、今回トライしてみました。
 
 https://github.com/negiwine/phina.js.d.ts
 
 ## 検証環境
-
+* Manjaro Linux
 * Node.js v19.5.0
 * npm 8.19.2
 * Visual Studio Code 1.74.1
@@ -24,14 +23,14 @@ https://github.com/negiwine/phina.js.d.ts
 
 リポジトリ記載の方法に従い、インストールします。
 
-```bash
+```sh
 npm install negiwine/phina.js.d.ts
 ```
 
 ## ソースファイルから型定義ファイルを読み込む
 
-* 通常は、TypeScriptファイルから読み込むことになるかと思いますが、今回は後述するVisual Studio Codeの**ts-check**機能を使いたかったので、javascriptファイルのまま使用できるようにします。
-* 今回は、jsconfig.jsonを作成し、phina.globalize()を使用する場合の設定を使用しました。
+* 通常は、TypeScriptファイルから読み込むことになるかと思いますが、今回は後述するVisual Studio Codeの**ts-check**機能を使いたかったので、javascriptファイルから読み込みます。
+* importやrequireで読み込む方法では何故か警告が出たため、今回はリファレンス形式で、ソースの先頭に以下のように記載しています。
 
 ```json
 {
@@ -52,10 +51,10 @@ npm install negiwine/phina.js.d.ts
 
 ![code-hint.gif](/images/code-hint.gif)
 
-## 補完範囲について
+## 補完機能利用のコツ
 
 * 型ファイルは、主に単一のクラスのプロパティやメソッドを補完することを目的としているため、継承クラスにおける継承元のメソッドなどの補完まではカバーしていないと思われます。
-* JsDoc形式で独自クラスの型やプロパティを定義すれば、定義したものについては補完を行うことができます。
+*
 
 ## ts-checkを使った型チェック
 
@@ -67,7 +66,7 @@ Visual Studio Codeでは、ソースコードの先頭に```//@ts-check```と記
 phina.globalize();
 ```
 
-* **ts-check**の特徴は、TypeScriptの型エラーが出ていてもJavaScript的に正しければ実行できるという点です。
+* ts-checkの特徴は、TypeScriptの型エラーが出ていても、JavaScriptの構文として正しければ実行できるという点です。
 * TypeScriptでガッツリ組むまでもないプログラムで使うのが良いかもしれません。
 
 ## さいごに
