@@ -437,3 +437,9 @@ var point: Vector2 = children.front().position
 for block in children:
   block.position = point + (block.position - point).rotated(angle)
 ```
+
+## 外部エディタ使用設定
+Visual Studo Codeの場合
+* エディタ→エディタ設定→テキストエディタ→外部
+* 実行パス：/usr/bin/code
+* 実行フラグ：{project} --goto {file}:{line}:{col}
