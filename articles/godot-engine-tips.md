@@ -407,6 +407,20 @@ func _physics_process(delta):
 
 ## KinematicBody2Dの当たり判定と反射処理
 
+### move_and_collide
+
+```gdscript
+# 毎フレーム処理
+func _physics_process(delta):
+    # 移動と当たり判定
+    var collision = move_and_collide(velocity * delta)
+    # ヒットあり
+    if collision:
+        # 反転
+        velocity = velocity.bounce(collision.normal)
+```
+
+
 ### move_and_slide
 
 move_and_slideの返り値は、衝突後のベクトルとなるため、衝突前のベクトルを変数に退避させておく必要がある。
