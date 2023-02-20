@@ -465,3 +465,12 @@ Visual Studo Codeの場合
 * エディタ→エディタ設定→テキストエディタ→外部
 * 実行パス：/usr/bin/code
 * 実行フラグ：{project} --goto {file}:{line}:{col}
+
+## ボタンのフォントをスクリプトから設定
+
+```gdscript
+var font = DynamicFont.new()
+    font.font_data = load("res://mplus-1c-regular.ttf")
+    button.set("custom_fonts/font", font)
+    button.get("custom_fonts/font").set_size(48)
+```
