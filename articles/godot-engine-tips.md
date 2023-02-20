@@ -92,6 +92,14 @@ var num = randi() % 7
 var sprite: Sprite = panel.get_node("Sprite")
 ```
 
+## 型判定
+intなどの基本型とNode両方に使用可能
+
+```gdscript
+if target is Sprite:
+    do something
+```
+
 ## フレーム処理の一番最後にプロパティを設定する
 
 ```gdscript
