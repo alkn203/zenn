@@ -474,3 +474,28 @@ var font = DynamicFont.new()
     button.set("custom_fonts/font", font)
     button.get("custom_fonts/font").set_size(48)
 ```
+
+## シェーダー
+
+### スプライトをグレイスケール化
+```glsl
+// CanvasItemのシェーダーであることを宣言
+shader_type canvas_item;
+// 外部からオンオフできるようにする
+uniform bool greyscale = false;
+// フラグメントシェーダー
+void fragment() {
+    if (greyscale) {
+        // 色を取得
+        vec4 color = texture(TEXTURE, UV);
+        // グレイスケール値を算出
+        float grey = (color.r + color.g + color.b) * 0.333;
+        // 反映
+        COLOR = vec4(grey, grey, grey, color.a);
+    }
+    else {
+        // 何もしない
+        COLOR = texture(TEXTURE, UV);
+    }
+}
+```
