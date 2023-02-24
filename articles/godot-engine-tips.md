@@ -505,5 +505,5 @@ void fragment() {
 
 スクリプトから操作する場合
 ```gdscript
-material.set_shader_param("greyscale", true)
+get_node("Sprite").material.set_shader_param("greyscale", true)
 ```
