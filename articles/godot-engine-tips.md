@@ -476,6 +476,9 @@ var font = DynamicFont.new()
 ```
 
 ## シェーダー
+* インスペクタから CanvasItem > Material > [空] をクリックして、「新規 ShaderMaterial」を選ぶ。
+* 表示された Material をクリックして、Shader > [空] をクリックして、「新規Shader」を選ぶ。
+* 「Shader」の文字をクリックすると、シェーダーエディタが開く。
 
 ### スプライトをグレイスケール化
 ```glsl
