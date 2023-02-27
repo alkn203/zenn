@@ -8,28 +8,31 @@ published: false
 
 ## はじめに
 
-**phina.js**は、デフォルトでは実行時にhtml5のcanvasを作成して、そこに描画を行います。
-その仕様を踏まえて、工夫次第で通常のhtml要素と上手く連携することも可能です。
+**phina.js**は、デフォルトでは実行時に**html5**の**canvas**を作成して、そこに描画を行います。
+その仕様を踏まえて、工夫次第で通常の**html**要素と上手く連携することも可能です。
 今回は、その簡単なサンプルを紹介します。
 
 ## phina.jsの実行結果を表示するcanvasを指定する
 
-* **phina.js**では、実行結果を表示するcanvasを別途指定することができます。
-* htmlでcanvas要素を作成し、cssでstyleを指定します。
+* **phina.js**では、実行結果を表示する**canvas**を別途指定することができます。
+* **html**で**canvas**要素を作成し、**css**で**style**を指定します。
 
-htmlファイル
+### htmlファイル
+
 ```html
 todo
 ```
 
-cssファイル
+### cssファイル
+
 ```css
 todo
 ```
 
 phina.js側では、main関数のqueryオプションに作成したcanvasのidを渡します。
 
-jsファイル
+### jsファイル
+
 ```js
 todo
 ```
