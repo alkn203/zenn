@@ -27,18 +27,34 @@ cssファイル
 todo
 ```
 
-## phina.js型定義ファイルのインストール
+phina.js側では、main関数のqueryオプションに作成したcanvasのidを渡します。
 
-リポジトリ記載の方法に従い、インストールします。
 
-```sh
-npm install negiwine/phina.js.d.ts
+jsファイル
+```js
+todo
+```
+これで準備はOKです。
+
+## サンプル１:リストボックス選択でShapeの色を変更する
+
+htmlファイル
+```html
+todo
 ```
 
-## ソースファイルから型定義ファイルを読み込む
+オーソドックスなリストボックスですので、特に説明はいらないかと思います。
 
-* 通常は、TypeScriptファイルから読み込むことになるかと思いますが、今回は後述するVisual Studio Codeの**ts-check**機能を使いたかったので、javascriptファイルから読み込みます。
-* 導入方法に従い、jsconfig.jsonを作成して以下の内容を記載します。以下は、phina.globalize()を使う場合の設定です。
+jsファイル
+```js
+todo
+```
+
+phina.js側の処理としては、選択された値をShapeのプロパティに
+設定するだけです。
+
+
+
 
 ```json
 {
