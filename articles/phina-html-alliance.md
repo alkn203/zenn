@@ -73,10 +73,10 @@ phina.main(function() {
 });
 ```
 
-phina.js側では、main関数のqueryオプションに作成したcanvasのidを渡します。
+**phina.js**側では、**main**関数の**query**オプションに作成した**canvas**の**id**を渡します。
 これで前準備はOKです。
 
-## サンプル1:セレクトボックスでShapeの色を変更する
+## 【サンプル1】セレクトボックスでShapeの色を変更する
 
 htmlファイル
 ```html
@@ -84,6 +84,17 @@ todo
 ```
 
 オーソドックスなセレクトボックスですので、特に説明はいらないかと思います。
+
+### cssファイル
+
+```css
+
+#mycanvas {
+  margin: 0 auto;
+  width: 30%;
+  display: block;
+}
+```
 
 jsファイル
 ```js
@@ -93,7 +104,7 @@ todo
 phina.js側の処理としては、選択された値をShapeのプロパティに
 設定するだけです。
 
-## サンプル2:ファイル選択ダイアログで選択した画像をSpriteの画像にする
+## 【サンプル2】ファイル選択ダイアログで選択した画像をSpriteの画像にする
 
 htmlファイル
 ```html
