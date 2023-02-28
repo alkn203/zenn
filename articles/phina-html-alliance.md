@@ -52,8 +52,6 @@ published: false
 }
 ```
 
-phina.js側では、main関数のqueryオプションに作成したcanvasのidを渡します。
-
 ### jsファイル
 
 ```js
@@ -75,6 +73,7 @@ phina.main(function() {
 });
 ```
 
+phina.js側では、main関数のqueryオプションに作成したcanvasのidを渡します。
 これで前準備はOKです。
 
 ## サンプル1:セレクトボックスでShapeの色を変更する
