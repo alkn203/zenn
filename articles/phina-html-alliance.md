@@ -37,14 +37,6 @@ published: false
     <script src="main.js"></script>
     <!-- 別canvas -->
     <canvas id="mycanvas"></canvas>
-    <!-- セレクトボックス -->
-    <div class="selection">
-      <select id="selector">
-        <option value="red">赤</option>
-        <option value="blue">青</option>
-        <option value="yellow">黄</option>
-      </select>
-    </div>
   </body>
 </html>
 ```
@@ -58,15 +50,6 @@ published: false
   width: 30%;
   display: block;
 }
-
-.selection {
-  text-align: center;
-  padding: 10px;
-}
-
-#selector {
-  display: inline-block;
-}
 ```
 
 phina.js側では、main関数のqueryオプションに作成したcanvasのidを渡します。
@@ -74,39 +57,6 @@ phina.js側では、main関数のqueryオプションに作成したcanvasのid�
 ### jsファイル
 
 ```js
-// グローバルに展開
-phina.globalize();
-/*
- * メインシーン
- */
-phina.define("MainScene", {
-  // 継承
-  superClass: 'DisplayScene',
-  // 初期化
-  init: function(options) {
-    // 親クラス初期化
-    this.superInit(options);
-    // 背景色
-    this.backgroundColor = 'black';
-    // Shape
-    var shape = RectangleShape({
-      width: 128,
-      height: 128,
-      fill: 'red',
-      stroke: null,
-    }).addChildTo(this).setPosition(this.gridX.center(), this.gridY.center());
-    // ドロップダウンリストを取得
-    var selector = document.getElementById('selector');
-    // イベント設定
-    selector.addEventListener('change', function(event) {
-      // 選択された値をShapeの色に設定
-      shape.fill = event.target.value;
-    });
-  },
-});
-/*
- * メイン処理
- */
 phina.main(function() {
   // アプリケーションを生成
   var app = GameApp({
@@ -120,8 +70,6 @@ phina.main(function() {
     // 画面にフィットさせない
     fit: false,
   });
-  // fps表示
-  //app.enableStats();
   // 実行
   app.run();
 });
