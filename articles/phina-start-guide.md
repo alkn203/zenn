@@ -68,7 +68,7 @@ Web上でコーディングできる[runstant](https://runstant.com/)を使う�
 
 ユーザー向けに公式のDiscordサーバーが開設されていますので、こちらで質問などが可能です。
 
-https://discord.gg/gnMUqS8S
+https://discord.gg/MyxZH88wGr
 
 ## Tipsなど
 
