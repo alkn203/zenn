@@ -44,7 +44,6 @@ published: false
 ### cssファイル
 
 ```css
-
 #mycanvas {
   margin: 0 auto;
   width: 30%;
@@ -81,27 +80,30 @@ phina.main(function() {
 ### htmlファイル
 
 ```html
-
+<!doctype html>
+ 
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     
-    <title>${title}</title>
-    <meta name="description" content="${description}" />
-    <style>${style}</style>
+    <title>phina x selectbox</title>
+    <meta name="description" content="phina x selectbox" />
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <script src="https://cdn.jsdelivr.net/gh/phi-jp/phina.js@v0.2.3/build/phina.js"></script>
-    <script>${script}</script>
+    <script src="../phina.min.js"></script>
+    <script src="main.js"></script>
+    <!-- 別canvas -->
     <canvas id="mycanvas"></canvas>
+    <!-- セレクトボックス -->
     <div class="selection">
-    <select id="selector">
-      <option value="red">赤</option>
-      <option value="blue">青</option>
-      <option value="yellow">黄</option>
-    </select>
+      <select id="selector">
+        <option value="red">赤</option>
+        <option value="blue">青</option>
+        <option value="yellow">黄</option>
+      </select>
     </div>
   </body>
 </html>
@@ -116,6 +118,15 @@ phina.main(function() {
   margin: 0 auto;
   width: 30%;
   display: block;
+}
+
+.selection {
+  text-align: center;
+  padding: 10px;
+}
+
+#selector {
+  display: inline-block;
 }
 ```
 
@@ -145,7 +156,9 @@ phina.define("MainScene", {
     }).addChildTo(this).setPosition(this.gridX.center(), this.gridY.center());
     // ドロップダウンリストを取得
     var selector = document.getElementById('selector');
+    // イベント設定
     selector.addEventListener('change', function(event) {
+      // 選択された値をShapeの色に設定
       shape.fill = event.target.value;
     });
   },
@@ -156,6 +169,7 @@ phina.define("MainScene", {
 phina.main(function() {
   // アプリケーションを生成
   var app = GameApp({
+    // 画面サイズ
     width: 300,
     height: 300,
     // 表示先のcanvasを指定
@@ -180,24 +194,28 @@ phina.main(function() {
 htmlファイル
 
 ```html
+<!doctype html>
+ 
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     
-    <title>${title}</title>
-    <meta name="description" content="${description}" />
-    <style>${style}</style>
+    <title>phina x selectbox</title>
+    <meta name="description" content="phina x selectbox" />
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <script src="https://cdn.jsdelivr.net/gh/phi-jp/phina.js@v0.2.3/build/phina.js"></script>
-    <script>${script}</script>
+    <script src="../phina.min.js"></script>
+    <script src="main.js"></script>
+    <!-- 別canvas -->
     <canvas id="mycanvas"></canvas>
+    <!-- ファイルダイアログ -->
     <div class="selection">
-    <input type="file" id="example" accept="image/*">
+      <input type="file" id="example" accept="image/*">
     </div>
-    </body>
+  </body>
 </html>
 ```
 
@@ -278,12 +296,12 @@ phina.main(function() {
 });
 ```
 
-phina.js側の処理としては、以下のとおりです。
+**phina.js**側の処理としては、以下のとおりです。
 
-* 選択された画像ファイルと同じサイズの**Canvas**を作成する。
+* 選択された画像ファイルと同じサイズの**phina.graphics.Canvas**を作成する。
 * **Canvas**にイメージを描画する。
-* **Sprite**のコンストラクタ引数に作成した**Canvas**を指定する。
+* **Sprite**のコンストラクタ引数に作成した**Canvas**を渡す。
 
 ## さいごに
 
-今回は、素のhtmlを例として使いましたが、基本的にその他のJSライブラリとも連携可能と考えられますので、普段使っているライブラリで試してみてはいかがでしょうか。
+今回は、素の**html**を例として使いましたが、基本的にその他のJSライブラリとも連携可能と考えられますので、普段使っているライブラリで試してみてはいかがでしょうか。
