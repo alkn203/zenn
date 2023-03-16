@@ -187,11 +187,12 @@ phina.main(function() {
 ```
 
 **phina.js**側の処理としては、選択された値を**Shape**のプロパティに
+
 設定するだけです。
 
 ## 【サンプル2】ファイル選択ダイアログで選択した画像をSpriteの画像にする
 
-htmlファイル
+### htmlファイル
 
 ```html
 <!doctype html>
@@ -222,7 +223,7 @@ htmlファイル
 * オーソドックスなファイル選択ダイアログです。
 * 複数選択は不可とし、画像ファイルのみ受け付けるようにしました。
 
-jsファイル
+### jsファイル
 
 ```js
 // グローバルに展開
@@ -296,7 +297,15 @@ phina.main(function() {
 });
 ```
 
-**phina.js**側の処理としては、以下のとおりです。
+**phina.js**側の処理のポイントとしては、以下の部分です。
+
+```js
+var canvas = phina.graphics.Canvas().setSize(image.width, image.height);
+// canvasに描画
+canvas.context.drawImage(image, 0, 0);
+// スプライト作成
+const sprite = Sprite(canvas).addChildTo(self);
+```
 
 * 選択された画像ファイルと同じサイズの**phina.graphics.Canvas**を作成する。
 * **Canvas**にイメージを描画する。
