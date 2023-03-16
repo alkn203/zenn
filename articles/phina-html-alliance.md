@@ -78,9 +78,33 @@ phina.main(function() {
 
 ## 【サンプル1】セレクトボックスでShapeの色を変更する
 
-htmlファイル
+### htmlファイル
+
 ```html
-todo
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <title>${title}</title>
+    <meta name="description" content="${description}" />
+    <style>${style}</style>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/gh/phi-jp/phina.js@v0.2.3/build/phina.js"></script>
+    <script>${script}</script>
+    <canvas id="mycanvas"></canvas>
+    <div class="selection">
+    <select id="selector">
+      <option value="red">赤</option>
+      <option value="blue">青</option>
+      <option value="yellow">黄</option>
+    </select>
+    </div>
+  </body>
+</html>
 ```
 
 オーソドックスなセレクトボックスですので、特に説明はいらないかと思います。
@@ -88,7 +112,6 @@ todo
 ### cssファイル
 
 ```css
-
 #mycanvas {
   margin: 0 auto;
   width: 30%;
@@ -96,33 +119,170 @@ todo
 }
 ```
 
-jsファイル
+### jsファイル
+
 ```js
-todo
+// グローバルに展開
+phina.globalize();
+/*
+ * メインシーン
+ */
+phina.define("MainScene", {
+  // 継承
+  superClass: 'DisplayScene',
+  // 初期化
+  init: function(options) {
+    // 親クラス初期化
+    this.superInit(options);
+    // 背景色
+    this.backgroundColor = 'black';
+    // Shape
+    var shape = RectangleShape({
+      width: 128,
+      height: 128,
+      fill: 'red',
+      stroke: null,
+    }).addChildTo(this).setPosition(this.gridX.center(), this.gridY.center());
+    // ドロップダウンリストを取得
+    var selector = document.getElementById('selector');
+    selector.addEventListener('change', function(event) {
+      shape.fill = event.target.value;
+    });
+  },
+});
+/*
+ * メイン処理
+ */
+phina.main(function() {
+  // アプリケーションを生成
+  var app = GameApp({
+    width: 300,
+    height: 300,
+    // 表示先のcanvasを指定
+    query: '#mycanvas',
+    // MainScene から開始
+    startLabel: 'main',
+    // 画面にフィットさせない
+    fit: false,
+  });
+  // fps表示
+  //app.enableStats();
+  // 実行
+  app.run();
+});
 ```
 
-phina.js側の処理としては、選択された値をShapeのプロパティに
+**phina.js**側の処理としては、選択された値を**Shape**のプロパティに
 設定するだけです。
 
 ## 【サンプル2】ファイル選択ダイアログで選択した画像をSpriteの画像にする
 
 htmlファイル
+
 ```html
-todo
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <title>${title}</title>
+    <meta name="description" content="${description}" />
+    <style>${style}</style>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/gh/phi-jp/phina.js@v0.2.3/build/phina.js"></script>
+    <script>${script}</script>
+    <canvas id="mycanvas"></canvas>
+    <div class="selection">
+    <input type="file" id="example" accept="image/*">
+    </div>
+    </body>
+</html>
 ```
 
 * オーソドックスなファイル選択ダイアログです。
 * 複数選択は不可とし、画像ファイルのみ受け付けるようにしました。
 
 jsファイル
+
 ```js
-todo
+// グローバルに展開
+phina.globalize();
+/*
+ * メインシーン
+ */
+phina.define("MainScene", {
+  // 継承
+  superClass: 'DisplayScene',
+  // 初期化
+  init: function() {
+    // 親クラス初期化
+    this.superInit();
+    // 背景色
+    this.backgroundColor = 'black';
+    // シーンを参照できるようにする
+    const self = this;
+    // ファイルダイアログ取得
+    const fileInput = document.getElementById('example');
+    //
+    const handleFileSelect = () => {
+      // 選択されたファイル
+      const file = fileInput.files[0];
+      // FileReaderオブジェクトを作成
+      const reader = new FileReader();
+      // ファイルが読み込まれたときに実行
+      reader.onload = function (e) {
+        // 画像のURL
+        const imageUrl = e.target.result;
+        // img要素を作成
+        const image = document.createElement("img");
+        // 画像のURLをimg要素にセット
+        image.src = imageUrl; 
+        
+        image.onload = () => {
+          // img要素からスプライト作成
+          // 新規canvas作成
+          var canvas = phina.graphics.Canvas().setSize(image.width, image.height);
+          // canvasに描画
+          canvas.context.drawImage(image, 0, 0);
+          // スプライト作成
+          const sprite = Sprite(canvas).addChildTo(self);
+          sprite.setPosition(self.gridX.center(), self.gridY.center());
+        };
+      };
+      // ファイルを読み込む
+      reader.readAsDataURL(file);
+    };
+    //
+    fileInput.addEventListener('change', handleFileSelect);
+  },
+});
+/*
+ * メイン処理
+ */
+phina.main(function() {
+  // アプリケーションを生成
+  var app = GameApp({
+    // 表示先のcanvasを指定
+    query: '#mycanvas',
+    // MainScene から開始
+    startLabel: 'main',
+    // 画面にフィットさせない
+    fit: false,
+  });
+  // fps表示
+  //app.enableStats();
+  // 実行
+  app.run();
+});
 ```
 
 phina.js側の処理としては、以下のとおりです。
+
 * 選択された画像ファイルと同じサイズの**Canvas**を作成する。
-* Canvasにイメージを描画する。
-* Spriteのコンストラクタ引数に作成したCanvasを指定する。
+* **Canvas**にイメージを描画する。
+* **Sprite**のコンストラクタ引数に作成した**Canvas**を指定する。
 
 ## さいごに
 
