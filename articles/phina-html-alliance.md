@@ -77,6 +77,8 @@ phina.main(function() {
 
 ## 【サンプル1】セレクトボックスでShapeの色を変更する
 
+https://runstant.com/alkn203/projects/55c02ea2
+
 ### htmlファイル
 
 ```html
@@ -189,6 +191,8 @@ phina.main(function() {
 **phina.js**側の処理としては、選択された値を**Shape**のプロパティに設定するだけです。
 
 ## 【サンプル2】ファイル選択ダイアログで選択した画像をSpriteの画像にする
+
+https://runstant.com/alkn203/projects/9a1ac7ec
 
 ### htmlファイル
 
