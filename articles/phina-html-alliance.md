@@ -3,7 +3,7 @@ title: "[phina.js]html要素との連携サンプル"
 emoji: "🐦"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["phina","javascript","html"]
-published: false
+published: true
 ---
 
 ## はじめに
